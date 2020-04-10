@@ -1,0 +1,23 @@
+{
+  "name": "stomper",
+  "version": "0.0.0",
+  "main": "stomper.js",
+  "repository": "https://github.com/maevsi/stomper.git",
+  "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
+  "license": "TODO",
+  "dependencies": {
+    "@stomp/stompjs": "^5.4.4",
+    "aws-sdk": "^2.656.0",
+    "websocket": "^1.0.31"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsnd --respawn ./src/stomper.ts",
+    "start": "tsc && node ./dist/stomper.js"
+  }
+}
