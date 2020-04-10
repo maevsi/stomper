@@ -1,5 +1,7 @@
 import { Client } from '@stomp/stompjs'
 
+import { trigger } from './aws'
+
 import fs = require('fs')
 
 Object.assign(global, { WebSocket: require('websocket').w3cwebsocket })
@@ -33,6 +35,8 @@ client.onConnect = function (frame) {
     } else {
       console.log('got empty message')
     }
+
+    trigger(message.body)
 
     message.ack()
   }, { ack: 'client' })
