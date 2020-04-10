@@ -11,9 +11,9 @@
     "websocket": "^1.0.31"
   },
   "devDependencies": {
-    "@types/node": "^13.11.1",
-    "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.8.3"
+    "@types/node": "13.11.1",
+    "ts-node-dev": "1.0.0-pre.44",
+    "typescript": "3.8.3"
   },
   "scripts": {
     "build": "tsc",
