@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@types/node": "13.11.1",
-    "@types/nodemailer": "^6.4.0",
+    "@types/nodemailer": "6.4.0",
     "@typescript-eslint/eslint-plugin": "2.27.0",
     "@typescript-eslint/parser": "2.27.0",
     "eslint": "6.8.0",
