@@ -1,6 +1,9 @@
 import { config, SESV2 } from 'aws-sdk'
+import Handlebars from 'handlebars'
+import htmlToText from 'html-to-text'
 import MailComposer from 'nodemailer/lib/mail-composer'
 
+import { readFileSync } from 'fs'
 import http from 'http'
 
 config.apiVersions = {
@@ -19,12 +22,19 @@ var params = {
 
 export function accountRegisterMail (data: string) {
   const json = JSON.parse(data)
+  const template = Handlebars.compile(readFileSync('../email-templates/registration.html', 'utf-8'))
+  const html = template({
+    username: json.account.username,
+    confirmLink: 'https://' + process.env.STACK_DOMAIN + '/verify?code=' + json.account.email_address_verification
+  })
+
+  // json.account.email_address
 
   new MailComposer({
     from: '"Maevsi" <noreply@maev.si>',
-    html: [json.account.username, json.account.email_address, json.account.email_address_verification].join(' '),
+    html: html,
     subject: 'Welcome',
-    text: [json.account.username, json.account.email_address, json.account.email_address_verification].join(' ')
+    text: htmlToText.fromString(html)
   })
     .compile().build(function (err, message) {
       console.error(err)

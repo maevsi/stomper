@@ -22,7 +22,7 @@
     </mj-section>
     <mj-section padding-top="30px">
       <mj-column width="45%">
-        <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">Welcome, [[username]]!</mj-text>
+        <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">Welcome, {{username}}!</mj-text>
       </mj-column>
     </mj-section>
     <mj-section>
@@ -32,7 +32,7 @@
           <!-- Then, check out the upcoming events below. -->
         </mj-text>
         </a>
-     			<mj-button href="[[confirm-link]]">
+     			<mj-button href="{{confirmLink}}">
        			Complete registration
        		</mj-button>
       </mj-column>
