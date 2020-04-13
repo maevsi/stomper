@@ -12,7 +12,7 @@
   <mj-body background-color="#4e7dd7">
     <mj-section padding-top="30px">
       <mj-column width="70%">
-        <mj-image href="https://recast.ai?ref=newsletter" src="https://alpha.maevsi.test/assets/static/src/assets/maevsi_with-text.svg"></mj-image>
+        <mj-image href="https://{{stackDomain}}/" src="https://{{stackDomain}}/assets/static/src/assets/maevsi_with-text.svg"></mj-image>
       </mj-column>
     </mj-section>
     <mj-section>
