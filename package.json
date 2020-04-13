@@ -31,13 +31,13 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsnd --respawn ./src/stomper.ts",
-    "start": "tsc && node ./dist/stomper.js"
+    "build": "tsc && find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -exec mjml -o ./src/email-templates/ -r {} \\;",
+    "dev": "./parallel_commands 'tsnd --respawn ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -exec mjml -o ./src/email-templates/ -w {} ;'",
+    "start": "yarn run build && node ./dist/stomper.js"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -exec mjml {} -o ./src/email-templates/ \\; && git add ./src/email-templates/*.html"
+      "pre-commit": "find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -print0 | xargs -0 mjml -v {}"
     }
   }
 }
