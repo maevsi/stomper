@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "find ./src/email-templates/ -type f -name '*.mjml' -maxdepth 1 -exec mjml {} -o ./src/email-templates/ \\; && git add ./src/email-templates/*.html"
+      "pre-commit": "find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -exec mjml {} -o ./src/email-templates/ \\; && git add ./src/email-templates/*.html"
     }
   }
 }
