@@ -5,6 +5,7 @@ import MailComposer from 'nodemailer/lib/mail-composer'
 
 import { readFileSync } from 'fs'
 import http from 'http'
+import path from 'path'
 
 config.apiVersions = {
   ses: '2019-09-27'
@@ -22,7 +23,7 @@ var params = {
 
 export function accountRegisterMail (data: string) {
   const json = JSON.parse(data)
-  const template = Handlebars.compile(readFileSync('../email-templates/registration.html', 'utf-8'))
+  const template = Handlebars.compile(readFileSync(path.resolve(__dirname, './email-templates/registration.html'), 'utf-8'))
   const html = template({
     confirmLink: 'https://' + process.env.STACK_DOMAIN + '/verify?code=' + json.account.email_address_verification,
     username: json.account.username,
