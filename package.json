@@ -8,6 +8,7 @@
   "dependencies": {
     "@stomp/stompjs": "^5.4.4",
     "aws-sdk": "^2.656.0",
+    "handlebars": "^4.7.6",
     "nodemailer": "^6.4.6",
     "websocket": "^1.0.31"
   },
@@ -22,6 +23,8 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
+    "husky": "^4.2.5",
+    "mjml": "^4.6.2",
     "ts-node-dev": "1.0.0-pre.44",
     "typescript": "3.8.3"
   },
@@ -29,5 +32,10 @@
     "build": "tsc",
     "dev": "tsnd --respawn ./src/stomper.ts",
     "start": "tsc && node ./dist/stomper.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "find ./src/email-templates/ -type f -name '*.mjml' -maxdepth 1 -exec mjml {} -o ./src/email-templates/ \\; && git add ./src/email-templates/*.html"
+    }
   }
 }
