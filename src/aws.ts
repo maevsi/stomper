@@ -62,7 +62,7 @@ export function inviteMail (data: string) {
   const req = http.request('http://maevsi:8080/ical', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json; charset=utf-8'
     }
   }, (res) => {
     new MailComposer({
