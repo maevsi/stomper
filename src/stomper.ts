@@ -1,6 +1,6 @@
 import { Client } from '@stomp/stompjs'
 
-import { trigger } from './aws'
+import { accountRegisterMail, inviteMail } from './aws'
 
 import fs = require('fs')
 
@@ -28,7 +28,7 @@ const client = new Client({
 })
 
 client.onConnect = function (frame) {
-  client.subscribe('/queue/message_queue', function (message) {
+  client.subscribe('/queue/account_register', function (message) {
     // JSON.parse(message.body)
     if (message.body) {
       console.log('got message with body ' + message.body)
@@ -36,7 +36,19 @@ client.onConnect = function (frame) {
       console.log('got empty message')
     }
 
-    trigger(message.body)
+    accountRegisterMail(message.body)
+
+    message.ack()
+  }, { ack: 'client' })
+
+  client.subscribe('/queue/invite', function (message) {
+    if (message.body) {
+      console.log('got message with body ' + message.body)
+    } else {
+      console.log('got empty message')
+    }
+
+    inviteMail(message.body)
 
     message.ack()
   }, { ack: 'client' })
