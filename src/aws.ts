@@ -36,7 +36,7 @@ export function accountRegisterMail (data: string) {
     from: '"Maevsi" <noreply@maev.si>',
     html: html,
     subject: 'Welcome',
-    text: htmlToText.fromString(html)
+    text: htmlToText.fromString(html, { ignoreImage: true })
   })
     .compile().build(function (err, message) {
       console.error(err)
