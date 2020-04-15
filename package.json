@@ -32,7 +32,7 @@
   },
   "scripts": {
     "build": "tsc && find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -exec mjml -o ./src/email-templates/ -r {} \\;",
-    "dev": "./parallel_commands 'tsnd --respawn ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -exec mjml -o ./src/email-templates/ -w {} ;'",
+    "dev": "sh parallel_commands 'tsnd --respawn ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -exec mjml -o ./src/email-templates/ -w {} ;'",
     "start": "yarn run build && node ./dist/stomper.js"
   },
   "husky": {
