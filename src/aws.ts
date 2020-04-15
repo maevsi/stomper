@@ -39,7 +39,9 @@ export function accountRegisterMail (data: string) {
     text: htmlToText.fromString(html, { ignoreImage: true })
   })
     .compile().build(function (err, message) {
-      console.error(err)
+      if (err) {
+        console.error(err)
+      }
 
       var paramsContent = {
         Content: {
@@ -75,7 +77,9 @@ export function inviteMail (data: string) {
       subject: 'Invite'
     })
       .compile().build(function (err, message) {
-        console.error(err)
+        if (err) {
+          console.error(err)
+        }
 
         var paramsContent = {
           Content: {
