@@ -11,7 +11,7 @@ FROM node:13.13.0-alpine3.11@sha256:80e4f9b287449c07083854eb11a8bd18209e4c228848
 
 WORKDIR /srv/app/
 
-COPY ./package.json ./tsconfig.json ./yarn.lock ./
+COPY ./.snyk ./package.json ./tsconfig.json ./yarn.lock ./
 
 RUN yarn
 
