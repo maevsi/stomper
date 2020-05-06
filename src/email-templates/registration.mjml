@@ -28,7 +28,7 @@
     <mj-section>
       <mj-column width="100%">
         <mj-text>
-          <p>Thanks so much for joining mævsi — we're thrilled to have you! Please click on the link below to complete your registration and set up your profile.</p>
+          <p>Thanks so much for joining maevsi — we're thrilled to have you! Please click on the link below to complete your registration and set up your profile.</p>
           <!-- Then, check out the upcoming events below. -->
         </mj-text>
         </a>
@@ -44,7 +44,7 @@
       <mj-column width="88%">
         <mj-text padding="3px 15px">
           <p style="line-height: 9px"> Jonas Thelemann
-          <p style="font-style: italic; line-height: 9px"> mævsi's author </p>
+          <p style="font-style: italic; line-height: 9px"> maevsi's author </p>
         </mj-text>
       </mj-column>
     </mj-section>
