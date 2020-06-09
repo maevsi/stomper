@@ -260,10 +260,10 @@
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
   integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
-"@types/html-to-text@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@types/html-to-text/-/html-to-text-5.1.0.tgz#6fc1446da15eb23d0472657598317daf0cc060b8"
-  integrity sha512-x2pKk3G6DN7g3sA8jrAYhlsQu7EdYnj5rFj6l4QMkHV8z0Hx7FwDKhPyC4ehIakeSu01YPYpkJNVLJHBzuYpKQ==
+"@types/html-to-text@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@types/html-to-text/-/html-to-text-5.1.1.tgz#11d402dcd734ed9f8faa6ad96ce27e58e32ba80f"
+  integrity sha512-V4eDOSqT3+Md4MBJvV3zF1u9ImXFQJp62qceBZlI9LTkH5lj8m6QWVWKmlQNWVB0XDKLezL0CBi318JF69S5SQ==
 
 "@types/js-yaml@^3.12.1":
   version "3.12.3"

@@ -15,7 +15,7 @@
     "snyk": "^1.316.1"
   },
   "devDependencies": {
-    "@types/html-to-text": "5.1.0",
+    "@types/html-to-text": "5.1.1",
     "@types/node": "13.13.11",
     "@types/nodemailer": "6.4.0",
     "@typescript-eslint/eslint-plugin": "3.2.0",
