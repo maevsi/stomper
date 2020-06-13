@@ -28,7 +28,7 @@
     "eslint-plugin-standard": "4.0.1",
     "husky": "4.2.5",
     "mjml": "4.6.3",
-    "ts-node-dev": "1.0.0-pre.45",
+    "ts-node-dev": "1.0.0-pre.47",
     "typescript": "3.9.5"
   },
   "scripts": {
