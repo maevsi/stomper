@@ -11,8 +11,8 @@
     "handlebars": "^4.7.6",
     "html-to-text": "^5.1.1",
     "nodemailer": "^6.4.6",
-    "websocket": "^1.0.31",
-    "snyk": "^1.316.1"
+    "snyk": "^1.316.1",
+    "websocket": "^1.0.31"
   },
   "devDependencies": {
     "@types/html-to-text": "5.1.1",
