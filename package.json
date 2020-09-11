@@ -15,7 +15,7 @@
     "websocket": "^1.0.31"
   },
   "devDependencies": {
-    "@types/html-to-text": "5.1.1",
+    "@types/html-to-text": "5.1.2",
     "@types/node": "13.13.18",
     "@types/nodemailer": "6.4.0",
     "@typescript-eslint/eslint-plugin": "4.1.0",
