@@ -7,13 +7,13 @@
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "TODO",
   "dependencies": {
-    "@stomp/stompjs": "^5.4.4",
-    "aws-sdk": "^2.656.0",
-    "handlebars": "^4.7.6",
-    "html-to-text": "^5.1.1",
-    "nodemailer": "^6.4.6",
-    "snyk": "^1.316.1",
-    "websocket": "^1.0.31"
+    "@stomp/stompjs": "5.4.4",
+    "aws-sdk": "2.742.0",
+    "handlebars": "4.7.6",
+    "html-to-text": "5.1.1",
+    "nodemailer": "6.4.11",
+    "snyk": "1.386.0",
+    "websocket": "1.0.32"
   },
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
