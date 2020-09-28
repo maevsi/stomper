@@ -1,6 +1,7 @@
 {
   "name": "stomper",
   "version": "0.0.0",
+  "scheduleVersion": "0.0.0",
   "main": "stomper.js",
   "repository": "https://github.com/maevsi/stomper.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
@@ -15,6 +16,8 @@
     "websocket": "^1.0.31"
   },
   "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
     "@types/html-to-text": "5.1.2",
     "@types/node": "13.13.21",
     "@types/nodemailer": "6.4.0",
@@ -38,8 +41,10 @@
     "snyk-protect": "snyk protect",
     "prepare": "yarn run snyk-protect"
   },
+  "private": true,
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -print0 | xargs -0 mjml -v {}"
     }
   },
