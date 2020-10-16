@@ -61,7 +61,7 @@ export function accountRegisterMail (data: string) {
 export function inviteMail (data: string) {
   const json = JSON.parse(data)
 
-  const req = http.request('http://maevsi:8080/ical', {
+  const req = http.request('http://maevsi:3000/ical', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
