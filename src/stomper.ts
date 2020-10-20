@@ -2,7 +2,7 @@ import { Client } from '@stomp/stompjs'
 
 import { accountRegisterMail, inviteMail } from './aws'
 
-import fs = require('fs')
+const fs = require('fs')
 
 Object.assign(global, { WebSocket: require('websocket').w3cwebsocket })
 
