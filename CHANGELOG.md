@@ -1,3 +1,11 @@
+## [0.1.3](https://github.com/maevsi/stomper/compare/0.1.2...0.1.3) (2020-10-20)
+
+
+### Bug Fixes
+
+* **aws:** migrate maevsi's port ([a45b06e](https://github.com/maevsi/stomper/commit/a45b06e07df3d0a8d82c07b3c6969c6d0d582778))
+* **stomper:** replace "import" with "const" ([93f3aab](https://github.com/maevsi/stomper/commit/93f3aab8c9b650f8426ef546cf73dd3187fe6fd2))
+
 ## [0.1.2](https://github.com/maevsi/stomper/compare/0.1.1...0.1.2) (2020-10-16)
 
 
