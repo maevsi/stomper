@@ -8,7 +8,7 @@
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "TODO",
   "dependencies": {
-    "@stomp/stompjs": "5.4.4",
+    "@stomp/stompjs": "6.0.0",
     "aws-sdk": "2.777.0",
     "handlebars": "4.7.6",
     "html-to-text": "5.1.1",
