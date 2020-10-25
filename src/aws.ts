@@ -33,7 +33,7 @@ export function accountRegisterMail (data: string) {
   // json.account.email_address
 
   new MailComposer({
-    from: '"Maevsi" <noreply@maev.si>',
+    from: '"maevsi" <noreply@maev.si>',
     html: html,
     subject: 'Welcome',
     text: htmlToText.fromString(html, { ignoreImage: true })
@@ -68,7 +68,7 @@ export function inviteMail (data: string) {
     }
   }, (res) => {
     new MailComposer({
-      from: '"Maevsi" <noreply@maev.si>',
+      from: '"maevsi" <noreply@maev.si>',
       icalEvent: {
         content: res,
         filename: json.event.organizerUsername + '_' + json.event.slug + '.ics',
