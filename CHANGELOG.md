@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/maevsi/stomper/compare/0.1.3...0.2.0) (2020-10-25)
+
+
+### Features
+
+* **aws:** lower case maevsi ([2ff50a8](https://github.com/maevsi/stomper/commit/2ff50a807fb9c1e050d2bb2d8eb2c72ab6a488dc))
+
 ## [0.1.3](https://github.com/maevsi/stomper/compare/0.1.2...0.1.3) (2020-10-20)
 
 
