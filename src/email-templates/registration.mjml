@@ -17,7 +17,7 @@
     </mj-section>
     <mj-section>
       <mj-column width="100%">
-        <mj-text align="center" font-size="14px">A manager for events supported by invitees.</mj-text>
+        <mj-text align="center" font-size="14px">The manager for events supported by invitees.</mj-text>
       </mj-column>
     </mj-section>
     <mj-section padding-top="30px">
