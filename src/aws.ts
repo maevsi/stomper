@@ -1,6 +1,6 @@
 import { config, SESV2 } from 'aws-sdk'
 import Handlebars from 'handlebars'
-import htmlToText from 'html-to-text'
+import { htmlToText } from 'html-to-text'
 import MailComposer from 'nodemailer/lib/mail-composer'
 
 import { readFileSync } from 'fs'
@@ -36,7 +36,7 @@ export function accountRegisterMail (data: string) {
     from: '"maevsi" <noreply@maev.si>',
     html: html,
     subject: 'Welcome',
-    text: htmlToText.fromString(html, { ignoreImage: true })
+    text: htmlToText(html, { tags: { img: { format: 'skip' } } })
   })
     .compile().build(function (err, message) {
       if (err) {
