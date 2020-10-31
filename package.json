@@ -11,7 +11,7 @@
     "@stomp/stompjs": "6.0.0",
     "aws-sdk": "2.783.0",
     "handlebars": "4.7.6",
-    "html-to-text": "5.1.1",
+    "html-to-text": "6.0.0",
     "nodemailer": "6.4.14",
     "snyk": "1.421.1",
     "websocket": "1.0.32"
