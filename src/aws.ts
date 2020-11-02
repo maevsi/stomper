@@ -1,5 +1,6 @@
 import { config, SESV2 } from 'aws-sdk'
 import Handlebars from 'handlebars'
+// @ts-ignore until https://yarnpkg.com/package/@types/html-to-text is updated to v6.
 import { htmlToText } from 'html-to-text'
 import MailComposer from 'nodemailer/lib/mail-composer'
 
@@ -12,8 +13,8 @@ config.apiVersions = {
 }
 config.loadFromPath('/run/secrets/stomper_aws')
 
-var ses = new SESV2()
-var params = {
+const ses = new SESV2()
+const params = {
   Destination: {
     ToAddresses: [
       'e-mail@jonas-thelemann.de'
@@ -43,7 +44,7 @@ export function accountRegisterMail (data: string) {
         console.error(err)
       }
 
-      var paramsContent = {
+      const paramsContent = {
         Content: {
           Raw: {
             Data: message
@@ -81,7 +82,7 @@ export function inviteMail (data: string) {
           console.error(err)
         }
 
-        var paramsContent = {
+        const paramsContent = {
           Content: {
             Raw: {
               Data: message
