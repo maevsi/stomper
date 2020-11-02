@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/maevsi/stomper/compare/0.2.0...0.3.0) (2020-11-02)
+
+
+### Bug Fixes
+
+* **aws:** ignore typescript error ([8aecb5c](https://github.com/maevsi/stomper/commit/8aecb5cb78f588476d35e760706dacc41aa80a87))
+* **html-to-text:** migrate deprecated option ([d18fcd6](https://github.com/maevsi/stomper/commit/d18fcd6462945b5b8185ed933e38d1efa14a85de))
+* **release:** schedule release ([481181f](https://github.com/maevsi/stomper/commit/481181f8726c5a4605584235e501c51d94da1cb9))
+
+
+### Features
+
+* **registration:** replace "a" with "the" ([ef71b27](https://github.com/maevsi/stomper/commit/ef71b27d5263f416f4db63ecbc52424d3b9ee6dc))
+
 # [0.2.0](https://github.com/maevsi/stomper/compare/0.1.3...0.2.0) (2020-10-25)
 
 
