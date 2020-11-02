@@ -2,7 +2,7 @@
   "name": "stomper",
   "private": true,
   "version": "0.2.0",
-  "scheduleVersion": "0.1.1",
+  "scheduleVersion": "0.2.1",
   "main": "stomper.js",
   "repository": "https://github.com/maevsi/stomper.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
