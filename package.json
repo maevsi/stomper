@@ -13,7 +13,7 @@
     "handlebars": "4.7.6",
     "html-to-text": "6.0.0",
     "nodemailer": "6.4.14",
-    "snyk": "1.424.2",
+    "snyk": "1.424.3",
     "websocket": "1.0.32"
   },
   "devDependencies": {
