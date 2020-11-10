@@ -9,7 +9,7 @@
   "license": "TODO",
   "dependencies": {
     "@stomp/stompjs": "6.0.0",
-    "aws-sdk": "2.788.0",
+    "aws-sdk": "2.789.0",
     "handlebars": "4.7.6",
     "html-to-text": "6.0.0",
     "nodemailer": "6.4.15",
