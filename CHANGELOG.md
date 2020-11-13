@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/maevsi/stomper/compare/0.3.0...0.3.1) (2020-11-13)
+
+
+### Bug Fixes
+
+* **mjml:** correct logo href ([c97cb58](https://github.com/maevsi/stomper/commit/c97cb588c6ab2e8ff693e83360525f92cb2d99d7))
+
 # [0.3.0](https://github.com/maevsi/stomper/compare/0.2.0...0.3.0) (2020-11-02)
 
 
