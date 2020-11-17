@@ -1,3 +1,17 @@
+# [0.4.0](https://github.com/maevsi/stomper/compare/0.3.1...0.4.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* **aws:** correct email address verification link ([f926d59](https://github.com/maevsi/stomper/commit/f926d59ffb83a53e0da278d541af686a6d1cf4d7))
+* **parallel_commands:** correct script ([41ee00c](https://github.com/maevsi/stomper/commit/41ee00c891e26f1fd6213af7e323841992b555cc))
+* **yarn:** fix mjml task ([aae2edc](https://github.com/maevsi/stomper/commit/aae2edc5891b0f965e1ed728de4e724f649db9d0))
+
+
+### Features
+
+* add account password request mail ([ce0ffea](https://github.com/maevsi/stomper/commit/ce0ffeaee25e7f6f48db04435b0dc7cc117261ca))
+
 ## [0.3.1](https://github.com/maevsi/stomper/compare/0.3.0...0.3.1) (2020-11-13)
 
 
