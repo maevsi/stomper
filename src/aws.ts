@@ -26,7 +26,7 @@ export function accountRegisterMail (data: string) {
   const json = JSON.parse(data)
   const template = Handlebars.compile(readFileSync(path.resolve(__dirname, './email-templates/registration.html'), 'utf-8'))
   const html = template({
-    confirmLink: 'https://' + (process.env.STACK_DOMAIN || 'maevsi.test') + '/verify?code=' + json.account.email_address_verification,
+    emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/verify/email-address?code=${json.account.email_address_verification}`,
     username: json.account.username,
     stackDomain: process.env.STACK_DOMAIN || 'maevsi.test'
   })

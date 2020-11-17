@@ -32,7 +32,7 @@
           <!-- Then, check out the upcoming events below. -->
         </mj-text>
         </a>
-     			<mj-button href="{{confirmLink}}">
+     			<mj-button href="{{emailAddressVerificationLink}}">
        			Complete registration
        		</mj-button>
       </mj-column>
