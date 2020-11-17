@@ -1,15 +1,16 @@
 #!/bin/bash
 
-for cmd in "$@"; do {
-  echo "Process \"$cmd\" started";
-  $cmd & pid=$!
-  PID_LIST+=" $pid";
-} done
+for arg do
+  echo "Process \"$arg\" started";
+  eval "$arg" & pid=$!
+  PID_LIST="$PID_LIST $pid";
+done
 
-trap "kill $PID_LIST" SIGINT
+trap 'kill $PID_LIST' INT
 
 echo "Parallel processes have started";
 
+# shellcheck disable=SC2086
 wait $PID_LIST
 
 echo
