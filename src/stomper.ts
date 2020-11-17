@@ -1,6 +1,6 @@
 import { Client } from '@stomp/stompjs'
 
-import { accountRegisterMail, inviteMail } from './aws'
+import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInviteMail } from './aws'
 
 const fs = require('fs')
 
@@ -28,6 +28,18 @@ const client = new Client({
 })
 
 client.onConnect = function (frame) {
+  client.subscribe('/queue/account_password_reset_request', function (message) {
+    if (message.body) {
+      console.log('got message with body ' + message.body)
+    } else {
+      console.log('got empty message')
+    }
+
+    sendAccountPasswordResetRequestMail(message.body)
+
+    message.ack()
+  }, { ack: 'client' })
+
   client.subscribe('/queue/account_register', function (message) {
     // JSON.parse(message.body)
     if (message.body) {
@@ -36,7 +48,7 @@ client.onConnect = function (frame) {
       console.log('got empty message')
     }
 
-    accountRegisterMail(message.body)
+    sendAccountRegisterMail(message.body)
 
     message.ack()
   }, { ack: 'client' })
@@ -48,7 +60,7 @@ client.onConnect = function (frame) {
       console.log('got empty message')
     }
 
-    inviteMail(message.body)
+    sendInviteMail(message.body)
 
     message.ack()
   }, { ack: 'client' })
