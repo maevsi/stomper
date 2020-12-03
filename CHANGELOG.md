@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/maevsi/stomper/compare/0.4.1...0.4.2) (2020-12-03)
+
+
+### Bug Fixes
+
+* **aws:** remove ts-ignore for outdated html-to-text version ([21a9ed8](https://github.com/maevsi/stomper/commit/21a9ed87d904770ec563e85a7e3fc0effe365a49))
+
 ## [0.4.1](https://github.com/maevsi/stomper/compare/0.4.0...0.4.1) (2020-11-30)
 
 
