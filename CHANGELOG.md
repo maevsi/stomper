@@ -1,3 +1,11 @@
+## [0.4.3](https://github.com/maevsi/stomper/compare/0.4.2...0.4.3) (2020-12-06)
+
+
+### Bug Fixes
+
+* **docker:** general fixes ([27f3b0e](https://github.com/maevsi/stomper/commit/27f3b0e03b9dd55af2c667fcfba17f21eeba87a3))
+* **docker:** skip husky installation ([b626ad5](https://github.com/maevsi/stomper/commit/b626ad5dd9df99ef54b3d8ad5cd0f8579127f1c4))
+
 ## [0.4.2](https://github.com/maevsi/stomper/compare/0.4.1...0.4.2) (2020-12-03)
 
 
