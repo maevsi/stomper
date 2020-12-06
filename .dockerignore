@@ -1,0 +1,8 @@
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
+# UNUSED PROPERTIES REMOVED!
+
+# Dependency directories
+node_modules/
+
+# End of https://www.toptal.com/developers/gitignore/api/node
