@@ -14,7 +14,7 @@
     "html-to-text": "6.0.0",
     "nodemailer": "6.4.16",
     "snyk": "1.434.3",
-    "websocket": "1.0.32"
+    "websocket": "1.0.33"
   },
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
