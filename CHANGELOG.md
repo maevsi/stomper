@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/maevsi/stomper/compare/0.6.0...0.6.1) (2020-12-27)
+
+
+### Bug Fixes
+
+* use dist directory for build's email templates ([2e6f8f3](https://github.com/maevsi/stomper/commit/2e6f8f3b5986c606d0fc1d8da65987ad02983dc0))
+
 # [0.6.0](https://github.com/maevsi/stomper/compare/0.5.0...0.6.0) (2020-12-27)
 
 
