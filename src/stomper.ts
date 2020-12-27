@@ -1,6 +1,6 @@
 import { Client } from '@stomp/stompjs'
 
-import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInviteMail } from './aws'
+import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInviteMail } from './smtp'
 import { startWebserver } from './webserver'
 
 const fs = require('fs')
