@@ -28,42 +28,23 @@ const client = new Client({
 })
 
 client.onConnect = function (frame) {
-  client.subscribe('/queue/account_password_reset_request', function (message) {
-    if (message.body) {
-      console.log('got message with body ' + message.body)
-    } else {
-      console.log('got empty message')
-    }
+  [
+    { queueName: 'account_password_reset_request', function: sendAccountPasswordResetRequestMail },
+    { queueName: 'account_register', function: sendAccountRegisterMail },
+    { queueName: 'invite', function: sendInviteMail }
+  ].forEach((queueToFunctionMapping) => {
+    client.subscribe(`/queue/${queueToFunctionMapping.queueName}`, function (message) {
+      if (message.body) {
+        console.log('got message with body ' + message.body)
+      } else {
+        console.log('got empty message')
+      }
 
-    sendAccountPasswordResetRequestMail(message.body)
+      queueToFunctionMapping.function(JSON.parse(message.body))
 
-    message.ack()
-  }, { ack: 'client' })
-
-  client.subscribe('/queue/account_register', function (message) {
-    // JSON.parse(message.body)
-    if (message.body) {
-      console.log('got message with body ' + message.body)
-    } else {
-      console.log('got empty message')
-    }
-
-    sendAccountRegisterMail(message.body)
-
-    message.ack()
-  }, { ack: 'client' })
-
-  client.subscribe('/queue/invite', function (message) {
-    if (message.body) {
-      console.log('got message with body ' + message.body)
-    } else {
-      console.log('got empty message')
-    }
-
-    sendInviteMail(message.body)
-
-    message.ack()
-  }, { ack: 'client' })
+      message.ack()
+    }, { ack: 'client' })
+  })
 }
 
 client.onStompError = function (frame) {

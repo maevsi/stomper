@@ -1,150 +1,100 @@
-import { config, SESV2 } from 'aws-sdk'
-import Handlebars from 'handlebars'
-import { htmlToText } from 'html-to-text'
-import MailComposer from 'nodemailer/lib/mail-composer'
-
 import fs from 'fs'
 import http from 'http'
 import path from 'path'
 
-const secretStomperAwsPath = '/run/secrets/stomper_aws'
+import Handlebars from 'handlebars'
+import { htmlToText as htmlToTextImported } from 'html-to-text'
+import nodemailer from 'nodemailer'
 
-config.apiVersions = {
-  ses: '2019-09-27'
+interface SendMailConfig {
+  to: string,
+  subject: string,
+  html?: string,
+  text?: string,
+  icalEvent?: object
 }
 
-if (fs.existsSync(secretStomperAwsPath)) {
-  config.loadFromPath(secretStomperAwsPath)
-} else {
-  console.error('Missing secret!')
+const HTML_TO_TEXT_OPTIONS = { tags: { img: { format: 'skip' } } }
+const MAIL_FROM = '"maevsi" <noreply@maev.si>'
+const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH = '/run/secrets/stomper_nodemailer-transporter'
+const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
+
+if (!fs.existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
+  console.error('The STMP configuration secret is missing!')
   process.exit(1)
 }
 
-const ses = new SESV2()
-const params = {
-  Destination: {
-    ToAddresses: [
-      'e-mail@jonas-thelemann.de'
-    ]
-  }
+const NODEMAILER_TRANSPORTER = nodemailer.createTransport(JSON.parse(fs.readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8')))
+
+function htmlToText (html: string) {
+  return htmlToTextImported(html, HTML_TO_TEXT_OPTIONS)
 }
 
-export function sendAccountPasswordResetRequestMail (data: string) {
-  const json = JSON.parse(data)
-  const template = Handlebars.compile(fs.readFileSync(path.resolve(__dirname, './email-templates/accountPasswordResetRequest.html'), 'utf-8'))
+async function sendMail (sendMailConfig: SendMailConfig) {
+  const mailSentData = await NODEMAILER_TRANSPORTER.sendMail({
+    from: MAIL_FROM,
+    ...sendMailConfig
+  })
+
+  console.log('Message sent: %s', mailSentData.messageId)
+}
+
+function sendMailTemplated (to: string, subject: string, templateFileName: string, templateVariables: object) {
+  const template = Handlebars.compile(fs.readFileSync(path.resolve(__dirname, `./email-templates/${templateFileName}.html`), 'utf-8'))
   const html = template({
-    passwordResetVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/reset/password?code=${json.account.password_reset_verification}`,
-    username: json.account.username,
-    stackDomain: process.env.STACK_DOMAIN || 'maevsi.test'
+    stackDomain: STACK_DOMAIN,
+    ...templateVariables
   })
 
-  // json.account.email_address
-
-  new MailComposer({
-    from: '"maevsi" <noreply@maev.si>',
-    html: html,
-    subject: 'Password Reset Request',
-    text: htmlToText(html, { tags: { img: { format: 'skip' } } })
-  })
-    .compile().build(function (err, message) {
-      if (err) {
-        console.error(err)
-      }
-
-      const paramsContent = {
-        Content: {
-          Raw: {
-            Data: message
-          }
-        }
-      }
-
-      ses.sendEmail({ ...params, ...paramsContent }, function (err, data) {
-        if (err) console.error(err, err.stack)
-        else console.log(data)
-      })
-    })
+  sendMail({ to, subject, html, text: htmlToText(html) })
 }
 
-export function sendAccountRegisterMail (data: string) {
-  const json = JSON.parse(data)
-  const template = Handlebars.compile(fs.readFileSync(path.resolve(__dirname, './email-templates/accountRegister.html'), 'utf-8'))
-  const html = template({
-    emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/verify/email-address?code=${json.account.email_address_verification}`,
-    username: json.account.username,
-    stackDomain: process.env.STACK_DOMAIN || 'maevsi.test'
-  })
-
-  // json.account.email_address
-
-  new MailComposer({
-    from: '"maevsi" <noreply@maev.si>',
-    html: html,
-    subject: 'Welcome',
-    text: htmlToText(html, { tags: { img: { format: 'skip' } } })
-  })
-    .compile().build(function (err, message) {
-      if (err) {
-        console.error(err)
-      }
-
-      const paramsContent = {
-        Content: {
-          Raw: {
-            Data: message
-          }
-        }
-      }
-
-      ses.sendEmail({ ...params, ...paramsContent }, function (err, data) {
-        if (err) console.error(err, err.stack)
-        else console.log(data)
-      })
-    })
+export function sendAccountPasswordResetRequestMail (dataJsonObject: any) {
+  sendMailTemplated(
+    dataJsonObject.account.email_address,
+    'Password Reset Request',
+    'accountPasswordResetRequest',
+    {
+      passwordResetVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/reset/password?code=${dataJsonObject.account.password_reset_verification}`,
+      username: dataJsonObject.account.username
+    }
+  )
 }
 
-export function sendInviteMail (data: string) {
-  const json = JSON.parse(data)
+export function sendAccountRegisterMail (dataJsonObject: any) {
+  sendMailTemplated(
+    dataJsonObject.account.email_address,
+    'Welcome',
+    'accountRegister',
+    {
+      emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/verify/email-address?code=${dataJsonObject.account.email_address_verification}`,
+      username: dataJsonObject.account.username
+    }
+  )
+}
 
+export function sendInviteMail (dataJsonObject: any) {
   const req = http.request('http://maevsi:3000/ical', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
     }
   }, (res) => {
-    new MailComposer({
-      from: '"maevsi" <noreply@maev.si>',
+    sendMail({
+      to: dataJsonObject.account.email_address,
+      subject: 'Invite',
       icalEvent: {
         content: res,
-        filename: json.event.organizerUsername + '_' + json.event.slug + '.ics',
+        filename: dataJsonObject.event.organizerUsername + '_' + dataJsonObject.event.slug + '.ics',
         method: 'request'
-      },
-      subject: 'Invite'
+      }
     })
-      .compile().build(function (err, message) {
-        if (err) {
-          console.error(err)
-        }
-
-        const paramsContent = {
-          Content: {
-            Raw: {
-              Data: message
-            }
-          }
-        }
-
-        ses.sendEmail({ ...params, ...paramsContent }, function (err, data) {
-          if (err) console.error(err, err.stack)
-          else console.log(data)
-        })
-      })
   })
 
   req.on('error', (e) => {
-    console.error(`problem with request: ${e.message}`)
+    console.error(`Problem with request: ${e.message}`)
   })
 
-  req.write(data)
+  req.write(dataJsonObject)
   req.end()
 }
