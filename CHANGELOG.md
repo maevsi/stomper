@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/maevsi/stomper/compare/0.5.0...0.6.0) (2020-12-27)
+
+
+### Bug Fixes
+
+* **smtp:** remove aws dependency ([5ac898d](https://github.com/maevsi/stomper/commit/5ac898d8e768bcb037f067b2b2b24d2e5a22382c))
+
+
+### Features
+
+* **webserver:** host referenced images ([03c5c74](https://github.com/maevsi/stomper/commit/03c5c7492731acd843b0cc633078dd3ddd69aca7))
+
 # [0.5.0](https://github.com/maevsi/stomper/compare/0.4.4...0.5.0) (2020-12-27)
 
 
