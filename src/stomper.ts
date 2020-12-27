@@ -1,8 +1,11 @@
 import { Client } from '@stomp/stompjs'
 
 import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInviteMail } from './aws'
+import { startWebserver } from './webserver'
 
 const fs = require('fs')
+
+const WEBSERVER_PORT = 3000
 
 Object.assign(global, { WebSocket: require('websocket').w3cwebsocket })
 
@@ -54,3 +57,5 @@ client.onStompError = function (frame) {
 }
 
 client.activate()
+
+startWebserver(WEBSERVER_PORT)
