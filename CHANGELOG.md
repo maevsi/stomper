@@ -1,3 +1,10 @@
+## [0.6.3](https://github.com/maevsi/stomper/compare/0.6.2...0.6.3) (2020-12-27)
+
+
+### Bug Fixes
+
+* **webserver:** use absolute path ([9b7b67c](https://github.com/maevsi/stomper/commit/9b7b67c2472efe4575f7577eb882cf72536df81c))
+
 ## [0.6.2](https://github.com/maevsi/stomper/compare/0.6.1...0.6.2) (2020-12-27)
 
 
