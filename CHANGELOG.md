@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/maevsi/stomper/compare/0.6.1...0.6.2) (2020-12-27)
+
+
+### Bug Fixes
+
+* **webserver:** copy assets to dist ([6b9b699](https://github.com/maevsi/stomper/commit/6b9b6994bd4cc48aa63df50377bc6cca5d196cc6))
+
 ## [0.6.1](https://github.com/maevsi/stomper/compare/0.6.0...0.6.1) (2020-12-27)
 
 
