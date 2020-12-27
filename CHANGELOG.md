@@ -1,3 +1,15 @@
+# [0.5.0](https://github.com/maevsi/stomper/compare/0.4.4...0.5.0) (2020-12-27)
+
+
+### Bug Fixes
+
+* **templates:** specify header image height ([d2a5793](https://github.com/maevsi/stomper/commit/d2a57935ce46c5f15a1955f82fca85d948709449))
+
+
+### Features
+
+* use SMTP instead of Amazon SES ([3c2893d](https://github.com/maevsi/stomper/commit/3c2893d2c43be4562d30ce70aa9c83787b38213d))
+
 ## [0.4.4](https://github.com/maevsi/stomper/compare/0.4.3...0.4.4) (2020-12-14)
 
 
