@@ -1,3 +1,10 @@
+## [0.6.4](https://github.com/maevsi/stomper/compare/0.6.3...0.6.4) (2021-01-04)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([bc9aa48](https://github.com/maevsi/stomper/commit/bc9aa48176561923ee9dc477d758c1ad3cd97a0b))
+
 ## [0.6.3](https://github.com/maevsi/stomper/compare/0.6.2...0.6.3) (2020-12-27)
 
 
