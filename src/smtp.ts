@@ -55,7 +55,7 @@ export function sendAccountPasswordResetRequestMail (dataJsonObject: any) {
     'Password Reset Request',
     'accountPasswordResetRequest',
     {
-      passwordResetVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/reset/password?code=${dataJsonObject.account.password_reset_verification}`,
+      passwordResetVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/task/account/password/reset?code=${dataJsonObject.account.password_reset_verification}`,
       username: dataJsonObject.account.username
     }
   )
@@ -67,7 +67,7 @@ export function sendAccountRegisterMail (dataJsonObject: any) {
     'Welcome',
     'accountRegister',
     {
-      emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/verify/email-address?code=${dataJsonObject.account.email_address_verification}`,
+      emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/task/account/email-address/verify?code=${dataJsonObject.account.email_address_verification}`,
       username: dataJsonObject.account.username
     }
   )
