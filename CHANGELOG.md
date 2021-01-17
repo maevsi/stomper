@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/maevsi/stomper/compare/0.6.5...0.7.0) (2021-01-17)
+
+
+### Features
+
+* **smtp:** adopt new link paths ([9034090](https://github.com/maevsi/stomper/commit/9034090e609dbe7b49b130bfbe7c2b8c0db0338d))
+
 ## [0.6.5](https://github.com/maevsi/stomper/compare/0.6.4...0.6.5) (2021-01-11)
 
 
