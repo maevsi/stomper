@@ -73,7 +73,7 @@ export function sendAccountRegisterMail (dataJsonObject: any) {
   )
 }
 
-export function sendInviteMail (dataJsonObject: any) {
+export function sendInvitationMail (dataJsonObject: any) {
   const req = http.request('http://maevsi:3000/ical', {
     method: 'POST',
     headers: {
@@ -82,7 +82,7 @@ export function sendInviteMail (dataJsonObject: any) {
   }, (res) => {
     sendMail({
       to: dataJsonObject.account.email_address,
-      subject: 'Invite',
+      subject: 'Invitation',
       icalEvent: {
         content: res,
         filename: dataJsonObject.event.organizerUsername + '_' + dataJsonObject.event.slug + '.ics',
