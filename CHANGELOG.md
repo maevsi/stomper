@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/maevsi/stomper/compare/0.7.0...0.8.0) (2021-01-18)
+
+
+### Features
+
+* rename "invite" to "invitation" ([6de07d0](https://github.com/maevsi/stomper/commit/6de07d0821a46d7a1a98803a75584b6bf2311763))
+
 # [0.7.0](https://github.com/maevsi/stomper/compare/0.6.5...0.7.0) (2021-01-17)
 
 
