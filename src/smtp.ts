@@ -6,6 +6,8 @@ import Handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
 import nodemailer from 'nodemailer'
 
+const consola = require('consola')
+
 interface SendMailConfig {
   to: string,
   subject: string,
@@ -20,7 +22,7 @@ const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH = '/run/secrets/stomper_nodemai
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
 
 if (!fs.existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
-  console.error('The STMP configuration secret is missing!')
+  consola.error('The STMP configuration secret is missing!')
   process.exit(1)
 }
 
@@ -36,7 +38,7 @@ async function sendMail (sendMailConfig: SendMailConfig) {
     ...sendMailConfig
   })
 
-  console.log('Message sent: %s', mailSentData.messageId)
+  consola.log('Message sent: %s', mailSentData.messageId)
 }
 
 function sendMailTemplated (to: string, subject: string, templateFileName: string, templateVariables: object) {
@@ -92,7 +94,7 @@ export function sendInvitationMail (dataJsonObject: any) {
   })
 
   req.on('error', (e) => {
-    console.error(`Problem with request: ${e.message}`)
+    consola.error(`Problem with request: ${e.message}`)
   })
 
   req.write(dataJsonObject)

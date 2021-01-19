@@ -1,3 +1,4 @@
+const consola = require('consola')
 const finalhandler = require('finalhandler')
 const http = require('http')
 const path = require('path')
@@ -10,6 +11,6 @@ const server = http.createServer(function onRequest (req: any, res: any) {
 })
 
 export function startWebserver (port: number) {
-  console.log(`Starting webserver on port ${port}.`)
+  consola.log(`Starting webserver on port ${port}.`)
   server.listen(port)
 }

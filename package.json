@@ -9,6 +9,7 @@
   "license": "TODO",
   "dependencies": {
     "@stomp/stompjs": "6.0.0",
+    "consola": "2.15.0",
     "finalhandler": "1.1.2",
     "handlebars": "4.7.6",
     "html-to-text": "6.0.0",

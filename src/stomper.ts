@@ -3,6 +3,7 @@ import { Client } from '@stomp/stompjs'
 import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInvitationMail } from './smtp'
 import { startWebserver } from './webserver'
 
+const consola = require('consola')
 const fs = require('fs')
 
 const WEBSERVER_PORT = 3000
@@ -13,7 +14,7 @@ if (
   process.env.RABBITMQ_USER_FILE === undefined ||
   process.env.RABBITMQ_PASS_FILE === undefined
 ) {
-  console.error('Missing environment variables!')
+  consola.error('Missing environment variables!')
   process.exit(1)
 }
 
@@ -25,7 +26,7 @@ const client = new Client({
   },
   debug: function (str) {
     if (process.env.NODE_ENV !== 'production') {
-      console.log(str)
+      consola.log(str)
     }
   }
 })
@@ -38,24 +39,24 @@ client.onConnect = function (_frame) {
   ].forEach((queueToFunctionMapping) => {
     client.subscribe(`/queue/${queueToFunctionMapping.queueName}`, function (message) {
       if (message.body) {
-        console.log('got message with body ' + message.body)
+        consola.log('got message with body ' + message.body)
       } else {
-        console.log('got empty message')
+        consola.log('got empty message')
       }
 
       try {
         queueToFunctionMapping.function(JSON.parse(message.body))
         message.ack()
       } catch (e) {
-        console.error(e)
+        consola.error(e)
       }
     }, { ack: 'client' })
   })
 }
 
 client.onStompError = function (frame) {
-  console.log('Broker reported error: ' + frame.headers.message)
-  console.log('Additional details: ' + frame.body)
+  consola.log('Broker reported error: ' + frame.headers.message)
+  consola.log('Additional details: ' + frame.body)
   process.exit(1)
 }
 
