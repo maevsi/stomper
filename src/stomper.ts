@@ -30,7 +30,7 @@ const client = new Client({
   }
 })
 
-client.onConnect = function (frame) {
+client.onConnect = function (_frame) {
   [
     { queueName: 'account_password_reset_request', function: sendAccountPasswordResetRequestMail },
     { queueName: 'account_register', function: sendAccountRegisterMail },
@@ -43,9 +43,12 @@ client.onConnect = function (frame) {
         console.log('got empty message')
       }
 
-      queueToFunctionMapping.function(JSON.parse(message.body))
-
-      message.ack()
+      try {
+        queueToFunctionMapping.function(JSON.parse(message.body))
+        message.ack()
+      } catch (e) {
+        console.error(e)
+      }
     }, { ack: 'client' })
   })
 }
