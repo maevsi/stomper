@@ -1,3 +1,16 @@
+# [0.9.0](https://github.com/maevsi/stomper/compare/0.8.0...0.9.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* make stomper resilient to errors ([5ace21a](https://github.com/maevsi/stomper/commit/5ace21a336b8982c0fa49d934a9ad9792ad16866)), closes [#26](https://github.com/maevsi/stomper/issues/26)
+
+
+### Features
+
+* implement invitation mail ([e22921e](https://github.com/maevsi/stomper/commit/e22921ea8e1b3793a03394c8072bf258ce4835f5))
+* **logging:** add consola ([2c41dee](https://github.com/maevsi/stomper/commit/2c41dee6bd48ad7f85e59730185b4355fd249a7a))
+
 # [0.8.0](https://github.com/maevsi/stomper/compare/0.7.0...0.8.0) (2021-01-18)
 
 
