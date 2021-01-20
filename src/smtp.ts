@@ -6,15 +6,11 @@ import Handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
 import nodemailer from 'nodemailer'
 
-const consola = require('consola')
+import { getContact, getEvent, getInvitation } from './database'
+import { MaevsiContact, MaevsiEvent, MaevsiInvitation, MessageInvitation, SendMailConfig } from './types'
 
-interface SendMailConfig {
-  to: string,
-  subject: string,
-  html?: string,
-  text?: string,
-  icalEvent?: object
-}
+const camelcaseKeys = require('camelcase-keys')
+const consola = require('consola')
 
 const HTML_TO_TEXT_OPTIONS = { tags: { img: { format: 'skip' } } }
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
@@ -75,7 +71,17 @@ export function sendAccountRegisterMail (dataJsonObject: any) {
   )
 }
 
-export function sendInvitationMail (dataJsonObject: any) {
+export async function sendInvitationMail (dataJsonObject: MessageInvitation) {
+  dataJsonObject = camelcaseKeys(dataJsonObject)
+  const invitation: MaevsiInvitation = camelcaseKeys(await getInvitation(dataJsonObject.invitationId).catch((reason) => consola.error(reason)))
+
+  if (!invitation) {
+    return
+  }
+
+  const contact: MaevsiContact = camelcaseKeys(await getContact(invitation.contactId).catch((reason) => consola.error(reason)))
+  const event: MaevsiEvent = camelcaseKeys(await getEvent(invitation.eventId).catch((reason) => consola.error(reason)))
+
   const req = http.request('http://maevsi:3000/ical', {
     method: 'POST',
     headers: {
@@ -83,11 +89,11 @@ export function sendInvitationMail (dataJsonObject: any) {
     }
   }, (res) => {
     sendMail({
-      to: dataJsonObject.account.email_address,
+      to: contact.emailAddress,
       subject: 'Invitation',
       icalEvent: {
         content: res,
-        filename: dataJsonObject.event.organizerUsername + '_' + dataJsonObject.event.slug + '.ics',
+        filename: event.organizerUsername + '_' + event.slug + '.ics',
         method: 'request'
       }
     })
@@ -97,6 +103,6 @@ export function sendInvitationMail (dataJsonObject: any) {
     consola.error(`Problem with request: ${e.message}`)
   })
 
-  req.write(dataJsonObject)
+  req.write(JSON.stringify({ event }))
   req.end()
 }
