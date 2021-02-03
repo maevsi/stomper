@@ -10,7 +10,7 @@
   "dependencies": {
     "@stomp/stompjs": "6.0.0",
     "camelcase-keys": "6.2.2",
-    "consola": "2.15.1",
+    "consola": "2.15.2",
     "finalhandler": "1.1.2",
     "handlebars": "4.7.6",
     "html-to-text": "6.0.0",
