@@ -6,11 +6,12 @@ export interface MaevsiContact {
   firstName: string,
   lastName: string,
   address: string,
-  creatorAccountUsername: string,
+  authorAccountUsername: string,
 }
 
 export interface MaevsiEvent {
   id: BigInt,
+  authorUsername: string,
   description: string,
   end: Date,
   inviteeCountMaximum: number,
@@ -19,7 +20,6 @@ export interface MaevsiEvent {
   isRemote: boolean,
   location: string,
   name: string,
-  organizerUsername: string,
   slug: string,
   start: Date,
   visibility: ['public', 'private'],

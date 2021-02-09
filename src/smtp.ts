@@ -93,7 +93,7 @@ export async function sendInvitationMail (dataJsonObject: MessageInvitation) {
       subject: 'Invitation',
       icalEvent: {
         content: res,
-        filename: event.organizerUsername + '_' + event.slug + '.ics',
+        filename: event.authorUsername + '_' + event.slug + '.ics',
         method: 'request'
       }
     })
