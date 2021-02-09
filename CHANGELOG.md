@@ -1,3 +1,10 @@
+## [0.9.2](https://github.com/maevsi/stomper/compare/0.9.1...0.9.2) (2021-02-09)
+
+
+### Bug Fixes
+
+* rename organizer to author ([e57b116](https://github.com/maevsi/stomper/commit/e57b116b7f45c82ed758cd4ff7bb519a6b4fb443))
+
 ## [0.9.1](https://github.com/maevsi/stomper/compare/0.9.0...0.9.1) (2021-02-01)
 
 
