@@ -1,3 +1,10 @@
+## [0.9.3](https://github.com/maevsi/stomper/compare/0.9.2...0.9.3) (2021-02-12)
+
+
+### Bug Fixes
+
+* **ci:** trigger on create ([6aef9c2](https://github.com/maevsi/stomper/commit/6aef9c2e8824da5b136b71a9e39d23e4f343030b))
+
 ## [0.9.2](https://github.com/maevsi/stomper/compare/0.9.1...0.9.2) (2021-02-09)
 
 
