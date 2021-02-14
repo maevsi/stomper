@@ -1,3 +1,10 @@
+## [0.9.4](https://github.com/maevsi/stomper/compare/0.9.3...0.9.4) (2021-02-14)
+
+
+### Bug Fixes
+
+* **scripts:** add mjml path ([0a5ec87](https://github.com/maevsi/stomper/commit/0a5ec87e0645cd8074abdbc8e80524deaa9ae4d0))
+
 ## [0.9.3](https://github.com/maevsi/stomper/compare/0.9.2...0.9.3) (2021-02-12)
 
 
