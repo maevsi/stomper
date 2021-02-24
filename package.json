@@ -8,7 +8,7 @@
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "TODO",
   "dependencies": {
-    "@stomp/stompjs": "6.0.0",
+    "@stomp/stompjs": "6.1.0",
     "camelcase-keys": "6.2.2",
     "consola": "2.15.3",
     "finalhandler": "1.1.2",
