@@ -1,3 +1,10 @@
+## [0.9.7](https://github.com/maevsi/stomper/compare/0.9.6...0.9.7) (2021-02-24)
+
+
+### Bug Fixes
+
+* **mjml:** make text dark ([6f1bc3b](https://github.com/maevsi/stomper/commit/6f1bc3b766859578f758dffd0a71f8cf9a7aada2))
+
 ## [0.9.6](https://github.com/maevsi/stomper/compare/0.9.5...0.9.6) (2021-02-24)
 
 
