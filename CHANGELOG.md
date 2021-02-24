@@ -1,3 +1,10 @@
+## [0.9.6](https://github.com/maevsi/stomper/compare/0.9.5...0.9.6) (2021-02-24)
+
+
+### Bug Fixes
+
+* **mjml:** add missing closing tag ([d2f035d](https://github.com/maevsi/stomper/commit/d2f035db979b34ee34501cdc7f1705c83433fd7d))
+
 ## [0.9.5](https://github.com/maevsi/stomper/compare/0.9.4...0.9.5) (2021-02-22)
 
 
