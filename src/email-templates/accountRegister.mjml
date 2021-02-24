@@ -4,11 +4,11 @@
     <mj-attributes>
       <mj-all font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"></mj-all>
       <mj-button background-color="#e53e3e" border-radius="9999px" font-size="16px" font-weight="700"></mj-button>
-      <mj-text font-size="16px" color="#ffffff" line-height="24px"></mj-text>
+      <mj-text font-size="16px" color="#000000" line-height="24px"></mj-text>
       <mj-section padding="0px"></mj-section>
     </mj-attributes>
   </mj-head>
-  <mj-body background-color="#4e7dd7">
+  <mj-body background-color="#f0f0f0">
     <mj-section padding-top="30px">
       <mj-column width="70%">
         <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_white.svg"></mj-image>
