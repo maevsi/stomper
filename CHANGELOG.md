@@ -1,3 +1,17 @@
+# [0.11.0](https://github.com/maevsi/stomper/compare/0.10.0...0.11.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* **assets:** improve accessibility for development ([bf02c38](https://github.com/maevsi/stomper/commit/bf02c38fe56cc685ff8397d193a01d7ce6a9075d))
+* **handlebars:** switch to updated dependency ([bfa0e2e](https://github.com/maevsi/stomper/commit/bfa0e2e93983d8b43c910963abb59e9b853327d5))
+
+
+### Features
+
+* add i18n ([5347521](https://github.com/maevsi/stomper/commit/534752156e972b280391bd435f8be4f9aa5d3ee9))
+* rename registration ([047f317](https://github.com/maevsi/stomper/commit/047f317dd01b82883291a3acd9321f8ef07fcdc1))
+
 # [0.10.0](https://github.com/maevsi/stomper/compare/0.9.8...0.10.0) (2021-02-25)
 
 
