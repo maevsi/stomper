@@ -1,3 +1,11 @@
+## [0.9.8](https://github.com/maevsi/stomper/compare/0.9.7...0.9.8) (2021-02-25)
+
+
+### Bug Fixes
+
+* **mjml:** add black text logo ([1160dee](https://github.com/maevsi/stomper/commit/1160dee04fba9964b866c68fab7b771cdc723376))
+* **mjml:** add wrapper with background color ([a63493e](https://github.com/maevsi/stomper/commit/a63493e3343f84ff2a65e8a48278c4a9bb4a9d4d))
+
 ## [0.9.7](https://github.com/maevsi/stomper/compare/0.9.6...0.9.7) (2021-02-24)
 
 
