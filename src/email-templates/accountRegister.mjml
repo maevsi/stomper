@@ -9,42 +9,44 @@
     </mj-attributes>
   </mj-head>
   <mj-body background-color="#f0f0f0">
-    <mj-section padding-top="30px">
-      <mj-column width="70%">
-        <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
-      </mj-column>
-    </mj-section>
-    <mj-section>
-      <mj-column width="100%">
-        <mj-text align="center" font-size="14px">The manager for events supported by invitees.</mj-text>
-      </mj-column>
-    </mj-section>
-    <mj-section padding-top="30px">
-      <mj-column width="45%">
-        <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">Welcome, {{username}}!</mj-text>
-      </mj-column>
-    </mj-section>
-    <mj-section>
-      <mj-column width="100%">
-        <mj-text>
-          <p>Thanks so much for joining maevsi — we're thrilled to have you! Please click on the link below to complete your registration and set up your profile.</p>
-          <!-- Then, check out the upcoming events below. -->
-        </mj-text>
-        <mj-button href="{{emailAddressVerificationLink}}">
-          Complete registration
-        </mj-button>
-      </mj-column>
-    </mj-section>
-    <mj-section padding-top="20px">
-      <mj-column width="12%">
-        <mj-image padding-right="0px" padding-left="25px" align="left" href="https://jonas-thelemann.de/" src="https://avatars0.githubusercontent.com/u/4778485?s=460&u=97363f58d442781dbee2c762d545070aca75f90d&v=4"></mj-image>
-      </mj-column>
-      <mj-column width="88%">
-        <mj-text padding="3px 15px">
-          <p style="line-height: 9px"> Jonas Thelemann </p>
-          <p style="font-style: italic; line-height: 9px"> maevsi's author </p>
-        </mj-text>
-      </mj-column>
-    </mj-section>
+    <mj-wrapper background-color="#f0f0f0" full-width="full-width">
+      <mj-section padding-top="30px">
+        <mj-column width="70%">
+          <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column width="100%">
+          <mj-text align="center" font-size="14px">The manager for events supported by invitees.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding-top="30px">
+        <mj-column width="45%">
+          <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">Welcome, {{username}}!</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column width="100%">
+          <mj-text>
+            <p>Thanks so much for joining maevsi — we're thrilled to have you! Please click on the link below to complete your registration and set up your profile.</p>
+            <!-- Then, check out the upcoming events below. -->
+          </mj-text>
+          <mj-button href="{{emailAddressVerificationLink}}">
+            Complete registration
+          </mj-button>
+        </mj-column>
+      </mj-section>
+      <mj-section padding-top="20px">
+        <mj-column width="12%">
+          <mj-image padding-right="0px" padding-left="25px" align="left" href="https://jonas-thelemann.de/" src="https://avatars0.githubusercontent.com/u/4778485?s=460&u=97363f58d442781dbee2c762d545070aca75f90d&v=4"></mj-image>
+        </mj-column>
+        <mj-column width="88%">
+          <mj-text padding="3px 15px">
+            <p style="line-height: 9px"> Jonas Thelemann </p>
+            <p style="font-style: italic; line-height: 9px"> maevsi's author </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
   </mj-body>
 </mjml>
