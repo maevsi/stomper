@@ -11,7 +11,7 @@
   <mj-body background-color="#f0f0f0">
     <mj-section padding-top="30px">
       <mj-column width="70%">
-        <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_white.svg"></mj-image>
+        <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
       </mj-column>
     </mj-section>
     <mj-section>
