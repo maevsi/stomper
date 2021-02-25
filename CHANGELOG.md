@@ -1,3 +1,10 @@
+# [0.10.0](https://github.com/maevsi/stomper/compare/0.9.8...0.10.0) (2021-02-25)
+
+
+### Features
+
+* enable debugger for development ([9720674](https://github.com/maevsi/stomper/commit/972067408eae7ddc3f1210b09c9e48b85e5ed8b2))
+
 ## [0.9.8](https://github.com/maevsi/stomper/compare/0.9.7...0.9.8) (2021-02-25)
 
 
