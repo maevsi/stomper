@@ -1,6 +1,6 @@
 import { Client } from '@stomp/stompjs'
 
-import { sendAccountPasswordResetRequestMail, sendAccountRegisterMail, sendInvitationMail } from './smtp'
+import { sendAccountPasswordResetRequestMail, sendAccountRegistrationMail, sendInvitationMail } from './smtp'
 import { startWebserver } from './webserver'
 
 const consola = require('consola')
@@ -34,7 +34,7 @@ const client = new Client({
 client.onConnect = function (_frame) {
   [
     { queueName: 'account_password_reset_request', function: sendAccountPasswordResetRequestMail },
-    { queueName: 'account_register', function: sendAccountRegisterMail },
+    { queueName: 'account_registration', function: sendAccountRegistrationMail },
     { queueName: 'invitation', function: sendInvitationMail }
   ].forEach((queueToFunctionMapping) => {
     client.subscribe(`/queue/${queueToFunctionMapping.queueName}`, function (message) {

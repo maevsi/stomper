@@ -53,7 +53,7 @@ export function sendAccountPasswordResetRequestMail (dataJsonObject: any) {
   })
 }
 
-export function sendAccountRegisterMail (dataJsonObject: any) {
+export function sendAccountRegistrationMail (dataJsonObject: any) {
   sendMailTemplated({
     to: dataJsonObject.account.email_address,
     subject: 'Welcome',
