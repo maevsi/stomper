@@ -5,7 +5,7 @@ import Backend from 'i18next-fs-backend'
 import path from 'path'
 import { Template } from './types'
 
-const HandlebarsI18n = require('./handlebars-i18n.js')
+const HandlebarsI18n = require('handlebars-i18n')
 
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
 
