@@ -1,6 +1,6 @@
 <mjml>
   <mj-head>
-    <mj-title>Welcome</mj-title>
+    <mj-title>{{__ "accountRegistration:title"}}</mj-title>
     <mj-attributes>
       <mj-all font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"></mj-all>
       <mj-button background-color="#e53e3e" border-radius="9999px" font-size="16px" font-weight="700"></mj-button>
@@ -17,23 +17,22 @@
       </mj-section>
       <mj-section>
         <mj-column width="100%">
-          <mj-text align="center" font-size="14px">The manager for events supported by invitees.</mj-text>
+          <mj-text align="center" font-size="14px">{{__ "maevsi:subtitle"}}</mj-text>
         </mj-column>
       </mj-section>
       <mj-section padding-top="30px">
         <mj-column width="45%">
-          <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">Welcome, {{username}}!</mj-text>
+          <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">{{__ "accountRegistration:header" username=username}}</mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column width="100%">
           <mj-text>
-            <p>Thanks so much for joining maevsi — we're thrilled to have you! Please click on the link below to complete your registration and set up your profile.</p>
+            <p>{{__ "accountRegistration:paragraph1"}}</p>
+            <p>{{__ "accountRegistration:paragraph2"}}</p>
             <!-- Then, check out the upcoming events below. -->
           </mj-text>
-          <mj-button href="{{emailAddressVerificationLink}}">
-            Complete registration
-          </mj-button>
+          <mj-button href="{{emailAddressVerificationLink}}">{{__ "accountRegistration:button"}}</mj-button>
         </mj-column>
       </mj-section>
       <mj-section padding-top="20px">
@@ -42,8 +41,8 @@
         </mj-column>
         <mj-column width="88%">
           <mj-text padding="3px 15px">
-            <p style="line-height: 9px"> Jonas Thelemann </p>
-            <p style="font-style: italic; line-height: 9px"> maevsi's author </p>
+            <p style="line-height: 9px">Jonas Thelemann</p>
+            <p style="font-style: italic; line-height: 9px">{{__ "maevsi:author"}}</p>
           </mj-text>
         </mj-column>
       </mj-section>

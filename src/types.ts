@@ -34,14 +34,25 @@ export interface MaevsiInvitation {
   feedbackPaper: ['digital', 'none', 'paper'],
 }
 
+export interface Mail {
+  to: string,
+  subject: string,
+}
+
 export interface MessageInvitation {
   invitationId: BigInt,
 }
 
-export interface SendMailConfig {
-  to: string,
-  subject: string,
+export interface MailWithContent extends Mail {
   html?: string,
   text?: string,
   icalEvent?: object
 }
+
+export interface Template {
+  language: string,
+  templateNamespace: string,
+  templateVariables: object
+}
+
+export interface MailTemplate extends Mail, Template {}
