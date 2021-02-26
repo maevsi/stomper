@@ -18,7 +18,7 @@
     "i18next": "19.9.0",
     "i18next-fs-backend": "1.0.8",
     "intl": "1.2.5",
-    "nodemailer": "6.4.18",
+    "nodemailer": "6.5.0",
     "pg": "8.5.1",
     "serve-static": "1.14.1",
     "snyk": "1.460.0",
