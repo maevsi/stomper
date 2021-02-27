@@ -16,7 +16,7 @@
     "handlebars-i18n": "1.1.1",
     "html-to-text": "7.0.0",
     "i18next": "19.9.0",
-    "i18next-fs-backend": "1.0.8",
+    "i18next-fs-backend": "1.1.0",
     "intl": "1.2.5",
     "nodemailer": "6.5.0",
     "pg": "8.5.1",
