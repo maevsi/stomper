@@ -40,7 +40,7 @@
     "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-standard": "4.1.0",
     "husky": "4.3.8",
-    "mjml": "4.8.1",
+    "mjml": "4.8.2",
     "ts-node-dev": "1.1.6",
     "typescript": "4.2.2"
   },
