@@ -58,7 +58,7 @@ function sendMailTemplated(args: MailTemplate) {
   })
   sendMail({
     to: args.to,
-    subject: i18nextResolve(`${args.templateNamespace}:subject`),
+    subject: i18nextResolve(`${args.templateNamespace}:subject`, args.language),
     html,
     text: htmlToText(html),
   })

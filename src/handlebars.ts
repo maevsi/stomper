@@ -34,12 +34,24 @@ i18next.use(Backend).init({
 
 HandlebarsI18n.init()
 
+export function templateCompile(
+  string: string,
+  language: string,
+  templateVariables: Record<string, unknown>,
+): string {
+  i18next.changeLanguage(language)
+  return Handlebars.compile(string)({
+    stackDomain: STACK_DOMAIN,
+    ...templateVariables,
+  })
+}
+
 export function renderTemplate(args: Template): string {
   if (process.env.NODE_ENV !== 'production') {
     i18next.reloadResources()
   }
 
-  const template = Handlebars.compile(
+  return templateCompile(
     fs.readFileSync(
       path.resolve(
         __dirname,
@@ -47,14 +59,12 @@ export function renderTemplate(args: Template): string {
       ),
       'utf-8',
     ),
+    args.language,
+    args.templateVariables,
   )
-  i18next.changeLanguage(args.language)
-  return template({
-    stackDomain: STACK_DOMAIN,
-    ...args.templateVariables,
-  })
 }
 
-export function i18nextResolve(id: string): string {
+export function i18nextResolve(id: string, language = 'en'): string {
+  i18next.changeLanguage(language)
   return i18next.t(id)
 }
