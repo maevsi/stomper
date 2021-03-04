@@ -1,10 +1,12 @@
 module.exports = {
   env: {
-    browser: true,
-    es6: true
+    es6: true,
+    'jest/globals': true
   },
   extends: [
-    'standard'
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'standard',
   ],
   globals: {
     Atomics: 'readonly',
@@ -16,8 +18,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
+    'jest',
     '@typescript-eslint'
   ],
-  rules: {
-  }
+  rules: {}
 }

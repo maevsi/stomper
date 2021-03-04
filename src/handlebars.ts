@@ -16,7 +16,7 @@ i18next
       addPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.missing.json'),
       loadPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.json')
     },
-    debug: process.env.NODE_ENV !== 'production',
+    debug: typeof process.env.NODE_ENV === 'string' && !['production', 'test'].includes(process.env.NODE_ENV),
     defaultNS: 'maevsi',
     fallbackLng: process.env.NODE_ENV !== 'production' ? 'dev' : 'en',
     initImmediate: false,
