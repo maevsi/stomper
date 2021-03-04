@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/maevsi/stomper/compare/0.12.0...0.12.1) (2021-03-04)
+
+
+### Bug Fixes
+
+* **build:** copy locales to dist ([e8214ae](https://github.com/maevsi/stomper/commit/e8214ae2ca020375d73b39fedd7a59061c00636c))
+
 # [0.12.0](https://github.com/maevsi/stomper/compare/0.11.0...0.12.0) (2021-03-04)
 
 
