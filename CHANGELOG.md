@@ -1,3 +1,16 @@
+# [0.12.0](https://github.com/maevsi/stomper/compare/0.11.0...0.12.0) (2021-03-04)
+
+
+### Features
+
+* **docket:** add linting and testing ([050ef58](https://github.com/maevsi/stomper/commit/050ef580f636739ec8a1b7e159a7c359f129d72a))
+* **eslint:** add ignore file ([0d5dc6e](https://github.com/maevsi/stomper/commit/0d5dc6e44a1df1bbc222046e0a4a45bb2c516b06))
+* **husky:** lint pre commit ([54b403a](https://github.com/maevsi/stomper/commit/54b403aa1de0baee24cda53f81f8eff4cd7432e3))
+* add testing ([ad7998b](https://github.com/maevsi/stomper/commit/ad7998beb0a10b1449e218beab10525029c91e34)), closes [#36](https://github.com/maevsi/stomper/issues/36)
+* add typing ([0446566](https://github.com/maevsi/stomper/commit/0446566bf66c2f7514fd0883dd9f577ca3741bb5))
+* add valid until notice ([f3898e4](https://github.com/maevsi/stomper/commit/f3898e47174773135268ae63077f9655ecef65d9)), closes [#25](https://github.com/maevsi/stomper/issues/25)
+* **scripts:** remove asset copy from dev ([89b7cd4](https://github.com/maevsi/stomper/commit/89b7cd4e2259eb3a5ab036e416d431735cddb408))
+
 # [0.11.0](https://github.com/maevsi/stomper/compare/0.10.0...0.11.0) (2021-02-25)
 
 
