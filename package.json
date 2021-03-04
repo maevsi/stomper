@@ -65,11 +65,11 @@
   "scripts": {
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'tsnd --inspect=0.0.0.0 --respawn ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
-    "start": "yarn run build && node ./dist/stomper.js",
     "lint": "eslint .",
-    "snyk-protect": "snyk protect",
     "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk protect",
     "snyk": "snyk test",
+    "start": "yarn run build && node ./dist/stomper.js",
     "test": "jest"
   },
   "husky": {
