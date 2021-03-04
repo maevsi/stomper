@@ -1,8 +1,9 @@
-import { MaevsiContact, MaevsiEvent, MaevsiInvitation } from './types'
+import consola from 'consola'
 
-const consola = require('consola')
-const fs = require('fs')
-const { DatabaseError, Pool } = require('pg')
+import fs = require('fs')
+import { Pool } from 'pg'
+
+import { MaevsiContact, MaevsiEvent, MaevsiInvitation } from './types'
 
 const secretPostgresDbPath = '/run/secrets/postgres_db'
 const secretPostgresRoleMaevsiTusdPasswordPath =
@@ -16,15 +17,15 @@ const pool = new Pool({
   password: fs.existsSync(secretPostgresRoleMaevsiTusdPasswordPath)
     ? fs.readFileSync(secretPostgresRoleMaevsiTusdPasswordPath, 'utf-8')
     : undefined,
-  user: 'maevsi_stomper' // lgtm [js/hardcoded-credentials]
+  user: 'maevsi_stomper', // lgtm [js/hardcoded-credentials]
 })
 
-export function getContact (id: BigInt): Promise<MaevsiContact> {
+export function getContact(id: BigInt): Promise<MaevsiContact> {
   return new Promise((resolve, reject) => {
     pool.query(
       'SELECT * FROM maevsi.contact WHERE id = $1',
       [id],
-      (err: typeof DatabaseError, queryRes: any) => {
+      (err, queryRes) => {
         if (err) {
           consola.error(err)
           reject(err)
@@ -37,17 +38,17 @@ export function getContact (id: BigInt): Promise<MaevsiContact> {
         }
 
         resolve(queryRes.rows[0])
-      }
+      },
     )
   })
 }
 
-export function getEvent (id: BigInt): Promise<MaevsiEvent> {
+export function getEvent(id: BigInt): Promise<MaevsiEvent> {
   return new Promise((resolve, reject) => {
     pool.query(
       'SELECT * FROM maevsi.event WHERE id = $1',
       [id],
-      (err: typeof DatabaseError, queryRes: any) => {
+      (err, queryRes) => {
         if (err) {
           reject(err)
           return
@@ -59,17 +60,17 @@ export function getEvent (id: BigInt): Promise<MaevsiEvent> {
         }
 
         resolve(queryRes.rows[0])
-      }
+      },
     )
   })
 }
 
-export function getInvitation (id: BigInt): Promise<MaevsiInvitation> {
+export function getInvitation(id: BigInt): Promise<MaevsiInvitation> {
   return new Promise((resolve, reject) => {
     pool.query(
       'SELECT * FROM maevsi.invitation WHERE id = $1',
       [id],
-      (err: typeof DatabaseError, queryRes: any) => {
+      (err, queryRes) => {
         if (err) {
           reject(err)
           return
@@ -81,7 +82,7 @@ export function getInvitation (id: BigInt): Promise<MaevsiInvitation> {
         }
 
         resolve(queryRes.rows[0])
-      }
+      },
     )
   })
 }

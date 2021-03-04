@@ -1,16 +1,13 @@
-const consola = require('consola')
-const finalhandler = require('finalhandler')
-const http = require('http')
-const path = require('path')
-const serveStatic = require('serve-static')
+import consola from 'consola'
+import express from 'express'
+import serveStatic from 'serve-static'
 
-const serve = serveStatic(path.join(__dirname, 'assets'))
+import path = require('path')
 
-const server = http.createServer(function onRequest (req: any, res: any) {
-  serve(req, res, finalhandler(req, res))
-})
+const app = express()
 
-export function startWebserver (port: number) {
+export function startWebserver(port: number): void {
   consola.log(`Starting webserver on port ${port}.`)
-  server.listen(port)
+  app.use(serveStatic(path.join(__dirname, 'assets')))
+  app.listen(port)
 }

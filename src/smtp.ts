@@ -1,98 +1,164 @@
 import fs from 'fs'
 import http from 'http'
 
+import consola from 'consola'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
-import nodemailer from 'nodemailer'
+import { createTransport } from 'nodemailer'
+
+import camelcaseKeys = require('camelcase-keys')
 
 import { getContact, getEvent, getInvitation } from './database'
-import { MaevsiContact, MaevsiEvent, MaevsiInvitation, MailTemplate, MailWithContent, MessageInvitation } from './types'
+import {
+  AccountPasswordResetRequestMailOptions,
+  AccountRegistrationMailOptions,
+  MaevsiContact,
+  MaevsiEvent,
+  MaevsiInvitation,
+  MailTemplate,
+  MailWithContent,
+  MessageInvitation,
+} from './types'
 import { i18nextResolve, renderTemplate } from './handlebars'
-
-const camelcaseKeys = require('camelcase-keys')
-const consola = require('consola')
 
 const HTML_TO_TEXT_OPTIONS = { tags: { img: { format: 'skip' } } }
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
-const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH = '/run/secrets/stomper_nodemailer-transporter'
+const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
+  '/run/secrets/stomper_nodemailer-transporter'
 
 if (!fs.existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
-  consola.error('The STMP configuration secret is missing!')
-  process.exit(1)
+  throw new Error('The STMP configuration secret is missing!')
 }
 
-const NODEMAILER_TRANSPORTER = nodemailer.createTransport(JSON.parse(fs.readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8')))
+const NODEMAILER_TRANSPORTER = createTransport(
+  JSON.parse(
+    fs.readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8'),
+  ),
+)
 
-function htmlToText (html: string) {
+function htmlToText(html: string) {
   return htmlToTextImported(html, HTML_TO_TEXT_OPTIONS)
 }
 
-async function sendMail (mailWithConfig: MailWithContent) {
+async function sendMail(mailWithConfig: MailWithContent) {
   const mailSentData = await NODEMAILER_TRANSPORTER.sendMail({
     from: MAIL_FROM,
-    ...mailWithConfig
+    ...mailWithConfig,
   })
 
   consola.log('Message sent: %s', mailSentData.messageId)
 }
 
-function sendMailTemplated (args: MailTemplate) {
-  const html = renderTemplate({ language: args.language, templateNamespace: args.templateNamespace, templateVariables: args.templateVariables })
-  sendMail({ to: args.to, subject: i18nextResolve(`${args.templateNamespace}:subject`), html, text: htmlToText(html) })
+function sendMailTemplated(args: MailTemplate) {
+  const html = renderTemplate({
+    language: args.language,
+    templateNamespace: args.templateNamespace,
+    templateVariables: args.templateVariables,
+  })
+  sendMail({
+    to: args.to,
+    subject: i18nextResolve(`${args.templateNamespace}:subject`),
+    html,
+    text: htmlToText(html),
+  })
 }
 
-export function sendAccountPasswordResetRequestMail (dataJsonObject: any) {
+export function sendAccountPasswordResetRequestMail(
+  dataJsonObject: AccountPasswordResetRequestMailOptions,
+): void {
   sendMailTemplated({
     to: dataJsonObject.account.email_address,
     subject: 'Password Reset Request',
     language: dataJsonObject.template.language,
     templateNamespace: 'accountPasswordResetRequest',
     templateVariables: {
-      passwordResetVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/task/account/password/reset?code=${dataJsonObject.account.password_reset_verification}`,
-      username: dataJsonObject.account.username
-    }
+      passwordResetVerificationLink: `https://${
+        process.env.STACK_DOMAIN || 'maevsi.test'
+      }/task/account/password/reset?code=${
+        dataJsonObject.account.password_reset_verification
+      }`,
+      username: dataJsonObject.account.username,
+    },
   })
 }
 
-export function sendAccountRegistrationMail (dataJsonObject: any) {
+export function sendAccountRegistrationMail(
+  dataJsonObject: AccountRegistrationMailOptions,
+): void {
   sendMailTemplated({
     to: dataJsonObject.account.email_address,
     subject: 'Welcome',
     language: dataJsonObject.template.language,
     templateNamespace: 'accountRegistration',
     templateVariables: {
-      emailAddressVerificationLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}/task/account/email-address/verify?code=${dataJsonObject.account.email_address_verification}`,
-      username: dataJsonObject.account.username
-    }
+      emailAddressVerificationLink: `https://${
+        process.env.STACK_DOMAIN || 'maevsi.test'
+      }/task/account/email-address/verify?code=${
+        dataJsonObject.account.email_address_verification
+      }`,
+      username: dataJsonObject.account.username,
+    },
   })
 }
 
-export async function sendInvitationMail (dataJsonObject: MessageInvitation) {
+export async function sendInvitationMail(
+  dataJsonObject: MessageInvitation,
+): Promise<void> {
   dataJsonObject = camelcaseKeys(dataJsonObject)
-  const invitation: MaevsiInvitation = camelcaseKeys(await getInvitation(dataJsonObject.invitationId).catch((reason) => consola.error(reason)))
+
+  let invitation: void | MaevsiInvitation = await getInvitation(
+    dataJsonObject.invitationId,
+  ).catch((reason) => consola.error(reason))
 
   if (!invitation) {
     return
   }
 
-  const contact: MaevsiContact = camelcaseKeys(await getContact(invitation.contactId).catch((reason) => consola.error(reason)))
-  const event: MaevsiEvent = camelcaseKeys(await getEvent(invitation.eventId).catch((reason) => consola.error(reason)))
+  invitation = camelcaseKeys(invitation)
 
-  const req = http.request('http://maevsi:3000/ical', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8'
-    }
-  }, (res) => {
-    sendMail({
-      to: contact.emailAddress,
-      subject: 'Invitation',
-      icalEvent: {
-        content: res,
-        filename: event.authorUsername + '_' + event.slug + '.ics',
-        method: 'request'
+  let contact: void | MaevsiContact = await getContact(
+    invitation.contactId,
+  ).catch((reason) => consola.error(reason))
+
+  if (!contact) {
+    return
+  }
+
+  contact = camelcaseKeys(contact)
+
+  let event: void | MaevsiEvent = await getEvent(
+    invitation.eventId,
+  ).catch((reason) => consola.error(reason))
+
+  if (!event) {
+    return
+  }
+
+  event = camelcaseKeys(event)
+
+  const req = http.request(
+    'http://maevsi:3000/ical',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    },
+    (res) => {
+      if (!contact || !event) {
+        return
       }
-    })
-  })
+
+      sendMail({
+        to: contact.emailAddress,
+        subject: 'Invitation',
+        icalEvent: {
+          content: res,
+          filename: event.authorUsername + '_' + event.slug + '.ics',
+          method: 'request',
+        },
+      })
+    },
+  )
 
   req.on('error', (e) => {
     consola.error(`Problem with request: ${e.message}`)
