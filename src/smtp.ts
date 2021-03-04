@@ -19,9 +19,11 @@ import {
   MessageInvitation,
 } from './types'
 import { i18nextResolve, renderTemplate } from './handlebars'
+import { dateFormat } from './moment'
 
 const HTML_TO_TEXT_OPTIONS = { tags: { img: { format: 'skip' } } }
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
+const MOMENT_FORMAT = 'LL LTS'
 const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
   '/run/secrets/stomper_nodemailer-transporter'
 
@@ -67,7 +69,6 @@ export function sendAccountPasswordResetRequestMail(
 ): void {
   sendMailTemplated({
     to: dataJsonObject.account.email_address,
-    subject: 'Password Reset Request',
     language: dataJsonObject.template.language,
     templateNamespace: 'accountPasswordResetRequest',
     templateVariables: {
@@ -77,6 +78,11 @@ export function sendAccountPasswordResetRequestMail(
         dataJsonObject.account.password_reset_verification
       }`,
       username: dataJsonObject.account.username,
+      validUntil: dateFormat({
+        input: dataJsonObject.account.password_reset_verification_valid_until,
+        format: MOMENT_FORMAT,
+        language: dataJsonObject.template.language,
+      }),
     },
   })
 }
@@ -86,7 +92,6 @@ export function sendAccountRegistrationMail(
 ): void {
   sendMailTemplated({
     to: dataJsonObject.account.email_address,
-    subject: 'Welcome',
     language: dataJsonObject.template.language,
     templateNamespace: 'accountRegistration',
     templateVariables: {
@@ -96,6 +101,11 @@ export function sendAccountRegistrationMail(
         dataJsonObject.account.email_address_verification
       }`,
       username: dataJsonObject.account.username,
+      validUntil: dateFormat({
+        input: dataJsonObject.account.email_address_verification_valid_until,
+        format: MOMENT_FORMAT,
+        language: dataJsonObject.template.language,
+      }),
     },
   })
 }

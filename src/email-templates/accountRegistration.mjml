@@ -30,9 +30,11 @@
           <mj-text>
             <p>{{__ "accountRegistration:paragraph1"}}</p>
             <p>{{__ "accountRegistration:paragraph2"}}</p>
-            <!-- Then, check out the upcoming events below. -->
           </mj-text>
           <mj-button href="{{emailAddressVerificationLink}}">{{__ "accountRegistration:button"}}</mj-button>
+          <mj-text align="center" color="#555555" font-size="13px" line-height="1px" padding-top="0px">
+            <p>{{__ "accountRegistration:validUntil" validUntil=validUntil}}</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section padding-top="20px">

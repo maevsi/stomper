@@ -1,7 +1,9 @@
 export interface Account {
   email_address: string
   email_address_verification: string
+  email_address_verification_valid_until: string
   password_reset_verification: string
+  password_reset_verification_valid_until: string
   username: string
 }
 
@@ -51,9 +53,19 @@ export interface MaevsiInvitation {
   feedbackPaper: ['digital', 'none', 'paper']
 }
 
+export interface DateFormatOptions {
+  input: string
+  format: string
+  language: string
+}
+
 export interface Mail {
   to: string
   subject: string
+}
+
+export interface MailWithoutSubject {
+  to: string
 }
 
 export interface MessageInvitation {
@@ -72,4 +84,4 @@ export interface Template {
   templateVariables: Record<string, unknown>
 }
 
-export interface MailTemplate extends Mail, Template {}
+export interface MailTemplate extends MailWithoutSubject, Template {}

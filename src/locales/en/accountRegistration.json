@@ -4,5 +4,6 @@
     "paragraph1": "Thanks so much for joining maevsi — we're thrilled to have you!",
     "paragraph2": "Please click on the link below to complete your registration and set up your profile.",
     "subject": "Complete registration",
-    "title": "Welcome"
+    "title": "Welcome",
+    "validUntil": "This request is valid until {{validUntil}}."
 }

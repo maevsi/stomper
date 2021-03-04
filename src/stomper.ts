@@ -50,11 +50,11 @@ client.onConnect = function () {
     client.subscribe(
       `/queue/${queueToFunctionMapping.queueName}`,
       function (message) {
-        if (message.body) {
-          consola.log('got message with body ' + message.body)
-        } else {
-          consola.log('got empty message')
+        if (!message.body) {
+          consola.error('got empty message')
         }
+
+        consola.log('got message with body ' + message.body)
 
         try {
           queueToFunctionMapping.function(JSON.parse(message.body))

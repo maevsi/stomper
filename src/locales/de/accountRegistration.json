@@ -4,5 +4,6 @@
     "paragraph1": "Vielen Dank für deine Anmeldung bei maevsi - wir freuen uns, dass du dabei bist!",
     "paragraph2": "Bitte klicke auf den unten stehenden Link, um die Registrierung abzuschließen und dein Profil einzurichten.",
     "subject": "Registrierung abschließen",
-    "title": "Willkommen"
+    "title": "Willkommen",
+    "validUntil": "Diese Anfrage ist bis zum {{validUntil}} gültig."
 }
