@@ -22,6 +22,8 @@ WORKDIR /srv/app/
 
 COPY --from=development /srv/app/ ./
 
+RUN yarn run lint
+RUN yarn run test
 RUN yarn run build
 
 # Discard devDependencies.
