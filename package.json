@@ -75,7 +75,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -print0 | xargs -0 mjml -v {}"
+      "pre-commit": "yarn lint && find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -print0 | xargs -0 mjml -v {}"
     }
   },
   "snyk": true
