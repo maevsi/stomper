@@ -26,7 +26,7 @@
     "nodemailer": "6.5.0",
     "pg": "8.5.1",
     "serve-static": "1.14.1",
-    "snyk": "1.473.0",
+    "snyk": "1.474.0",
     "websocket": "1.0.33"
   },
   "devDependencies": {
