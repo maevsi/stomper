@@ -43,7 +43,7 @@
     "@types/nodemailer": "6.4.0",
     "@types/pg": "7.14.11",
     "@types/serve-static": "1.13.9",
-    "@types/websocket": "1.0.1",
+    "@types/websocket": "1.0.2",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
     "babel-jest": "26.6.3",
