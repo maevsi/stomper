@@ -39,7 +39,7 @@
     "@types/html-to-text": "6.0.0",
     "@types/i18next-fs-backend": "1.0.0",
     "@types/jest": "26.0.20",
-    "@types/node": "13.13.45",
+    "@types/node": "13.13.46",
     "@types/nodemailer": "6.4.0",
     "@types/pg": "7.14.11",
     "@types/serve-static": "1.13.9",
