@@ -17,6 +17,11 @@ export interface AccountRegistrationMailOptions {
   template: Template
 }
 
+export interface EventInvitationMailOptions {
+  invitationId: BigInt
+  template: Template
+}
+
 export interface MaevsiContact {
   id: BigInt
   accountUsername: string
@@ -31,17 +36,17 @@ export interface MaevsiContact {
 export interface MaevsiEvent {
   id: BigInt
   authorUsername: string
-  description: string
-  end: Date
-  inviteeCountMaximum: number
+  description: string | null
+  end: string | null // Date
+  inviteeCountMaximum: number | null
   isArchived: boolean
   isInPerson: boolean
   isRemote: boolean
-  location: string
+  location: string | null
   name: string
   slug: string
-  start: Date
-  visibility: ['public', 'private']
+  start: string // Date
+  visibility: 'public' | 'private'
 }
 
 export interface MaevsiInvitation {
@@ -49,39 +54,41 @@ export interface MaevsiInvitation {
   uuid: string
   eventId: BigInt
   contactId: BigInt
-  feedback: ['accepted', 'canceled']
-  feedbackPaper: ['digital', 'none', 'paper']
+  feedback: 'accepted' | 'canceled'
+  feedbackPaper: 'digital' | 'none' | 'paper'
 }
 
-export interface DateFormatOptions {
-  input: string
+export interface MaevsiProfilePicture {
+  id: BigInt
+  uploadStorageKey: string
+  username: string
+}
+
+export interface MomentFormatOptionsBase {
   format: string
   language: string
 }
 
+export interface DateFormatOptions extends MomentFormatOptionsBase {
+  input: string
+}
+
+export interface DurationFormatOptions extends MomentFormatOptionsBase {
+  start: string
+  end: string
+}
+
 export interface Mail {
-  to: string
-  subject: string
-}
-
-export interface MailWithoutSubject {
-  to: string
-}
-
-export interface MessageInvitation {
-  invitationId: BigInt
-}
-
-export interface MailWithContent extends Mail {
   html?: string
+  icalEvent?: Record<string, unknown> // https://nodemailer.com/message/calendar-events/
+  subject?: string
+  template?: Template
   text?: string
-  icalEvent?: Record<string, unknown>
+  to: string
 }
 
 export interface Template {
   language: string
-  templateNamespace: string
-  templateVariables: Record<string, unknown>
+  namespace: string
+  variables: Record<string, unknown>
 }
-
-export interface MailTemplate extends MailWithoutSubject, Template {}

@@ -4,7 +4,7 @@ import consola from 'consola'
 import {
   sendAccountPasswordResetRequestMail,
   sendAccountRegistrationMail,
-  sendInvitationMail,
+  sendEventInvitationMail,
 } from './smtp'
 import { startWebserver } from './webserver'
 
@@ -45,7 +45,7 @@ client.onConnect = function () {
       queueName: 'account_registration',
       function: sendAccountRegistrationMail,
     },
-    { queueName: 'invitation', function: sendInvitationMail },
+    { queueName: 'event_invitation', function: sendEventInvitationMail },
   ].forEach((queueToFunctionMapping) => {
     client.subscribe(
       `/queue/${queueToFunctionMapping.queueName}`,

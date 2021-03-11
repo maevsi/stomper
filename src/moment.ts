@@ -1,8 +1,15 @@
 import moment from 'moment-timezone'
 
-import { DateFormatOptions } from './types'
+import { DateFormatOptions, DurationFormatOptions } from './types'
 
-export function dateFormat(options: DateFormatOptions): string {
+export function momentFormatDate(options: DateFormatOptions): string {
   moment.locale(options.language)
   return moment.utc(options.input).format(options.format)
+}
+
+export function momentFormatDuration(options: DurationFormatOptions): string {
+  moment.locale(options.language)
+  return moment
+    .duration(moment(options.end).diff(moment(options.start)))
+    .humanize()
 }

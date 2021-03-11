@@ -22,7 +22,12 @@ i18next.use(Backend).init({
   fallbackLng: process.env.NODE_ENV !== 'production' ? 'dev' : 'en',
   initImmediate: false,
   lng: 'en',
-  ns: ['accountRegistration', 'accountPasswordResetRequest', 'maevsi'],
+  ns: [
+    'accountRegistration',
+    'accountPasswordResetRequest',
+    'eventInvitation',
+    'maevsi',
+  ],
   preload: fs
     .readdirSync(path.join(__dirname, './locales'))
     .filter((fileName) => {
@@ -46,25 +51,26 @@ export function templateCompile(
   })
 }
 
-export function renderTemplate(args: Template): string {
+export function renderTemplate(template: Template): string {
   if (process.env.NODE_ENV !== 'production') {
     i18next.reloadResources()
   }
 
   return templateCompile(
     fs.readFileSync(
-      path.resolve(
-        __dirname,
-        `./email-templates/${args.templateNamespace}.html`,
-      ),
+      path.resolve(__dirname, `./email-templates/${template.namespace}.html`),
       'utf-8',
     ),
-    args.language,
-    args.templateVariables,
+    template.language,
+    template.variables,
   )
 }
 
-export function i18nextResolve(id: string, language = 'en'): string {
+export function i18nextResolve(
+  id: string,
+  language = 'en',
+  options?: Record<string, unknown>,
+): string {
   i18next.changeLanguage(language)
-  return i18next.t(id)
+  return i18next.t(id, options)
 }

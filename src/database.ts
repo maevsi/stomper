@@ -3,7 +3,12 @@ import consola from 'consola'
 import fs = require('fs')
 import { Pool } from 'pg'
 
-import { MaevsiContact, MaevsiEvent, MaevsiInvitation } from './types'
+import {
+  MaevsiContact,
+  MaevsiEvent,
+  MaevsiInvitation,
+  MaevsiProfilePicture,
+} from './types'
 
 const secretPostgresDbPath = '/run/secrets/postgres_db'
 const secretPostgresRoleMaevsiTusdPasswordPath =
@@ -80,6 +85,27 @@ export function getInvitation(id: BigInt): Promise<MaevsiInvitation> {
           reject(new Error('Invitation does not exist!'))
           return
         }
+
+        resolve(queryRes.rows[0])
+      },
+    )
+  })
+}
+
+export function getProfilePicture(
+  username: string,
+): Promise<MaevsiProfilePicture> {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      'SELECT * FROM maevsi.profile_picture WHERE username= $1',
+      [username],
+      (err, queryRes) => {
+        if (err) {
+          reject(err)
+          return
+        }
+
+        // Profile pictures are optional, so no rejection on zero rows is required.
 
         resolve(queryRes.rows[0])
       },

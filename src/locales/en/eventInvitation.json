@@ -1,0 +1,17 @@
+{
+    "button": "Give feedback",
+    "createdBy": "Created by",
+    "eventAttendanceTypeInPerson": "in person",
+    "eventAttendanceTypeRemote": "remote",
+    "eventAttendanceType": "Attendance: {{eventAttendanceType}}",
+    "eventDescriptionTitle": "Details",
+    "eventDuration": "Duration: {{eventDuration}}",
+    "eventIsArchived": "archived",
+    "eventShow": "Show event",
+    "eventStart": "Start: {{eventStart}}",
+    "eventVisibilityIsPrivate": "a private",
+    "eventVisibilityIsPublic": "a public",
+    "eventVisibility": "This is {{eventVisibility}} event.",
+    "header": "{{eventAuthorUsername}} invited you!",
+    "subject": "Invitation: {{eventName}} by {{eventAuthorUsername}}"
+}

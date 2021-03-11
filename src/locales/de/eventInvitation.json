@@ -1,0 +1,17 @@
+{
+    "button": "Rückmeldung geben",
+    "createdBy": "Erstellt von",
+    "eventAttendanceTypeInPerson": "vor Ort",
+    "eventAttendanceTypeRemote": "remote",
+    "eventAttendanceType": "Teilnahme: {{eventAttendanceType}}",
+    "eventDescriptionTitle": "Details",
+    "eventDuration": "Dauer: {{eventDuration}}",
+    "eventIsArchived": "archiviert",
+    "eventShow": "Veranstaltung anzeigen",
+    "eventStart": "Beginn: {{eventStart}}",
+    "eventVisibilityIsPrivate": "private",
+    "eventVisibilityIsPublic": "öffentliche",
+    "eventVisibility": "Dies ist eine {{eventVisibility}} Veranstaltung.",
+    "header": "{{eventAuthorUsername}} hat dich eingeladen!",
+    "subject": "Einladung: {{eventName}} von {{eventAuthorUsername}}"
+}
