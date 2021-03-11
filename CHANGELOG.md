@@ -1,3 +1,10 @@
+# [0.13.0](https://github.com/maevsi/stomper/compare/0.12.1...0.13.0) (2021-03-11)
+
+
+### Features
+
+* create html invitation mail ([df2635f](https://github.com/maevsi/stomper/commit/df2635f64d0550add7e4c9f6a7dfb9cc98bf7662)), closes [#45](https://github.com/maevsi/stomper/issues/45)
+
 ## [0.12.1](https://github.com/maevsi/stomper/compare/0.12.0...0.12.1) (2021-03-04)
 
 
