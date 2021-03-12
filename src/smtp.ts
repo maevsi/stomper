@@ -35,9 +35,7 @@ const MOMENT_FORMAT = 'LL LTS'
 const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
   '/run/secrets/stomper_nodemailer-transporter'
 const TUSD_FILES_URL =
-  'https://tusd.' +
-  (process.env.NUXT_ENV_STACK_DOMAIN || 'maevsi.test') +
-  '/files/'
+  'https://tusd.' + (process.env.STACK_DOMAIN || 'maevsi.test') + '/files/'
 
 if (!fs.existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
   throw new Error('The STMP configuration secret is missing!')
