@@ -42,7 +42,7 @@
     "@types/jest": "26.0.20",
     "@types/markdown-it": "12.0.1",
     "@types/node": "13.13.46",
-    "@types/nodemailer": "6.4.0",
+    "@types/nodemailer": "6.4.1",
     "@types/pg": "7.14.11",
     "@types/serve-static": "1.13.9",
     "@types/websocket": "1.0.2",
