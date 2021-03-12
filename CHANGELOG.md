@@ -1,3 +1,15 @@
+# [0.14.0](https://github.com/maevsi/stomper/compare/0.13.0...0.14.0) (2021-03-12)
+
+
+### Bug Fixes
+
+* **smtp:** correct stack domain environment variable ([7fd7506](https://github.com/maevsi/stomper/commit/7fd7506a0551c8a8c766ece59586110ce9740ada))
+
+
+### Features
+
+* **i18n:** rename remote to digital ([e5fa639](https://github.com/maevsi/stomper/commit/e5fa63943b58957c4ac42587d194f72e32cd07c0))
+
 # [0.13.0](https://github.com/maevsi/stomper/compare/0.12.1...0.13.0) (2021-03-11)
 
 
