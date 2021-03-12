@@ -2,7 +2,7 @@
     "button": "Rückmeldung geben",
     "createdBy": "Erstellt von",
     "eventAttendanceTypeInPerson": "vor Ort",
-    "eventAttendanceTypeRemote": "remote",
+    "eventAttendanceTypeRemote": "digital",
     "eventAttendanceType": "Teilnahme: {{eventAttendanceType}}",
     "eventDescriptionTitle": "Details",
     "eventDuration": "Dauer: {{eventDuration}}",
