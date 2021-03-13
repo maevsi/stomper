@@ -52,6 +52,16 @@ function htmlToText(html: string) {
 }
 
 async function sendMail(mail: Mail) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    mail.to.startsWith('mail+sqitch-')
+  ) {
+    consola.debug(
+      'Skipping mail sending for test data email accounts ("mail+sqitch-...").',
+    )
+    return
+  }
+
   const mailSentData = await NODEMAILER_TRANSPORTER.sendMail({
     from: MAIL_FROM,
     ...mail,
