@@ -1,3 +1,10 @@
+# [0.15.0](https://github.com/maevsi/stomper/compare/0.14.0...0.15.0) (2021-03-13)
+
+
+### Features
+
+* **smtp:** disable test data mails ([772edf0](https://github.com/maevsi/stomper/commit/772edf05532ad3b74e00a7a458f153a71f806f87)), closes [#48](https://github.com/maevsi/stomper/issues/48)
+
 # [0.14.0](https://github.com/maevsi/stomper/compare/0.13.0...0.14.0) (2021-03-12)
 
 
