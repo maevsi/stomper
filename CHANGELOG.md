@@ -1,3 +1,10 @@
+## [0.15.2](https://github.com/maevsi/stomper/compare/0.15.1...0.15.2) (2021-03-27)
+
+
+### Bug Fixes
+
+* **smtp:** correct event link ([9211dc6](https://github.com/maevsi/stomper/commit/9211dc633b43495b8d9662a0baa6751f4dcb449e))
+
 ## [0.15.1](https://github.com/maevsi/stomper/compare/0.15.0...0.15.1) (2021-03-22)
 
 
