@@ -283,7 +283,7 @@ export async function sendEventInvitationMail(
             // TODO: eventGroupName
             eventLink: `https://${
               process.env.STACK_DOMAIN || 'maevsi.test'
-            }/event/${event.authorUsername}/${event.name}`,
+            }/event/${event.authorUsername}/${event.slug}`,
             eventName: event.name,
             eventStart: momentFormatDate({
               input: event.start,
