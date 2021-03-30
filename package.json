@@ -20,7 +20,7 @@
     "handlebars-i18n": "1.1.2",
     "html-to-text": "7.0.0",
     "i18next": "19.9.2",
-    "i18next-fs-backend": "1.1.0",
+    "i18next-fs-backend": "1.1.1",
     "intl": "1.2.5",
     "markdown-it": "12.0.4",
     "moment-timezone": "0.5.33",
