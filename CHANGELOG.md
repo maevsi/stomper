@@ -1,3 +1,10 @@
+## [0.15.4](https://github.com/maevsi/stomper/compare/0.15.3...0.15.4) (2021-04-13)
+
+
+### Bug Fixes
+
+* **deps:** pin handlebars-i18n's i18next version ([04855fd](https://github.com/maevsi/stomper/commit/04855fd79646d18a0e385f1ec4689327d1c71778))
+
 ## [0.15.3](https://github.com/maevsi/stomper/compare/0.15.2...0.15.3) (2021-04-05)
 
 
