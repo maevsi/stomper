@@ -18,7 +18,7 @@
     "express": "4.17.1",
     "handlebars": "4.7.7",
     "handlebars-i18n": "1.1.4",
-    "html-to-text": "7.0.0",
+    "html-to-text": "7.1.1",
     "i18next": "20.2.1",
     "i18next-fs-backend": "1.1.1",
     "intl": "1.2.5",
