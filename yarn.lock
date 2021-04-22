@@ -5041,13 +5041,13 @@ gunzip-maybe@^1.4.2:
     pumpify "^1.3.3"
     through2 "^2.0.3"
 
-handlebars-i18n@1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.1.4.tgz#2fafb93d9ea5d97bed519c2d688451fbc24d369d"
-  integrity sha512-Eu6/j9gkwNLcAusgu+dBhKkidkoJav9keay1j0At9SNSIXUKyoeKz2MBIxBqSwYiZ3UtYsjmaL7ZjEHvFicrbw==
+handlebars-i18n@1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.1.5.tgz#00fdc0313ba67aa2c4e2fa410b68be1dae0f99db"
+  integrity sha512-d7I+z37kSV1YrA9+PtCnKfXZI83zZT7dbcp8WvseiIE8eHuw6l2jfDf+j95KQGZZNUO780Ktfz4M6IZVuKscvg==
   dependencies:
     handlebars "^4.7.6"
-    i18next "^19.8.4 || ^20.2.1"
+    i18next "^20.2.1"
     intl "^1.2.5"
 
 handlebars@4.7.7, handlebars@^4.7.6:
@@ -5323,7 +5323,7 @@ i18next-fs-backend@1.1.1:
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.1.tgz#1d8028926803f63784ffa0f2b1478fb369f92735"
   integrity sha512-RFkfy10hNxJqc7MVAp5iAZq0Tum6msBCNebEe3OelOBvrROvzHUPaR8Qe10RQrOGokTm0W4vJGEJzruFkEt+hQ==
 
-i18next@20.2.1, "i18next@^19.8.4 || ^20.2.1":
+i18next@20.2.1, i18next@^20.2.1:
   version "20.2.1"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.2.1.tgz#8aedfdc596f7d54b9d3f6d87bcb89214467cb785"
   integrity sha512-JLruWDEQ3T6tKT6P7u+DsNtToMHUwUcQIYOMRcnNBdUhSfKkoIDUKdVDKgGtmqr//LrirxjADUdr3d5Gwbow6g==
