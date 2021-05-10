@@ -1,3 +1,10 @@
+## [0.15.7](https://github.com/maevsi/stomper/compare/0.15.6...0.15.7) (2021-05-10)
+
+
+### Bug Fixes
+
+* **smtp:** fix linter errors ([0aec272](https://github.com/maevsi/stomper/commit/0aec2726a3c9ef8c244596fb720396e93fa93921))
+
 ## [0.15.6](https://github.com/maevsi/stomper/compare/0.15.5...0.15.6) (2021-05-10)
 
 
