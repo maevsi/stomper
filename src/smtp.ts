@@ -163,9 +163,9 @@ export async function sendEventInvitationMail(
 
   contact = camelcaseKeys(contact)
 
-  let event: void | MaevsiEvent = await getEvent(
-    invitation.eventId,
-  ).catch((reason) => consola.error(reason))
+  let event: void | MaevsiEvent = await getEvent(invitation.eventId).catch(
+    (reason) => consola.error(reason),
+  )
 
   if (!event) {
     return
@@ -173,9 +173,10 @@ export async function sendEventInvitationMail(
 
   event = camelcaseKeys(event)
 
-  let eventAuthorProfilePicture: void | MaevsiProfilePicture = await getProfilePicture(
-    event.authorUsername,
-  ).catch((reason) => consola.error(reason))
+  let eventAuthorProfilePicture: void | MaevsiProfilePicture =
+    await getProfilePicture(event.authorUsername).catch((reason) =>
+      consola.error(reason),
+    )
 
   if (eventAuthorProfilePicture) {
     eventAuthorProfilePicture = camelcaseKeys(eventAuthorProfilePicture)
