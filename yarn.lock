@@ -4523,10 +4523,10 @@ gunzip-maybe@^1.4.2:
     pumpify "^1.3.3"
     through2 "^2.0.3"
 
-handlebars-i18n@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.2.0.tgz#728cbf073a8fe7f5f5a7325a4732d3adf2f1dc7a"
-  integrity sha512-tfexbVHpd0B3A1pAoWqXJFu1GUGk2+96almGuDiSp8yUZiqul4AjaAPyiue+MyInGrlmaStvxaYxpsJzW2pYeA==
+handlebars-i18n@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.2.1.tgz#413fc34c0a98466d82074ad4e5c3b7174b36e38d"
+  integrity sha512-lpIR6c9aIn5Yny0Ajz4t4I8svOrEuaqVDe2Zdgx2cyI8RykLzabV+rtrH4uBQeiyRVNbLdBt2VhPQLOSVDawvg==
   dependencies:
     handlebars "^4.7.6"
     i18next "^20.2.1"
