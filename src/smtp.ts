@@ -29,7 +29,9 @@ import { i18nextResolve, renderTemplate } from './handlebars'
 import { momentFormatDate, momentFormatDuration } from './moment'
 
 const EVENT_DESCRIPTION_TRIM_LENGTH = 250
-const HTML_TO_TEXT_OPTIONS = { tags: { img: { format: 'skip' } } }
+const HTML_TO_TEXT_OPTIONS = {
+  selectors: [{ selector: 'img', format: 'skip' }],
+}
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
 const MOMENT_FORMAT = 'LL LTS'
 const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
