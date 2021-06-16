@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/maevsi/stomper/compare/0.15.10...0.16.0) (2021-06-16)
+
+
+### Features
+
+* **html-to-text:** upgrade to v8 options ([ed18c04](https://github.com/maevsi/stomper/commit/ed18c04f005d7c91bfda70fc2f9bfb58cabbb522))
+
 ## [0.15.10](https://github.com/maevsi/stomper/compare/0.15.9...0.15.10) (2021-06-14)
 
 
