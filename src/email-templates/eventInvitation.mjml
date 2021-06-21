@@ -12,7 +12,7 @@
     <mj-wrapper background-color="#f0f0f0" full-width="full-width">
       <mj-section padding-top="30px">
         <mj-column width="70%">
-          <mj-image height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
+          <mj-image alt="{{__ 'logo'}}" height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
         </mj-column>
       </mj-section>
       <mj-section>
@@ -59,7 +59,7 @@
       </mj-section>
       <mj-section padding-top="20px">
         <mj-column width="12%">
-          <mj-image padding-right="0px" padding-left="25px" align="left" href="{{eventAuthorProfileHref}}" src="{{eventAuthorProfilePictureSrc}}"></mj-image>
+          <mj-image alt="{{__ 'profilePicture'}}" padding-right="0px" padding-left="25px" align="left" href="{{eventAuthorProfileHref}}" src="{{eventAuthorProfilePictureSrc}}"></mj-image>
         </mj-column>
         <mj-column width="88%">
           <mj-text padding="3px 15px">
