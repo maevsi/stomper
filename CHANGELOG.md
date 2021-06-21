@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/maevsi/stomper/compare/0.16.0...0.17.0) (2021-06-21)
+
+
+### Features
+
+* **mjml:** add alt tags to images ([d393a9d](https://github.com/maevsi/stomper/commit/d393a9ddbbd7fdd694343ec2a922d9aa230694ef))
+
 # [0.16.0](https://github.com/maevsi/stomper/compare/0.15.10...0.16.0) (2021-06-16)
 
 
