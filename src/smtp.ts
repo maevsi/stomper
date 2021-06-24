@@ -193,6 +193,11 @@ export async function sendEventInvitationMail(
       },
     },
     (res) => {
+      if (!invitation) {
+        consola.error(`Could not get invitation ${invitation}!`)
+        return
+      }
+
       if (!contact) {
         consola.error(`Could not get contact ${contact}!`)
         return
@@ -286,7 +291,7 @@ export async function sendEventInvitationMail(
             // TODO: eventGroupName
             eventLink: `https://${
               process.env.STACK_DOMAIN || 'maevsi.test'
-            }/event/${event.authorUsername}/${event.slug}`,
+            }/task/event/unlock?ic=${invitation.uuid}`,
             eventName: event.name,
             eventStart: momentFormatDate({
               input: event.start,
