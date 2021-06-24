@@ -1,3 +1,10 @@
+## [0.17.1](https://github.com/maevsi/stomper/compare/0.17.0...0.17.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* **invitation:** set event link to unlock task ([967e51c](https://github.com/maevsi/stomper/commit/967e51c04b4631278244d4c5bf277ef2d6d01619)), closes [#64](https://github.com/maevsi/stomper/issues/64)
+
 # [0.17.0](https://github.com/maevsi/stomper/compare/0.16.0...0.17.0) (2021-06-21)
 
 
