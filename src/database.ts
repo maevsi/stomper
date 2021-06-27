@@ -25,6 +25,24 @@ const pool = new Pool({
   user: 'maevsi_stomper', // lgtm [js/hardcoded-credentials]
 })
 
+export function ack(id: number, isAcknowledged = true): Promise<unknown> {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      'SELECT maevsi.notification_acknowledge($1, $2)',
+      [id, isAcknowledged],
+      (err) => {
+        if (err) {
+          consola.error(err)
+          reject(err)
+          return
+        }
+
+        resolve(true)
+      },
+    )
+  })
+}
+
 export function getContact(id: BigInt): Promise<MaevsiContact> {
   return new Promise((resolve, reject) => {
     pool.query(

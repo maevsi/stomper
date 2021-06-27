@@ -9,6 +9,7 @@ import { createTransport } from 'nodemailer'
 import camelcaseKeys = require('camelcase-keys')
 
 import {
+  ack,
   getContact,
   getEvent,
   getInvitation,
@@ -87,66 +88,81 @@ function sendMailTemplated(mail: Mail, template: Template) {
 }
 
 export function sendAccountPasswordResetRequestMail(
-  dataJsonObject: AccountPasswordResetRequestMailOptions,
+  id: number,
+  payload: AccountPasswordResetRequestMailOptions,
 ): void {
-  sendMailTemplated(
-    {
-      to: dataJsonObject.account.email_address,
-    },
-    {
-      language: dataJsonObject.template.language,
-      namespace: 'accountPasswordResetRequest',
-      variables: {
-        passwordResetVerificationLink: `https://${
-          process.env.STACK_DOMAIN || 'maevsi.test'
-        }/task/account/password/reset?code=${
-          dataJsonObject.account.password_reset_verification
-        }`,
-        username: dataJsonObject.account.username,
-        validUntil: momentFormatDate({
-          input: dataJsonObject.account.password_reset_verification_valid_until,
-          format: MOMENT_FORMAT,
-          language: dataJsonObject.template.language,
-        }),
+  try {
+    sendMailTemplated(
+      {
+        to: payload.account.email_address,
       },
-    },
-  )
+      {
+        language: payload.template.language,
+        namespace: 'accountPasswordResetRequest',
+        variables: {
+          passwordResetVerificationLink: `https://${
+            process.env.STACK_DOMAIN || 'maevsi.test'
+          }/task/account/password/reset?code=${
+            payload.account.password_reset_verification
+          }`,
+          username: payload.account.username,
+          validUntil: momentFormatDate({
+            input: payload.account.password_reset_verification_valid_until,
+            format: MOMENT_FORMAT,
+            language: payload.template.language,
+          }),
+        },
+      },
+    )
+    ack(id)
+  } catch (e) {
+    consola.error(e)
+    ack(id, false)
+  }
 }
 
 export function sendAccountRegistrationMail(
-  dataJsonObject: AccountRegistrationMailOptions,
+  id: number,
+  payload: AccountRegistrationMailOptions,
 ): void {
-  sendMailTemplated(
-    {
-      to: dataJsonObject.account.email_address,
-    },
-    {
-      language: dataJsonObject.template.language,
-      namespace: 'accountRegistration',
-      variables: {
-        emailAddressVerificationLink: `https://${
-          process.env.STACK_DOMAIN || 'maevsi.test'
-        }/task/account/email-address/verify?code=${
-          dataJsonObject.account.email_address_verification
-        }`,
-        username: dataJsonObject.account.username,
-        validUntil: momentFormatDate({
-          input: dataJsonObject.account.email_address_verification_valid_until,
-          format: MOMENT_FORMAT,
-          language: dataJsonObject.template.language,
-        }),
+  try {
+    sendMailTemplated(
+      {
+        to: payload.account.email_address,
       },
-    },
-  )
+      {
+        language: payload.template.language,
+        namespace: 'accountRegistration',
+        variables: {
+          emailAddressVerificationLink: `https://${
+            process.env.STACK_DOMAIN || 'maevsi.test'
+          }/task/account/email-address/verify?code=${
+            payload.account.email_address_verification
+          }`,
+          username: payload.account.username,
+          validUntil: momentFormatDate({
+            input: payload.account.email_address_verification_valid_until,
+            format: MOMENT_FORMAT,
+            language: payload.template.language,
+          }),
+        },
+      },
+    )
+    ack(id)
+  } catch (e) {
+    consola.error(e)
+    ack(id, false)
+  }
 }
 
 export async function sendEventInvitationMail(
-  dataJsonObject: EventInvitationMailOptions,
+  id: number,
+  payload: EventInvitationMailOptions,
 ): Promise<void> {
-  dataJsonObject = camelcaseKeys(dataJsonObject)
+  payload = camelcaseKeys(payload)
 
   let invitation: void | MaevsiInvitation = await getInvitation(
-    dataJsonObject.invitationId,
+    payload.invitationId,
   ).catch((reason) => consola.error(reason))
 
   if (!invitation) {
@@ -209,7 +225,7 @@ export async function sendEventInvitationMail(
       }
 
       const namespace = 'eventInvitation'
-      const language = dataJsonObject.template.language
+      const language = payload.template.language
 
       const eventAttendanceType = [
         ...(event.isInPerson
@@ -256,52 +272,58 @@ export async function sendEventInvitationMail(
         )
       }
 
-      sendMailTemplated(
-        {
-          icalEvent: {
-            content: res,
-            filename: event.authorUsername + '_' + event.slug + '.ics',
-            method: 'request',
+      try {
+        sendMailTemplated(
+          {
+            icalEvent: {
+              content: res,
+              filename: event.authorUsername + '_' + event.slug + '.ics',
+              method: 'request',
+            },
+            to: contact.emailAddress,
           },
-          to: contact.emailAddress,
-        },
-        {
-          language,
-          namespace,
-          variables: {
-            eventAttendanceType,
-            eventAuthorProfileHref: `https://${
-              process.env.STACK_DOMAIN || 'maevsi.test'
-            }/account/${event.authorUsername}`,
-            eventAuthorProfilePictureSrc: eventAuthorProfilePicture
-              ? TUSD_FILES_URL +
-                eventAuthorProfilePicture.uploadStorageKey +
-                '+'
-              : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
-            eventAuthorUsername: event.authorUsername,
-            eventDescription,
-            eventDuration: event.end
-              ? momentFormatDuration({
-                  start: event.start,
-                  end: event.end,
-                  format: MOMENT_FORMAT,
-                  language: dataJsonObject.template.language,
-                })
-              : null,
-            // TODO: eventGroupName
-            eventLink: `https://${
-              process.env.STACK_DOMAIN || 'maevsi.test'
-            }/task/event/unlock?ic=${invitation.uuid}`,
-            eventName: event.name,
-            eventStart: momentFormatDate({
-              input: event.start,
-              format: MOMENT_FORMAT,
-              language: dataJsonObject.template.language,
-            }),
-            eventVisibility,
+          {
+            language,
+            namespace,
+            variables: {
+              eventAttendanceType,
+              eventAuthorProfileHref: `https://${
+                process.env.STACK_DOMAIN || 'maevsi.test'
+              }/account/${event.authorUsername}`,
+              eventAuthorProfilePictureSrc: eventAuthorProfilePicture
+                ? TUSD_FILES_URL +
+                  eventAuthorProfilePicture.uploadStorageKey +
+                  '+'
+                : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
+              eventAuthorUsername: event.authorUsername,
+              eventDescription,
+              eventDuration: event.end
+                ? momentFormatDuration({
+                    start: event.start,
+                    end: event.end,
+                    format: MOMENT_FORMAT,
+                    language: payload.template.language,
+                  })
+                : null,
+              // TODO: eventGroupName
+              eventLink: `https://${
+                process.env.STACK_DOMAIN || 'maevsi.test'
+              }/task/event/unlock?ic=${invitation.uuid}`,
+              eventName: event.name,
+              eventStart: momentFormatDate({
+                input: event.start,
+                format: MOMENT_FORMAT,
+                language: payload.template.language,
+              }),
+              eventVisibility,
+            },
           },
-        },
-      )
+        )
+        ack(id)
+      } catch (e) {
+        consola.error(e)
+        ack(id, false)
+      }
     },
   )
 

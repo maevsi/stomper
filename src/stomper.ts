@@ -57,7 +57,11 @@ client.onConnect = function () {
         consola.log('got message with body ' + message.body)
 
         try {
-          queueToFunctionMapping.function(JSON.parse(message.body))
+          const notification = JSON.parse(message.body)
+          queueToFunctionMapping.function(
+            notification.id,
+            JSON.parse(notification.payload),
+          )
           message.ack()
         } catch (e) {
           consola.error(e)
