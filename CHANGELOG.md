@@ -1,3 +1,12 @@
+# [0.18.0](https://github.com/maevsi/stomper/compare/0.17.1...0.18.0) (2021-07-01)
+
+
+### Features
+
+* add legal footer, include and use base64 ([abe72d6](https://github.com/maevsi/stomper/commit/abe72d6c211f1a2d5632f4cfa9f2b8b943249024)), closes [#38](https://github.com/maevsi/stomper/issues/38) [#41](https://github.com/maevsi/stomper/issues/41) [#47](https://github.com/maevsi/stomper/issues/47)
+* **database:** add acknowledgements ([cee98e7](https://github.com/maevsi/stomper/commit/cee98e71dc27d7bd6f1075219246f83c0ca6f684))
+* **webserver:** remove ([d0d5b62](https://github.com/maevsi/stomper/commit/d0d5b62f5a2196c658502adafbf33cb3749ce79d))
+
 ## [0.17.1](https://github.com/maevsi/stomper/compare/0.17.0...0.17.1) (2021-06-24)
 
 
