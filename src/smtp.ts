@@ -67,6 +67,10 @@ async function sendMail(mail: Mail) {
 
   const mailSentData = await NODEMAILER_TRANSPORTER.sendMail({
     from: MAIL_FROM,
+    list: {
+      // TODO: Add https link: https://github.com/maevsi/maevsi/issues/326
+      unsubscribe: `mailto:mail+unsubscribe@maev.si?subject=Unsubscribe%20${mail.to}`,
+    },
     ...mail,
   })
 
@@ -100,6 +104,7 @@ export function sendAccountPasswordResetRequestMail(
         language: payload.template.language,
         namespace: 'accountPasswordResetRequest',
         variables: {
+          emailAddress: payload.account.email_address,
           passwordResetVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
           }/task/account/password/reset?code=${
@@ -134,6 +139,7 @@ export function sendAccountRegistrationMail(
         language: payload.template.language,
         namespace: 'accountRegistration',
         variables: {
+          emailAddress: payload.account.email_address,
           emailAddressVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
           }/task/account/email-address/verify?code=${
@@ -286,6 +292,7 @@ export async function sendEventInvitationMail(
             language,
             namespace,
             variables: {
+              emailAddress: contact.emailAddress,
               eventAttendanceType,
               eventAuthorProfileHref: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'

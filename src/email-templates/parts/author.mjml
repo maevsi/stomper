@@ -1,0 +1,11 @@
+<mj-section padding-top="20px">
+    <mj-column width="12%">
+        <mj-image alt="{{__ 'profilePicture'}}" padding-right="0px" padding-left="25px" align="left" href="https://jonas-thelemann.de/" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAh1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD3YishAAAALHRSTlMAM+tm+5no2tJ3PgfOxsK7b2tjLyAKBOCSj4RKOSgTD/Hctaehin1eV0KsFc2HsfkAAAEqSURBVEjH7ZTZcoMwDEVFbBcS9pCEPWRfWv7/+zoaTEUeXIu3zjTnhevBBzSWxvDmP7Lfwyx2WZK3QBQfAwsDB9kjPhBuz0HCBMlSvKnC+8ntRXGre+P8StvBC5cdzGX7k+pSqUKM61YkVbm0yGmPrPXKw8XK9j+Ju4RuHy5yi6E/nA45w3y2KiFu0+XfMSdW5XOilJgbq6ImSozZ5ykpjZ4LPEXQHMV25UJ92WBUdiWi7jkYK+D1JQNkpWu0IemUHlaF6l8MWfCUGreFs5QlnRJXOdNYcRV3OGNSbmDCEUptAb5wl/RJMbZSHXQzHnpGSAkNSj+WE+pxIUUaLuIAX0abrsDn0R97FAXH3KtNlwQhn7xrPSJjDTy6kzYCB9g011MQX5/w5k/wDQu2QcORIP4zAAAAAElFTkSuQmCC"></mj-image>
+    </mj-column>
+    <mj-column width="88%">
+        <mj-text padding="3px 15px">
+            <p style="line-height: 9px">Jonas Thelemann</p>
+            <p style="font-style: italic; line-height: 9px">{{__ "author"}}</p>
+        </mj-text>
+    </mj-column>
+</mj-section>

@@ -1,25 +1,11 @@
 <mjml>
   <mj-head>
     <mj-title>{{__ "eventInvitation:subject" eventName=eventName eventAuthorUsername=eventAuthorUsername}}</mj-title>
-    <mj-attributes>
-      <mj-all font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"></mj-all>
-      <mj-button background-color="#e53e3e" border-radius="9999px" font-size="16px" font-weight="700"></mj-button>
-      <mj-text font-size="16px" color="#000000" line-height="24px"></mj-text>
-      <mj-section padding="0px"></mj-section>
-    </mj-attributes>
+    <mj-include path="./parts/head.mjml" />
   </mj-head>
   <mj-body background-color="#f0f0f0">
     <mj-wrapper background-color="#f0f0f0" full-width="full-width">
-      <mj-section padding-top="30px">
-        <mj-column width="70%">
-          <mj-image alt="{{__ 'logo'}}" height="100px" href="https://{{stackDomain}}/" src="https://stomper.{{stackDomain}}/static/logos/maevsi_with-text_black.svg" width="300px"></mj-image>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column width="100%">
-          <mj-text align="center" font-size="14px">{{__ "maevsi:subtitle"}}</mj-text>
-        </mj-column>
-      </mj-section>
+      <mj-include path="./parts/logo.mjml" />
       <mj-section padding-top="30px">
         <mj-column width="45%">
           <mj-text align="center" font-weight="700" line-height="54px" padding="0px" font-size="36px">{{__ "eventInvitation:header" eventAuthorUsername=eventAuthorUsername}}</mj-text>
@@ -68,6 +54,7 @@
           </mj-text>
         </mj-column>
       </mj-section>
+      <mj-include path="./parts/footer.mjml" />
     </mj-wrapper>
   </mj-body>
 </mjml>
