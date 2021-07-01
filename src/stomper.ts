@@ -6,12 +6,9 @@ import {
   sendAccountRegistrationMail,
   sendEventInvitationMail,
 } from './smtp'
-import { startWebserver } from './webserver'
 
 import fs = require('fs')
 import websocket = require('websocket')
-
-const WEBSERVER_PORT = 3000
 
 Object.assign(global, { WebSocket: websocket.w3cwebsocket })
 
@@ -82,5 +79,3 @@ client.onStompError = function (frame) {
 }
 
 client.activate()
-
-startWebserver(WEBSERVER_PORT)
