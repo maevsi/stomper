@@ -1805,10 +1805,10 @@
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.4.tgz#8c3496bd1b50cc04aeefd691140aa571d4dbfa34"
   integrity sha512-t2szdkwmg2JJyuCM20e8kR2X59WCE5Zkl4bzm1u1Oukjm79zpbiAv+QjnwLnuuV0WHEcX2NgUItu0pAMKuOPww==
 
-"@types/html-to-text@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@types/html-to-text/-/html-to-text-8.0.0.tgz#95733e247fa4341c6a3b1ec820f800d158cfc9ec"
-  integrity sha512-sW+H3ByIvIPuZd599Id3nZAR3qc9jWf668V1aTEOTBmrYSAQsgXPNfZQpsLzPPh3gharrfEPq7ZbOhzkG57URA==
+"@types/html-to-text@8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@types/html-to-text/-/html-to-text-8.0.1.tgz#e449513df2283b1adedc85bdc2f6b7187f32972a"
+  integrity sha512-0B/OifmJYmk5r9z9+KJtGWOF0LEjbTN4D2QeCh+mAw81JkJwC83NvNWUZFEqRT5PpnjX7vX0ab1SMGcwCs3Lag==
 
 "@types/http-cache-semantics@*":
   version "4.0.0"
