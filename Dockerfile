@@ -2,8 +2,6 @@ FROM node:16.4.1-alpine3.13@sha256:20127b9ec087e27c91145c6d7438a3272d34e35120731
 
 WORKDIR /srv/app/
 
-COPY ./.git ./.git
-COPY ./.husky ./.husky
 COPY ./package.json ./.snyk ./yarn.lock ./
 
 RUN yarn install
