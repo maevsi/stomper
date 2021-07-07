@@ -1,8 +1,5 @@
 FROM node:16.4.1-alpine3.13@sha256:20127b9ec087e27c91145c6d7438a3272d34e3512073118bbe0ed4ebb8546620 AS development
 
-# https://github.com/typicode/husky/issues/821
-ENV HUSKY_SKIP_INSTALL=1
-
 WORKDIR /srv/app/
 
 COPY ./package.json ./.snyk ./yarn.lock ./

@@ -57,10 +57,11 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-promise": "5.1.0",
-    "husky": "4.3.8",
+    "husky": "7.0.1",
     "jest": "27.0.6",
     "mjml": "4.10.1",
     "prettier": "2.3.2",
+    "shx": "0.3.3",
     "ts-node-dev": "1.1.8",
     "typescript": "4.3.5"
   },
@@ -71,17 +72,11 @@
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'tsnd --inspect=0.0.0.0 --respawn ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
     "lint": "eslint .",
-    "prepare": "yarn run snyk-protect",
+    "prepare": "yarn run snyk-protect && husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks",
     "snyk-protect": "snyk protect",
     "snyk": "snyk test",
     "start": "yarn run build && node ./dist/stomper.js",
     "test": "jest"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && find ./src/email-templates/ -maxdepth 1 -type f -name '*.mjml' -print0 | xargs -0 mjml -v {}"
-    }
   },
   "snyk": true
 }
