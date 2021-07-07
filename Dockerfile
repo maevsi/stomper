@@ -1,4 +1,4 @@
-FROM node:16.4.1-alpine3.13@sha256:d74699a5c7f53d30afa3c0dec7f963c52dde077ffd7c88c77b7de350abcbe43a AS development
+FROM node:16.4.1-alpine3.13@sha256:20127b9ec087e27c91145c6d7438a3272d34e3512073118bbe0ed4ebb8546620 AS development
 
 # https://github.com/typicode/husky/issues/821
 ENV HUSKY_SKIP_INSTALL=1
@@ -14,7 +14,7 @@ COPY ./ ./
 CMD ["yarn", "run", "dev"]
 
 
-FROM node:16.4.1-alpine3.13@sha256:d74699a5c7f53d30afa3c0dec7f963c52dde077ffd7c88c77b7de350abcbe43a AS build
+FROM node:16.4.1-alpine3.13@sha256:20127b9ec087e27c91145c6d7438a3272d34e3512073118bbe0ed4ebb8546620 AS build
 
 ENV NODE_ENV=production
 
@@ -30,7 +30,7 @@ RUN yarn run build
 RUN yarn install
 
 
-FROM node:16.4.1-alpine3.13@sha256:d74699a5c7f53d30afa3c0dec7f963c52dde077ffd7c88c77b7de350abcbe43a AS production
+FROM node:16.4.1-alpine3.13@sha256:20127b9ec087e27c91145c6d7438a3272d34e3512073118bbe0ed4ebb8546620 AS production
 
 ENV NODE_ENV=production
 
