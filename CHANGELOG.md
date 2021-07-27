@@ -1,3 +1,10 @@
+## [0.18.3](https://github.com/maevsi/stomper/compare/0.18.2...0.18.3) (2021-07-27)
+
+
+### Bug Fixes
+
+* package.json & yarn.lock to reduce vulnerabilities ([8afef91](https://github.com/maevsi/stomper/commit/8afef91a38b6bab7a0552b960d986aed0d0fd060))
+
 ## [0.18.2](https://github.com/maevsi/stomper/compare/0.18.1...0.18.2) (2021-07-26)
 
 
