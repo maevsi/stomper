@@ -63,7 +63,7 @@
     "prettier": "2.3.2",
     "shx": "0.3.3",
     "ts-node-dev": "1.1.8",
-    "typescript": "4.3.5"
+    "typescript": "4.4.2"
   },
   "resolutions": {
     "handlebars-i18n/i18next": "20.4.0"
