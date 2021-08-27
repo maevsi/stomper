@@ -12,7 +12,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@stomp/stompjs": "6.1.0",
+    "@stomp/stompjs": "6.1.1",
     "camelcase-keys": "7.0.0",
     "consola": "2.15.3",
     "express": "4.17.1",
