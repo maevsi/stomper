@@ -41,7 +41,7 @@
     "@types/i18next-fs-backend": "1.0.1",
     "@types/jest": "27.0.1",
     "@types/markdown-it": "12.2.1",
-    "@types/node": "14.17.14",
+    "@types/node": "14.17.15",
     "@types/nodemailer": "6.4.4",
     "@types/pg": "8.6.1",
     "@types/serve-static": "1.13.10",
