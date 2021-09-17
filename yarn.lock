@@ -3332,12 +3332,13 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
   integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
 
-handlebars-i18n@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.2.1.tgz#413fc34c0a98466d82074ad4e5c3b7174b36e38d"
-  integrity sha512-lpIR6c9aIn5Yny0Ajz4t4I8svOrEuaqVDe2Zdgx2cyI8RykLzabV+rtrH4uBQeiyRVNbLdBt2VhPQLOSVDawvg==
+handlebars-i18n@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.3.0.tgz#fb68095e2b87bb39c19ab342bd3c2949a1072a9f"
+  integrity sha512-OAP/n7UTyMEbTRNHu11mK8KtxFLpsA1tNMrVqG88AofFbL/3FmqwECvc2p6zFSTEMefg+s2ZmSs5RojLen9cMA==
   dependencies:
     handlebars "^4.7.6"
+    husky "^7.0.2"
     i18next "^20.2.1"
     intl "^1.2.5"
 
@@ -3515,7 +3516,7 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@7.0.2:
+husky@7.0.2, husky@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.2.tgz#21900da0f30199acca43a46c043c4ad84ae88dff"
   integrity sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==
