@@ -24,7 +24,7 @@
     "intl": "1.2.5",
     "markdown-it": "12.2.0",
     "moment-timezone": "0.5.33",
-    "nodemailer": "6.6.4",
+    "nodemailer": "6.6.5",
     "pg": "8.7.1",
     "serve-static": "1.14.1",
     "snyk": "1.717.0",
