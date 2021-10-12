@@ -5931,11 +5931,6 @@ slick@^1.12.2:
   resolved "https://registry.yarnpkg.com/slick/-/slick-1.12.2.tgz#bd048ddb74de7d1ca6915faa4a57570b3550c2d7"
   integrity sha1-vQSN23TefRymkV+qSldXCzVQwtc=
 
-snyk@1.733.0:
-  version "1.733.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.733.0.tgz#e3982dfa0fba0ab1d0b2b84c07b6f109b2b4e0f2"
-  integrity sha512-Mi/wk9tw8ma4P2+2QwgzGDHcIG0Tfj0Wn7cliuUqd7CM8bg+Oryq3g4NcNK6mJZz0VaISF8MCIcIzbqV8v0JYg==
-
 source-map-support@^0.5.12, source-map-support@^0.5.17, source-map-support@^0.5.6:
   version "0.5.20"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.20.tgz#12166089f8f5e5e8c56926b377633392dd2cb6c9"

@@ -2,7 +2,7 @@ FROM node:16.11.0-alpine3.13@sha256:6d5ecd68b7d28e63fbec26ae4d05fa679a7003325d8e
 
 WORKDIR /srv/app/
 
-COPY ./package.json ./.snyk ./yarn.lock ./
+COPY ./package.json ./yarn.lock ./
 
 RUN yarn install
 
