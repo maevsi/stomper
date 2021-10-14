@@ -3,7 +3,6 @@ import http from 'http'
 
 import consola from 'consola'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
-import markdownIt from 'markdown-it'
 import { createTransport } from 'nodemailer'
 
 import camelcaseKeys = require('camelcase-keys')
@@ -250,7 +249,7 @@ export async function sendEventInvitationMail(
       let eventDescription
 
       if (event.description !== null) {
-        eventDescription = htmlToText(markdownIt().render(event.description))
+        eventDescription = htmlToText(event.description)
 
         if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
           eventDescription =
