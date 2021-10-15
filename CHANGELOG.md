@@ -1,3 +1,10 @@
+# [0.19.0](https://github.com/maevsi/stomper/compare/0.18.9...0.19.0) (2021-10-15)
+
+
+### Features
+
+* **markdown:** remove markdown-it ([c5ea8aa](https://github.com/maevsi/stomper/commit/c5ea8aa5486715fe8e14e6eb980884a945c0c0c7))
+
 ## [0.18.9](https://github.com/maevsi/stomper/compare/0.18.8...0.18.9) (2021-10-11)
 
 
