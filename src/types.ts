@@ -18,23 +18,28 @@ export interface AccountRegistrationMailOptions {
 }
 
 export interface EventInvitationMailOptions {
-  invitationId: BigInt
+  data: {
+    emailAddress: string
+    event: MaevsiEvent
+    invitationUuid: string
+    eventAuthorProfilePictureUploadStorageKey: string
+  }
   template: Template
 }
 
-export interface MaevsiContact {
-  id: BigInt
-  accountUsername: string
-  emailAddress: string
-  emailAddressHash: string
-  firstName: string
-  lastName: string
-  address: string
-  authorAccountUsername: string
-}
+// export interface MaevsiContact {
+//   id: number
+//   accountUsername: string
+//   emailAddress: string
+//   emailAddressHash: string
+//   firstName: string
+//   lastName: string
+//   address: string
+//   authorAccountUsername: string
+// }
 
 export interface MaevsiEvent {
-  id: BigInt
+  id: number
   authorUsername: string
   description: string | null
   end: string | null // Date
@@ -49,20 +54,20 @@ export interface MaevsiEvent {
   visibility: 'public' | 'private'
 }
 
-export interface MaevsiInvitation {
-  id: BigInt
-  uuid: string
-  eventId: BigInt
-  contactId: BigInt
-  feedback: 'accepted' | 'canceled'
-  feedbackPaper: 'digital' | 'none' | 'paper'
-}
+// export interface MaevsiInvitation {
+//   id: number
+//   uuid: string
+//   eventId: number
+//   contactId: number
+//   feedback: 'accepted' | 'canceled'
+//   feedbackPaper: 'digital' | 'none' | 'paper'
+// }
 
-export interface MaevsiProfilePicture {
-  id: BigInt
-  uploadStorageKey: string
-  username: string
-}
+// export interface MaevsiProfilePicture {
+//   id: number
+//   uploadStorageKey: string
+//   username: string
+// }
 
 export interface MomentFormatOptionsBase {
   format: string

@@ -7,23 +7,13 @@ import { createTransport } from 'nodemailer'
 
 import camelcaseKeys = require('camelcase-keys')
 
-import {
-  ack,
-  getContact,
-  getEvent,
-  getInvitation,
-  getProfilePicture,
-} from './database'
+import { ack } from './database'
 import {
   AccountPasswordResetRequestMailOptions,
   AccountRegistrationMailOptions,
-  MaevsiContact,
-  MaevsiEvent,
-  MaevsiInvitation,
   EventInvitationMailOptions,
   Template,
   Mail,
-  MaevsiProfilePicture,
 } from './types'
 import { i18nextResolve, renderTemplate } from './handlebars'
 import { momentFormatDate, momentFormatDuration } from './moment'
@@ -164,46 +154,14 @@ export async function sendEventInvitationMail(
   id: number,
   payload: EventInvitationMailOptions,
 ): Promise<void> {
-  payload = camelcaseKeys(payload)
+  payload = camelcaseKeys(payload, { deep: true })
 
-  let invitation: void | MaevsiInvitation = await getInvitation(
-    payload.invitationId,
-  ).catch((reason) => consola.error(reason))
-
-  if (!invitation) {
-    return
-  }
-
-  invitation = camelcaseKeys(invitation)
-
-  let contact: void | MaevsiContact = await getContact(
-    invitation.contactId,
-  ).catch((reason) => consola.error(reason))
-
-  if (!contact) {
-    return
-  }
-
-  contact = camelcaseKeys(contact)
-
-  let event: void | MaevsiEvent = await getEvent(invitation.eventId).catch(
-    (reason) => consola.error(reason),
-  )
-
-  if (!event) {
-    return
-  }
-
-  event = camelcaseKeys(event)
-
-  let eventAuthorProfilePicture: void | MaevsiProfilePicture =
-    await getProfilePicture(event.authorUsername).catch((reason) =>
-      consola.error(reason),
-    )
-
-  if (eventAuthorProfilePicture) {
-    eventAuthorProfilePicture = camelcaseKeys(eventAuthorProfilePicture)
-  }
+  const {
+    emailAddress,
+    event,
+    invitationUuid,
+    eventAuthorProfilePictureUploadStorageKey,
+  } = payload.data
 
   const req = http.request(
     'http://maevsi:3000/ical',
@@ -214,13 +172,13 @@ export async function sendEventInvitationMail(
       },
     },
     (res) => {
-      if (!invitation) {
-        consola.error(`Could not get invitation ${invitation}!`)
+      if (!invitationUuid) {
+        consola.error(`Could not get invitation uuid ${invitationUuid}!`)
         return
       }
 
-      if (!contact) {
-        consola.error(`Could not get contact ${contact}!`)
+      if (!emailAddress) {
+        consola.error(`Could not get email address ${emailAddress}!`)
         return
       }
 
@@ -285,22 +243,23 @@ export async function sendEventInvitationMail(
               filename: event.authorUsername + '_' + event.slug + '.ics',
               method: 'request',
             },
-            to: contact.emailAddress,
+            to: emailAddress,
           },
           {
             language,
             namespace,
             variables: {
-              emailAddress: contact.emailAddress,
+              emailAddress,
               eventAttendanceType,
               eventAuthorProfileHref: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'
               }/account/${event.authorUsername}`,
-              eventAuthorProfilePictureSrc: eventAuthorProfilePicture
-                ? TUSD_FILES_URL +
-                  eventAuthorProfilePicture.uploadStorageKey +
-                  '+'
-                : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
+              eventAuthorProfilePictureSrc:
+                eventAuthorProfilePictureUploadStorageKey
+                  ? TUSD_FILES_URL +
+                    eventAuthorProfilePictureUploadStorageKey +
+                    '+'
+                  : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
               eventAuthorUsername: event.authorUsername,
               eventDescription,
               eventDuration: event.end
@@ -314,7 +273,7 @@ export async function sendEventInvitationMail(
               // TODO: eventGroupName
               eventLink: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'
-              }/task/event/unlock?ic=${invitation.uuid}`,
+              }/task/event/unlock?ic=${invitationUuid}`,
               eventName: event.name,
               eventStart: momentFormatDate({
                 input: event.start,
