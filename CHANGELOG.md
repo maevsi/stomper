@@ -1,3 +1,11 @@
+# [0.20.0](https://github.com/maevsi/stomper/compare/0.19.2...0.20.0) (2021-11-17)
+
+
+### Features
+
+* **invitation:** add templating to event description ([c6936ff](https://github.com/maevsi/stomper/commit/c6936ff6e9a64f0bc0eee4052d0f3b4c953d3502))
+* remove data retrieval ([5691977](https://github.com/maevsi/stomper/commit/5691977de1968867f1552109ae68aa73a72f9553))
+
 ## [0.19.2](https://github.com/maevsi/stomper/compare/0.19.1...0.19.2) (2021-11-08)
 
 
