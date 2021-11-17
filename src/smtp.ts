@@ -2,6 +2,7 @@ import fs from 'fs'
 import http from 'http'
 
 import consola from 'consola'
+import handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
 import { createTransport } from 'nodemailer'
 
@@ -207,7 +208,15 @@ export async function sendEventInvitationMail(
       let eventDescription
 
       if (event.description !== null) {
-        eventDescription = htmlToText(event.description)
+        eventDescription = htmlToText(
+          handlebars.compile(event.description)({
+            contact: { emailAddress },
+            event,
+            invitation: {
+              uuid: invitationUuid,
+            },
+          }),
+        )
 
         if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
           eventDescription =
