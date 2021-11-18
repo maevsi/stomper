@@ -1,3 +1,11 @@
+## [0.20.1](https://github.com/maevsi/stomper/compare/0.20.0...0.20.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* **locales:** add UTC suffix to dates ([fdc3f96](https://github.com/maevsi/stomper/commit/fdc3f967ac17741d7724a2de06bc27a70d767799))
+* **moment:** remove seconds from format ([44de06a](https://github.com/maevsi/stomper/commit/44de06aae330f095916fe590b05d20b102e2ce37))
+
 # [0.20.0](https://github.com/maevsi/stomper/compare/0.19.2...0.20.0) (2021-11-17)
 
 
