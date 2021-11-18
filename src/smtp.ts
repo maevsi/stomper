@@ -24,7 +24,7 @@ const HTML_TO_TEXT_OPTIONS = {
   selectors: [{ selector: 'img', format: 'skip' }],
 }
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
-const MOMENT_FORMAT = 'LL LTS'
+const MOMENT_FORMAT = 'LL LT'
 const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
   '/run/secrets/stomper_nodemailer-transporter'
 const TUSD_FILES_URL =
