@@ -5,5 +5,5 @@
     "paragraph2": "Please click on the link below to complete your registration and set up your profile.",
     "subject": "Complete registration",
     "title": "Welcome",
-    "validUntil": "This request is valid until {{validUntil}}."
+    "validUntil": "This request is valid until {{validUntil}} UTC."
 }

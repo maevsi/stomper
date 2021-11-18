@@ -8,7 +8,7 @@
     "eventDuration": "Duration: {{eventDuration}}",
     "eventIsArchived": "archived",
     "eventShow": "Show event",
-    "eventStart": "Start: {{eventStart}}",
+    "eventStart": "Start: {{eventStart}} UTC",
     "eventVisibilityIsPrivate": "a private",
     "eventVisibilityIsPublic": "a public",
     "eventVisibility": "This is {{eventVisibility}} event.",
