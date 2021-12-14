@@ -165,7 +165,7 @@ export async function sendEventInvitationMail(
   } = payload.data
 
   const req = http.request(
-    'http://maevsi:3000/ical',
+    'http://maevsi:3000/api/ical',
     {
       method: 'POST',
       headers: {
