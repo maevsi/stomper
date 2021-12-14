@@ -1,3 +1,10 @@
+## [0.20.4](https://github.com/maevsi/stomper/compare/0.20.3...0.20.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* **maevsi:** correct new api path ([15eef83](https://github.com/maevsi/stomper/commit/15eef839cf0d76a1d9e31170b20cb29c1ca25b4c))
+
 ## [0.20.3](https://github.com/maevsi/stomper/compare/0.20.2...0.20.3) (2021-12-13)
 
 
