@@ -40,7 +40,7 @@
     "@types/jest": "27.4.0",
     "@types/node": "16.11.19",
     "@types/nodemailer": "6.4.4",
-    "@types/pg": "8.6.3",
+    "@types/pg": "8.6.4",
     "@types/serve-static": "1.13.10",
     "@types/websocket": "1.0.4",
     "@typescript-eslint/eslint-plugin": "5.9.1",
