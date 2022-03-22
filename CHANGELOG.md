@@ -1,3 +1,10 @@
+## [0.20.12](https://github.com/maevsi/stomper/compare/0.20.11...0.20.12) (2022-03-22)
+
+
+### Bug Fixes
+
+* **docker:** use alpine v17.7.2 ([4f4e093](https://github.com/maevsi/stomper/commit/4f4e0931f61c5dccace748eeefef6078e036f04b))
+
 ## [0.20.11](https://github.com/maevsi/stomper/compare/0.20.10...0.20.11) (2022-03-14)
 
 
