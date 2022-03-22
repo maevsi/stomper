@@ -3359,17 +3359,16 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
   integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
 
-handlebars-i18n@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.3.1.tgz#68afc0a483f7b554bf6f9c2e356d1534a6bad2ce"
-  integrity sha512-2L09AoDbyevh3mPUcGwtl+kpcWGRHJFH8MLiNGJIGUtSe6QfbZEaJ5VGF0Q6VgFMucdCfeRF6r8UgchvNvLWuA==
+handlebars-i18n@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.4.0.tgz#bbaedb2cbfe43cc9e20f4434539932ac3510e2ce"
+  integrity sha512-/MHXYzw3PMkzeOuBWK1htX9SUtPXyuwP17pLXyj7PxbRBQf4qdKzyo6i1jMwLu0lwWOkSy06nsSxVtuQaRnaWA==
   dependencies:
-    handlebars "^4.7.6"
-    husky "^7.0.2"
-    i18next "^20.2.1"
-    intl "^1.2.5"
+    handlebars "4.7.7"
+    i18next "21.6.14"
+    intl "1.2.5"
 
-handlebars@4.7.7, handlebars@^4.7.6:
+handlebars@4.7.7:
   version "4.7.7"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
   integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
@@ -3527,7 +3526,7 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@7.0.4, husky@^7.0.2:
+husky@7.0.4:
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.4.tgz#242048245dc49c8fb1bf0cc7cfb98dd722531535"
   integrity sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==
@@ -3537,7 +3536,7 @@ i18next-fs-backend@1.1.4:
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.4.tgz#d0e9b9ed2fa7a0f11002d82b9fa69c3c3d6482da"
   integrity sha512-/MfAGMP0jHonV966uFf9PkWWuDjPYLIcsipnSO3NxpNtAgRUKLTwvm85fEmsF6hGeu0zbZiCQ3W74jwO6K9uXA==
 
-i18next@21.6.14, i18next@^20.2.1, i18next@^21.0.1:
+i18next@21.6.14, i18next@^21.0.1:
   version "21.6.14"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.14.tgz#2bc199fba7f4da44b5952d7df0a3814a6e5c3943"
   integrity sha512-XL6WyD+xlwQwbieXRlXhKWoLb/rkch50/rA+vl6untHnJ+aYnkQ0YDZciTWE78PPhOpbi2gR0LTJCJpiAhA+uQ==
@@ -3619,7 +3618,7 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
-intl@1.2.5, intl@^1.2.5:
+intl@1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
   integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
