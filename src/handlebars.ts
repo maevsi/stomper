@@ -1,6 +1,6 @@
 import fs from 'fs'
 import Handlebars from 'handlebars'
-import i18next from 'i18next'
+import { changeLanguage, use, t, reloadResources } from 'i18next'
 import Backend from 'i18next-fs-backend'
 import path from 'path'
 import { Template } from './types'
@@ -10,7 +10,7 @@ const HandlebarsI18n = require('handlebars-i18n')
 
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
 
-i18next.use(Backend).init({
+use(Backend).init({
   backend: {
     addPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.missing.json'),
     loadPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.json'),
@@ -44,7 +44,7 @@ export function templateCompile(
   language: string,
   templateVariables: Record<string, unknown>,
 ): string {
-  i18next.changeLanguage(language)
+  changeLanguage(language)
   return Handlebars.compile(string)({
     stackDomain: STACK_DOMAIN,
     ...templateVariables,
@@ -53,7 +53,7 @@ export function templateCompile(
 
 export function renderTemplate(template: Template): string {
   if (process.env.NODE_ENV !== 'production') {
-    i18next.reloadResources()
+    reloadResources()
   }
 
   return templateCompile(
@@ -71,6 +71,6 @@ export function i18nextResolve(
   language = 'en',
   options?: Record<string, unknown>,
 ): string {
-  i18next.changeLanguage(language)
-  return i18next.t(id, options)
+  changeLanguage(language)
+  return t(id, options)
 }
