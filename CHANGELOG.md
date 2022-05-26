@@ -1,3 +1,10 @@
+## [0.20.20](https://github.com/maevsi/stomper/compare/0.20.19...0.20.20) (2022-05-26)
+
+
+### Bug Fixes
+
+* **handlebars:** resolve linter warnings ([ff1d73d](https://github.com/maevsi/stomper/commit/ff1d73de9de6d5398ade2fe1b02b70ac15153bcd))
+
 ## [0.20.19](https://github.com/maevsi/stomper/compare/0.20.18...0.20.19) (2022-05-23)
 
 
