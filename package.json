@@ -59,6 +59,7 @@
     "nodemon": "2.0.16",
     "prettier": "2.6.2",
     "shx": "0.3.4",
+    "ts-jest": "28.0.3",
     "ts-node": "10.8.0",
     "typescript": "4.7.2"
   },
@@ -68,6 +69,6 @@
     "lint": "eslint .",
     "prepare": "if [[ -d '.git' && -d '.husky' ]]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi",
     "start": "yarn run build && node ./dist/stomper.js",
-    "test": "jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   }
 }

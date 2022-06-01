@@ -191,4 +191,13 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  extensionsToTreatAsEsm: ['.ts'],
+  // preset: 'ts-jest',
+  // testEnvironment: 'node',
+  // globals: {
+  //   'ts-jest': {
+  //     useESM: true,
+  //   },
+  // },
 }
