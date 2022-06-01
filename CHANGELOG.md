@@ -1,3 +1,15 @@
+# [0.21.0](https://github.com/maevsi/stomper/compare/0.20.21...0.21.0) (2022-06-01)
+
+
+### Bug Fixes
+
+* **jest:** use esm ([23e381d](https://github.com/maevsi/stomper/commit/23e381dbd2f340e4a6db14413338bced0081b266))
+
+
+### Features
+
+* upgrade to typescript 4.7 ([9b4c869](https://github.com/maevsi/stomper/commit/9b4c8690caa691d13e6302fbbebdad849503eeb6))
+
 ## [0.20.21](https://github.com/maevsi/stomper/compare/0.20.20...0.20.21) (2022-05-30)
 
 
