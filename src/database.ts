@@ -1,13 +1,13 @@
 import consola from 'consola'
 
-import fs = require('fs')
-import { Pool } from 'pg'
+import fs from 'fs'
+import pg from 'pg'
 
 const secretPostgresDbPath = '/run/secrets/postgres_db'
 const secretPostgresRoleMaevsiTusdPasswordPath =
   '/run/secrets/postgres_role_maevsi-stomper_password'
 
-const pool = new Pool({
+const pool = new pg.Pool({
   database: fs.existsSync(secretPostgresDbPath)
     ? fs.readFileSync(secretPostgresDbPath, 'utf-8')
     : undefined,

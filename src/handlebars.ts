@@ -3,12 +3,14 @@ import Handlebars from 'handlebars'
 import { changeLanguage, use, t, reloadResources } from 'i18next'
 import Backend from 'i18next-fs-backend'
 import path from 'path'
-import { Template } from './types'
+import { fileURLToPath } from 'url'
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const HandlebarsI18n = require('handlebars-i18n')
+import { Template } from './types.js'
 
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 use(Backend).init({
   backend: {
@@ -37,7 +39,9 @@ use(Backend).init({
     }),
 })
 
-HandlebarsI18n.init()
+Handlebars.registerHelper('__', function (str, attributes) {
+  return new Handlebars.SafeString(t(str, attributes.hash))
+})
 
 export function templateCompile(
   string: string,

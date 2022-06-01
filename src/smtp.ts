@@ -6,18 +6,18 @@ import handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
 import { createTransport } from 'nodemailer'
 
-import camelcaseKeys = require('camelcase-keys')
+import camelcaseKeys from 'camelcase-keys'
 
-import { ack } from './database'
+import { ack } from './database.js'
 import {
   AccountPasswordResetRequestMailOptions,
   AccountRegistrationMailOptions,
   EventInvitationMailOptions,
   Template,
   Mail,
-} from './types'
-import { i18nextResolve, renderTemplate } from './handlebars'
-import { momentFormatDate, momentFormatDuration } from './moment'
+} from './types.js'
+import { i18nextResolve, renderTemplate } from './handlebars.js'
+import { momentFormatDate, momentFormatDuration } from './moment.js'
 
 const EVENT_DESCRIPTION_TRIM_LENGTH = 250
 const HTML_TO_TEXT_OPTIONS = {

@@ -1,14 +1,14 @@
-import { Client } from '@stomp/stompjs'
+// eslint-disable-next-line import/default
+import stompJs from '@stomp/stompjs'
 import consola from 'consola'
+import fs from 'fs'
+import websocket from 'websocket'
 
 import {
   sendAccountPasswordResetRequestMail,
   sendAccountRegistrationMail,
   sendEventInvitationMail,
-} from './smtp'
-
-import fs = require('fs')
-import websocket = require('websocket')
+} from './smtp.js'
 
 Object.assign(global, { WebSocket: websocket.w3cwebsocket })
 
@@ -19,7 +19,7 @@ if (
   throw new Error('Missing environment variables!')
 }
 
-const client = new Client({
+const client = new stompJs.Client({
   brokerURL: 'ws://rabbitmq:15674/ws',
   connectHeaders: {
     login: fs.readFileSync(process.env.RABBITMQ_USER_FILE, 'utf8'),

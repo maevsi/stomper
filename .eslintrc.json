@@ -6,8 +6,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jest/style",
@@ -16,7 +15,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2022,
     "sourceType": "module"
   },
   "plugins": [
@@ -24,7 +23,9 @@
     "jest",
     "@typescript-eslint"
   ],
-  "rules": {},
+  "rules": {
+    "node/no-missing-import": "off"
+  },
   "settings": {
     "node": {
       "tryExtensions": [".js", ".ts"]
