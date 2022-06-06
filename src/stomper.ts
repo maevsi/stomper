@@ -12,18 +12,19 @@ import {
 
 Object.assign(global, { WebSocket: websocket.w3cwebsocket })
 
-if (
-  process.env.RABBITMQ_USER_FILE === undefined ||
-  process.env.RABBITMQ_PASS_FILE === undefined
-) {
-  throw new Error('Missing environment variables!')
+if (process.env.RABBITMQ_DEFINITIONS_FILE === undefined) {
+  throw new Error('Missing environment variable!')
 }
+
+const RABBITMQ_DEFINITIONS = JSON.parse(
+  fs.readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8'),
+)
 
 const client = new stompJs.Client({
   brokerURL: 'ws://rabbitmq:15674/ws',
   connectHeaders: {
-    login: fs.readFileSync(process.env.RABBITMQ_USER_FILE, 'utf8'),
-    passcode: fs.readFileSync(process.env.RABBITMQ_PASS_FILE, 'utf8'),
+    login: RABBITMQ_DEFINITIONS.users[0].name,
+    passcode: RABBITMQ_DEFINITIONS.users[0].password,
   },
   debug: function (str) {
     if (process.env.NODE_ENV !== 'production') {
