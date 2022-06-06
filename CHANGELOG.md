@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/maevsi/stomper/compare/0.21.1...0.22.0) (2022-06-06)
+
+
+### Features
+
+* **rabbitmq:** use new secret ([dd81bb1](https://github.com/maevsi/stomper/commit/dd81bb12fc8005f9978c92b9fe6dff6867ba1e38))
+
 ## [0.21.1](https://github.com/maevsi/stomper/compare/0.21.0...0.21.1) (2022-06-06)
 
 
