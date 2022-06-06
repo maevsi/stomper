@@ -1,3 +1,10 @@
+## [0.21.1](https://github.com/maevsi/stomper/compare/0.21.0...0.21.1) (2022-06-06)
+
+
+### Bug Fixes
+
+* **docker:** add package.json ([ab6044e](https://github.com/maevsi/stomper/commit/ab6044e9a8875279652d96d87226be9e7578847c))
+
 # [0.21.0](https://github.com/maevsi/stomper/compare/0.20.21...0.21.0) (2022-06-01)
 
 
