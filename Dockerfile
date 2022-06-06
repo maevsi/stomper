@@ -34,6 +34,7 @@ ENV NODE_ENV=production
 WORKDIR /srv/app/
 
 COPY --from=build /srv/app/dist/ /srv/app/dist/
+COPY --from=build /srv/app/package.json /srv/app/package.json
 COPY --from=build /srv/app/node_modules/ /srv/app/node_modules/
 
 CMD ["node", "./dist/stomper.js"]
