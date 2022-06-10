@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for arg do
   echo "Process \"$arg\" started";
