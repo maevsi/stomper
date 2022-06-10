@@ -1,3 +1,10 @@
+## [0.22.1](https://github.com/maevsi/stomper/compare/0.22.0...0.22.1) (2022-06-10)
+
+
+### Bug Fixes
+
+* **parallel-commands:** use sh ([37a77a8](https://github.com/maevsi/stomper/commit/37a77a86c952a61d9c85056fb80e4e3a2a926b12))
+
 # [0.22.0](https://github.com/maevsi/stomper/compare/0.21.1...0.22.0) (2022-06-06)
 
 
