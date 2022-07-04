@@ -32,7 +32,7 @@
             <br/>
             {{__ "eventInvitation:eventVisibility" eventVisibility=eventVisibility}}
           </mj-text>
-          <mj-button href="{{eventLink}}">{{__ "eventInvitation:button"}}</mj-button>
+          <mj-button background-color="#000000" href="{{eventLink}}">{{__ "eventInvitation:button"}}</mj-button>
           <mj-text font-weight="700">
             {{__ "eventInvitation:eventDescriptionTitle"}}
           </mj-text>
