@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/maevsi/stomper/compare/0.22.3...0.23.0) (2022-07-04)
+
+
+### Features
+
+* **mjml:** set button background color to black ([8efcfd0](https://github.com/maevsi/stomper/commit/8efcfd0bc75956f0d012e7ac2ede31d5b92b81a8))
+
 ## [0.22.3](https://github.com/maevsi/stomper/compare/0.22.2...0.22.3) (2022-06-27)
 
 
