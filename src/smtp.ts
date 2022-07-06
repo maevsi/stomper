@@ -23,6 +23,7 @@ const EVENT_DESCRIPTION_TRIM_LENGTH = 250
 const HTML_TO_TEXT_OPTIONS = {
   selectors: [{ selector: 'img', format: 'skip' }],
 }
+const LOCALE_DEFAULT = 'en'
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
 const MOMENT_FORMAT = 'LL LT'
 const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
@@ -97,7 +98,11 @@ export function sendAccountPasswordResetRequestMail(
           emailAddress: payload.account.email_address,
           passwordResetVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
-          }/${payload.template.language}/task/account/password/reset?code=${
+          }${
+            payload.template.language !== LOCALE_DEFAULT
+              ? '/' + payload.template.language
+              : ''
+          }/task/account/password/reset?code=${
             payload.account.password_reset_verification
           }`,
           username: payload.account.username,
@@ -132,8 +137,10 @@ export function sendAccountRegistrationMail(
           emailAddress: payload.account.email_address,
           emailAddressVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
-          }/${
-            payload.template.language
+          }${
+            payload.template.language !== LOCALE_DEFAULT
+              ? '/' + payload.template.language
+              : ''
           }/task/account/email-address/verify?code=${
             payload.account.email_address_verification
           }`,
@@ -282,10 +289,10 @@ export async function sendEventInvitationMail(
                   })
                 : null,
               // TODO: eventGroupName
-              eventLink: `https://${
-                process.env.STACK_DOMAIN || 'maevsi.test'
-              }/${
-                payload.template.language
+              eventLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}${
+                payload.template.language !== LOCALE_DEFAULT
+                  ? '/' + payload.template.language
+                  : ''
               }/task/event/unlock?ic=${invitationUuid}`,
               eventName: event.name,
               eventStart: momentFormatDate({
