@@ -1,3 +1,10 @@
+# [0.24.0](https://github.com/maevsi/stomper/compare/0.23.0...0.24.0) (2022-07-06)
+
+
+### Features
+
+* add i18n to links ([2fd6361](https://github.com/maevsi/stomper/commit/2fd6361722f06e8f227a22a3dc492795ac795706)), closes [#46](https://github.com/maevsi/stomper/issues/46)
+
 # [0.23.0](https://github.com/maevsi/stomper/compare/0.22.3...0.23.0) (2022-07-04)
 
 
