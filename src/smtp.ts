@@ -97,7 +97,7 @@ export function sendAccountPasswordResetRequestMail(
           emailAddress: payload.account.email_address,
           passwordResetVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
-          }/task/account/password/reset?code=${
+          }/${payload.template.language}/task/account/password/reset?code=${
             payload.account.password_reset_verification
           }`,
           username: payload.account.username,
@@ -132,6 +132,8 @@ export function sendAccountRegistrationMail(
           emailAddress: payload.account.email_address,
           emailAddressVerificationLink: `https://${
             process.env.STACK_DOMAIN || 'maevsi.test'
+          }/${
+            payload.template.language
           }/task/account/email-address/verify?code=${
             payload.account.email_address_verification
           }`,
@@ -282,6 +284,8 @@ export async function sendEventInvitationMail(
               // TODO: eventGroupName
               eventLink: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'
+              }/${
+                payload.template.language
               }/task/event/unlock?ic=${invitationUuid}`,
               eventName: event.name,
               eventStart: momentFormatDate({
