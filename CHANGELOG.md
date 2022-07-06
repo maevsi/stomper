@@ -1,3 +1,10 @@
+## [0.24.1](https://github.com/maevsi/stomper/compare/0.24.0...0.24.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* **smtp:** exclude default locale from links ([8e727e8](https://github.com/maevsi/stomper/commit/8e727e84326f03882d8cbc42bbf254d3b1baa6c5))
+
 # [0.24.0](https://github.com/maevsi/stomper/compare/0.23.0...0.24.0) (2022-07-06)
 
 
