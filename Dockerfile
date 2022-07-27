@@ -1,4 +1,4 @@
-FROM node:18.6.0-alpine@sha256:b3ca07adf425d043e180464aac97cb4f7a566651f77f4ecb87b10c10788644bb AS development
+FROM node:18.7.0-alpine@sha256:b718f847a580064e7ad90103f99509a31a0ca092e6807a84011f28c5a020f80b AS development
 
 WORKDIR /srv/app/
 
@@ -11,7 +11,7 @@ COPY ./ ./
 CMD ["yarn", "run", "dev"]
 
 
-FROM node:18.6.0-alpine@sha256:b3ca07adf425d043e180464aac97cb4f7a566651f77f4ecb87b10c10788644bb AS build
+FROM node:18.7.0-alpine@sha256:b718f847a580064e7ad90103f99509a31a0ca092e6807a84011f28c5a020f80b AS build
 
 ENV NODE_ENV=production
 
@@ -27,7 +27,7 @@ RUN yarn run lint \
 RUN yarn install
 
 
-FROM node:18.6.0-alpine@sha256:b3ca07adf425d043e180464aac97cb4f7a566651f77f4ecb87b10c10788644bb AS production
+FROM node:18.7.0-alpine@sha256:b718f847a580064e7ad90103f99509a31a0ca092e6807a84011f28c5a020f80b AS production
 
 ENV NODE_ENV=production
 
