@@ -1,3 +1,10 @@
+## [0.24.4](https://github.com/maevsi/stomper/compare/0.24.3...0.24.4) (2022-08-11)
+
+
+### Bug Fixes
+
+* **i18n:** replace link with button ([05fdd67](https://github.com/maevsi/stomper/commit/05fdd672fff3b8342c826dd6d7b0a951650132f7))
+
 ## [0.24.3](https://github.com/maevsi/stomper/compare/0.24.2...0.24.3) (2022-08-01)
 
 
