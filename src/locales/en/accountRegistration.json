@@ -2,7 +2,7 @@
     "button": "Complete registration",
     "header": "Welcome, {{username}}!",
     "paragraph1": "Thanks so much for joining maevsi — we're thrilled to have you!",
-    "paragraph2": "Please click on the link below to complete your registration and set up your profile.",
+    "paragraph2": "Please click on the button below to complete your registration and set up your profile.",
     "subject": "Complete registration",
     "title": "Welcome",
     "validUntil": "This request is valid until {{validUntil}} UTC."
