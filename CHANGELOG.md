@@ -1,3 +1,10 @@
+## [0.24.5](https://github.com/maevsi/stomper/compare/0.24.4...0.24.5) (2022-08-22)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([501ff4a](https://github.com/maevsi/stomper/commit/501ff4a2c9848c4dc400bf3a91d33d986a8f2e01))
+
 ## [0.24.4](https://github.com/maevsi/stomper/compare/0.24.3...0.24.4) (2022-08-11)
 
 
