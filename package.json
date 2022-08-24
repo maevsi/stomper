@@ -34,7 +34,7 @@
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@types/express": "4.17.13",
-    "@types/html-to-text": "8.1.0",
+    "@types/html-to-text": "8.1.1",
     "@types/i18next-fs-backend": "1.1.2",
     "@types/jest": "28.1.7",
     "@types/node": "16.11.55",
