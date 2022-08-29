@@ -2302,10 +2302,10 @@ camel-case@^3.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.1"
 
-camelcase-keys@8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-8.0.1.tgz#d14d0b2680a962869eaa92f5e384893a5b2f2b4f"
-  integrity sha512-QIhTRYtbiDVHYMwNVWdhfJHnKYDpTfjNbU7Jn2X1U3yUSuxmjuFxVOPQMtbuStzIZHT71y4ZYCj7e9XuaGbthg==
+camelcase-keys@8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-8.0.2.tgz#a7140ba7c797aea32161d4ce5cdbda11d09eb414"
+  integrity sha512-qMKdlOfsjlezMqxkUGGMaWWs17i2HoL15tM+wtx8ld4nLrUwU58TFdvyGOz/piNP842KeO8yXvggVQSdQ828NA==
   dependencies:
     camelcase "^7.0.0"
     map-obj "^4.3.0"
