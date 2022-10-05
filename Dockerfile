@@ -2,29 +2,32 @@ FROM node:18.10.0-alpine@sha256:d4935e4a77d3a9aca897dc3610f7a9abc83732ba4075439f
 
 WORKDIR /srv/app/
 
-COPY ./package.json ./yarn.lock ./
+COPY ./docker-entrypoint.sh /usr/local/bin/
 
-RUN yarn install
+VOLUME /srv/app
 
-COPY ./ ./
-
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["yarn", "run", "dev"]
 
 
 FROM node:18.10.0-alpine@sha256:d4935e4a77d3a9aca897dc3610f7a9abc83732ba4075439fbdb46a517c07d81e AS build
 
-ENV NODE_ENV=production
-
 WORKDIR /srv/app/
 
-COPY --from=development /srv/app/ ./
+COPY package.json yarn.lock ./
+
+RUN yarn install
+
+COPY . .
 
 RUN yarn run lint \
-    && yarn run test \
-    && yarn run build
+    && yarn run test
 
-# Discard devDependencies.
-RUN yarn install
+ENV NODE_ENV=production
+
+# Discard development dependencies after building.
+RUN yarn run build \
+    && yarn install
 
 
 FROM node:18.10.0-alpine@sha256:d4935e4a77d3a9aca897dc3610f7a9abc83732ba4075439fbdb46a517c07d81e AS production
