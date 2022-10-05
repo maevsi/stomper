@@ -1,3 +1,10 @@
+# [0.25.0](https://github.com/maevsi/stomper/compare/0.24.8...0.25.0) (2022-10-05)
+
+
+### Features
+
+* install dependencies on start ([0a6d701](https://github.com/maevsi/stomper/commit/0a6d70153ff679bf7664ee0196d44005fda70f47)), closes [#113](https://github.com/maevsi/stomper/issues/113)
+
 ## [0.24.8](https://github.com/maevsi/stomper/compare/0.24.7...0.24.8) (2022-09-26)
 
 
