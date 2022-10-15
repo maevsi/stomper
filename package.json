@@ -21,7 +21,7 @@
     "i18next": "21.10.0",
     "i18next-fs-backend": "1.1.5",
     "intl": "1.2.5",
-    "moment-timezone": "0.5.37",
+    "moment-timezone": "0.5.38",
     "nodemailer": "6.8.0",
     "pg": "8.8.0",
     "serve-static": "1.15.0",
