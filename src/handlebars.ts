@@ -39,7 +39,7 @@ use(Backend).init({
     }),
 })
 
-Handlebars.registerHelper('__', function (str, attributes) {
+Handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
   return new Handlebars.SafeString(t(str, attributes.hash))
 })
 
