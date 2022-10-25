@@ -1,4 +1,4 @@
-FROM node:19.0.0-alpine@sha256:bdd47da7e6d246549db69891f5865d82dfc9961eae897197d85a030f254980b1 AS development
+FROM node:19.0.0-alpine@sha256:7eaaf14ed8b7cc1d716b965bff7554d7d2e1127558ee8108d3844dc3a1122234 AS development
 
 WORKDIR /srv/app/
 
@@ -10,7 +10,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["yarn", "run", "dev"]
 
 
-FROM node:19.0.0-alpine@sha256:bdd47da7e6d246549db69891f5865d82dfc9961eae897197d85a030f254980b1 AS build
+FROM node:19.0.0-alpine@sha256:7eaaf14ed8b7cc1d716b965bff7554d7d2e1127558ee8108d3844dc3a1122234 AS build
 
 WORKDIR /srv/app/
 
@@ -30,7 +30,7 @@ RUN yarn run build \
     && yarn install
 
 
-FROM node:19.0.0-alpine@sha256:bdd47da7e6d246549db69891f5865d82dfc9961eae897197d85a030f254980b1 AS production
+FROM node:19.0.0-alpine@sha256:7eaaf14ed8b7cc1d716b965bff7554d7d2e1127558ee8108d3844dc3a1122234 AS production
 
 ENV NODE_ENV=production
 
