@@ -18,7 +18,7 @@
     "express": "4.18.2",
     "handlebars": "4.7.7",
     "html-to-text": "8.2.1",
-    "i18next": "22.0.3",
+    "i18next": "22.0.4",
     "i18next-fs-backend": "2.0.0",
     "intl": "1.2.5",
     "moment-timezone": "0.5.38",
