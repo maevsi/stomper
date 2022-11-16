@@ -1,3 +1,10 @@
+# [0.26.0](https://github.com/maevsi/stomper/compare/0.25.3...0.26.0) (2022-11-16)
+
+
+### Features
+
+* **locales:** use new slogan ([470fe59](https://github.com/maevsi/stomper/commit/470fe590ff4667a5c9e89f1014add015d2cd4e8e))
+
 ## [0.25.3](https://github.com/maevsi/stomper/compare/0.25.2...0.25.3) (2022-11-14)
 
 

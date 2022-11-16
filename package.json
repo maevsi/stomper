@@ -1,7 +1,7 @@
 {
   "name": "stomper",
   "private": true,
-  "version": "0.25.3",
+  "version": "0.26.0",
   "scheduleVersion": "0.25.3",
   "main": "stomper.js",
   "repository": "https://github.com/maevsi/stomper.git",
