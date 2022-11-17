@@ -59,7 +59,7 @@ async function sendMail(mail: Mail) {
   const mailSentData = await NODEMAILER_TRANSPORTER.sendMail({
     from: MAIL_FROM,
     list: {
-      // TODO: Add https link: https://github.com/maevsi/maevsi/issues/326
+      // TODO: add https link (https://github.com/maevsi/maevsi/issues/326)
       unsubscribe: `mailto:mail+unsubscribe@maev.si?subject=Unsubscribe%20${mail.to}`,
     },
     ...mail,
@@ -288,7 +288,7 @@ export async function sendEventInvitationMail(
                     language: payload.template.language,
                   })
                 : null,
-              // TODO: eventGroupName
+              // TODO: add event group (https://github.com/maevsi/maevsi/issues/92)
               eventLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}${
                 payload.template.language !== LOCALE_DEFAULT
                   ? '/' + payload.template.language
