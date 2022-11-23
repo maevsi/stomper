@@ -4,30 +4,33 @@ WORKDIR /srv/app/
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
+VOLUME /srv/.pnpm-store
 VOLUME /srv/app
 
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["yarn", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
 
 
 FROM node:19.1.0-alpine@sha256:c59fb39150e4a7ae14dfd42d3f9874398c7941784b73049c2d274115f00d36c8 AS build
 
 WORKDIR /srv/app/
 
-COPY package.json yarn.lock ./
+COPY ./pnpm-lock.yaml ./
 
-RUN yarn install
+RUN npm install -g pnpm && \
+    pnpm fetch
 
 COPY . .
 
-RUN yarn run lint \
-    && yarn run test
+RUN pnpm install --offline \
+    && pnpm run lint \
+    && pnpm run test
 
 ENV NODE_ENV=production
 
 # Discard development dependencies after building.
-RUN yarn run build \
-    && yarn install
+RUN pnpm run build \
+    && pnpm install --offline
 
 
 FROM node:19.1.0-alpine@sha256:c59fb39150e4a7ae14dfd42d3f9874398c7941784b73049c2d274115f00d36c8 AS production
