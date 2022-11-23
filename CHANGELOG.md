@@ -1,3 +1,10 @@
+# [0.27.0](https://github.com/maevsi/stomper/compare/0.26.0...0.27.0) (2022-11-23)
+
+
+### Features
+
+* **package:** migrate to pnpm ([765e48d](https://github.com/maevsi/stomper/commit/765e48d09ca8662e9c02aa9265f4efe252bc4391))
+
 # [0.26.0](https://github.com/maevsi/stomper/compare/0.25.3...0.26.0) (2022-11-16)
 
 
