@@ -7,10 +7,11 @@
   "repository": "https://github.com/maevsi/stomper.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "TODO",
+  "type": "module",
   "engines": {
     "node": ">=14.15.0"
   },
-  "type": "module",
+  "packageManager": "pnpm@7.17.0",
   "dependencies": {
     "@stomp/stompjs": "6.1.2",
     "camelcase-keys": "8.0.2",
