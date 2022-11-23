@@ -9,9 +9,17 @@
   "license": "TODO",
   "type": "module",
   "engines": {
-    "node": ">=14.15.0"
+    "node": ">=19"
   },
   "packageManager": "pnpm@7.17.0",
+  "scripts": {
+    "build": "tsc && ./scripts/mjml.sh",
+    "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
+    "lint": "eslint .",
+    "prepare": "if [ -d '.git' ] && [ -d '.husky' ] && [ \"$NODE_ENV\" != 'production' ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi",
+    "start": "pnpm run build && node ./dist/stomper.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
   "dependencies": {
     "@stomp/stompjs": "6.1.2",
     "camelcase-keys": "8.0.2",
@@ -63,13 +71,5 @@
     "ts-jest": "29.0.3",
     "ts-node": "10.9.1",
     "typescript": "4.9.3"
-  },
-  "scripts": {
-    "build": "tsc && ./scripts/mjml.sh",
-    "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
-    "lint": "eslint .",
-    "prepare": "if [ -d '.git' ] && [ -d '.husky' ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi",
-    "start": "yarn run build && node ./dist/stomper.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   }
 }
