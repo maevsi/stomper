@@ -4,6 +4,8 @@ WORKDIR /srv/app/
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
+RUN npm install -g pnpm
+
 VOLUME /srv/.pnpm-store
 VOLUME /srv/app
 
