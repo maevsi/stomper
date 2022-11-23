@@ -1,3 +1,10 @@
+## [0.27.1](https://github.com/maevsi/stomper/compare/0.27.0...0.27.1) (2022-11-23)
+
+
+### Bug Fixes
+
+* **docker:** add missing pnpm installation ([7658dbb](https://github.com/maevsi/stomper/commit/7658dbbea7171ff149b2aa1c3e9a127971e68a8e))
+
 # [0.27.0](https://github.com/maevsi/stomper/compare/0.26.0...0.27.0) (2022-11-23)
 
 
