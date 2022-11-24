@@ -1,4 +1,4 @@
-import { i18nextResolve, templateCompile } from './handlebars'
+import { i18nextResolve, templateCompile } from './handlebars.js'
 
 test('compiles template', () => {
   expect(templateCompile('{{__ "maevsi:subtitle"}}', 'en', {})).toBe(

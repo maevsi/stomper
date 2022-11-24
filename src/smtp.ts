@@ -1,7 +1,6 @@
-import fs from 'fs'
-import http from 'http'
+import { existsSync, readFileSync } from 'fs'
+import { request } from 'http'
 
-import consola from 'consola'
 import handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
 import { createTransport } from 'nodemailer'
@@ -31,14 +30,12 @@ const SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH =
 const TUSD_FILES_URL =
   'https://tusd.' + (process.env.STACK_DOMAIN || 'maevsi.test') + '/files/'
 
-if (!fs.existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
+if (!existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
   throw new Error('The STMP configuration secret is missing!')
 }
 
 const NODEMAILER_TRANSPORTER = createTransport(
-  JSON.parse(
-    fs.readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8'),
-  ),
+  JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8')),
 )
 
 function htmlToText(html: string) {
@@ -50,7 +47,7 @@ async function sendMail(mail: Mail) {
     process.env.NODE_ENV !== 'production' &&
     mail.to.startsWith('mail+sqitch-')
   ) {
-    consola.debug(
+    console.debug(
       'Skipping mail sending for test data email accounts ("mail+sqitch-...").',
     )
     return
@@ -65,7 +62,7 @@ async function sendMail(mail: Mail) {
     ...mail,
   })
 
-  consola.log('Message sent: %s', mailSentData.messageId)
+  console.log('Message sent: %s', mailSentData.messageId)
 }
 
 function sendMailTemplated(mail: Mail, template: Template) {
@@ -116,7 +113,7 @@ export function sendAccountPasswordResetRequestMail(
     )
     ack(id)
   } catch (e) {
-    consola.error(e)
+    console.error(e)
     ack(id, false)
   }
 }
@@ -155,7 +152,7 @@ export function sendAccountRegistrationMail(
     )
     ack(id)
   } catch (e) {
-    consola.error(e)
+    console.error(e)
     ack(id, false)
   }
 }
@@ -173,7 +170,7 @@ export async function sendEventInvitationMail(
     eventAuthorProfilePictureUploadStorageKey,
   } = payload.data
 
-  const req = http.request(
+  const req = request(
     'http://maevsi:3000/api/ical',
     {
       method: 'POST',
@@ -183,17 +180,17 @@ export async function sendEventInvitationMail(
     },
     (res) => {
       if (!invitationUuid) {
-        consola.error(`Could not get invitation uuid ${invitationUuid}!`)
+        console.error(`Could not get invitation uuid ${invitationUuid}!`)
         return
       }
 
       if (!emailAddress) {
-        consola.error(`Could not get email address ${emailAddress}!`)
+        console.error(`Could not get email address ${emailAddress}!`)
         return
       }
 
       if (!event) {
-        consola.error(`Could not get contact ${event}!`)
+        console.error(`Could not get contact ${event}!`)
         return
       }
 
@@ -248,7 +245,7 @@ export async function sendEventInvitationMail(
           language,
         )
       } else {
-        consola.error(
+        console.error(
           `Event is neither archived nor has it a visibility of public or private: ${event}`,
         )
       }
@@ -306,14 +303,14 @@ export async function sendEventInvitationMail(
         )
         ack(id)
       } catch (e) {
-        consola.error(e)
+        console.error(e)
         ack(id, false)
       }
     },
   )
 
   req.on('error', (e) => {
-    consola.error(`Problem with request: ${e.message}`)
+    console.error(`Problem with request: ${e.message}`)
   })
 
   req.write(JSON.stringify({ event }))
