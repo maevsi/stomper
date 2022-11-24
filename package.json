@@ -17,13 +17,12 @@
     "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
     "lint": "eslint .",
     "prepare": "if [ -d '.git' ] && [ -d '.husky' ] && [ \"$NODE_ENV\" != 'production' ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi",
-    "start": "pnpm run build && node ./dist/stomper.js",
+    "start": "node ./dist/stomper.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "dependencies": {
     "@stomp/stompjs": "6.1.2",
     "camelcase-keys": "8.0.2",
-    "consola": "2.15.3",
     "express": "4.18.2",
     "handlebars": "4.7.7",
     "html-to-text": "8.2.1",
@@ -34,7 +33,7 @@
     "nodemailer": "6.8.0",
     "pg": "8.8.0",
     "serve-static": "1.15.0",
-    "websocket": "1.0.34"
+    "ws": "8.11.0"
   },
   "devDependencies": {
     "@babel/core": "7.20.2",
@@ -50,7 +49,7 @@
     "@types/nodemailer": "6.4.6",
     "@types/pg": "8.6.5",
     "@types/serve-static": "1.15.0",
-    "@types/websocket": "1.0.5",
+    "@types/ws": "8.5.3",
     "@typescript-eslint/eslint-plugin": "5.44.0",
     "@typescript-eslint/parser": "5.44.0",
     "babel-jest": "29.3.1",

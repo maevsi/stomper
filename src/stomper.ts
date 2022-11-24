@@ -1,8 +1,6 @@
-// eslint-disable-next-line import/default
 import stompJs from '@stomp/stompjs'
-import consola from 'consola'
-import fs from 'fs'
-import websocket from 'websocket'
+import { readFileSync } from 'fs'
+import { WebSocket } from 'ws'
 
 import {
   sendAccountPasswordResetRequestMail,
@@ -10,14 +8,14 @@ import {
   sendEventInvitationMail,
 } from './smtp.js'
 
-Object.assign(global, { WebSocket: websocket.w3cwebsocket })
+Object.assign(global, { WebSocket })
 
 if (process.env.RABBITMQ_DEFINITIONS_FILE === undefined) {
   throw new Error('Missing environment variable!')
 }
 
 const RABBITMQ_DEFINITIONS = JSON.parse(
-  fs.readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8'),
+  readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8'),
 )
 
 const client = new stompJs.Client({
@@ -28,7 +26,7 @@ const client = new stompJs.Client({
   },
   debug: function (str) {
     if (process.env.NODE_ENV !== 'production') {
-      consola.log(str)
+      console.log(str)
     }
   },
 })
@@ -49,10 +47,10 @@ client.onConnect = function () {
       `/queue/${queueToFunctionMapping.queueName}`,
       function (message) {
         if (!message.body) {
-          consola.error('got empty message')
+          console.error('got empty message')
         }
 
-        consola.log('got message with body ' + message.body)
+        console.log('got message with body ' + message.body)
 
         try {
           const notification = JSON.parse(message.body)
@@ -62,7 +60,7 @@ client.onConnect = function () {
           )
           message.ack()
         } catch (e) {
-          consola.error(e)
+          console.error(e)
         }
       },
       { ack: 'client' },

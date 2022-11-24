@@ -1,8 +1,9 @@
-import fs from 'fs'
-import Handlebars from 'handlebars'
+import { readdirSync, lstatSync, readFileSync } from 'fs'
+import { resolve, join, dirname } from 'path'
+
+import handlebars from 'handlebars'
 import { changeLanguage, use, t, reloadResources } from 'i18next'
 import Backend from 'i18next-fs-backend'
-import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { Template } from './types.js'
@@ -10,12 +11,12 @@ import { Template } from './types.js'
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __dirname = dirname(__filename)
 
 use(Backend).init({
   backend: {
-    addPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.missing.json'),
-    loadPath: path.join(__dirname, './locales/{{lng}}/{{ns}}.json'),
+    addPath: join(__dirname, './locales/{{lng}}/{{ns}}.missing.json'),
+    loadPath: join(__dirname, './locales/{{lng}}/{{ns}}.json'),
   },
   debug:
     typeof process.env.NODE_ENV === 'string' &&
@@ -30,17 +31,15 @@ use(Backend).init({
     'eventInvitation',
     'maevsi',
   ],
-  preload: fs
-    .readdirSync(path.join(__dirname, './locales'))
-    .filter((fileName) => {
-      const joinedPath = path.join(path.join(__dirname, './locales'), fileName)
-      const isDirectory = fs.lstatSync(joinedPath).isDirectory()
-      return isDirectory
-    }),
+  preload: readdirSync(join(__dirname, './locales')).filter((fileName) => {
+    const joinedPath = join(join(__dirname, './locales'), fileName)
+    const isDirectory = lstatSync(joinedPath).isDirectory()
+    return isDirectory
+  }),
 })
 
-Handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
-  return new Handlebars.SafeString(t(str, attributes.hash))
+handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
+  return new handlebars.SafeString(t(str, attributes.hash))
 })
 
 export function templateCompile(
@@ -49,7 +48,7 @@ export function templateCompile(
   templateVariables: Record<string, unknown>,
 ): string {
   changeLanguage(language)
-  return Handlebars.compile(string)({
+  return handlebars.compile(string)({
     stackDomain: STACK_DOMAIN,
     ...templateVariables,
   })
@@ -61,8 +60,8 @@ export function renderTemplate(template: Template): string {
   }
 
   return templateCompile(
-    fs.readFileSync(
-      path.resolve(__dirname, `./email-templates/${template.namespace}.html`),
+    readFileSync(
+      resolve(__dirname, `./email-templates/${template.namespace}.html`),
       'utf-8',
     ),
     template.language,
