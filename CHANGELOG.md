@@ -1,3 +1,10 @@
+# [0.28.0](https://github.com/maevsi/stomper/compare/0.27.1...0.28.0) (2022-11-24)
+
+
+### Features
+
+* strip config ([6a16c0d](https://github.com/maevsi/stomper/commit/6a16c0d446be5971bc3d136ce3dd84ff5d2fdf23))
+
 ## [0.27.1](https://github.com/maevsi/stomper/compare/0.27.0...0.27.1) (2022-11-23)
 
 
