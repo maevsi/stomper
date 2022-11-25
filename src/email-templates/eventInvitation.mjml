@@ -16,9 +16,11 @@
           <mj-text line-height="30px" padding-bottom="0px" font-size="24px" font-weight="700">
             {{eventName}}
           </mj-text>
+          {{#if eventGroupName}}
           <mj-text line-height="30px" padding-top="0px">
             {{eventGroupName}}
           </mj-text>
+          {{/if}}
           <mj-text>
             {{__ "eventInvitation:eventStart" eventStart=eventStart}}
             {{#if eventDuration}}
@@ -37,8 +39,10 @@
             {{__ "eventInvitation:eventDescriptionTitle"}}
           </mj-text>
           <mj-text>
+            {{#if eventDescription}}
             {{eventDescription}}
             <br/>
+            {{/if}}
             <a href="{{eventLink}}" target="_blank">{{__ "eventInvitation:eventShow"}}</a>
           </mj-text>
         </mj-column>
