@@ -1,3 +1,10 @@
+## [0.28.1](https://github.com/maevsi/stomper/compare/0.28.0...0.28.1) (2022-12-04)
+
+
+### Bug Fixes
+
+* **docker:** do not pin digests ([6e6b0a0](https://github.com/maevsi/stomper/commit/6e6b0a036bfa1a88c7c25e3e6a001364a5895630))
+
 # [0.28.0](https://github.com/maevsi/stomper/compare/0.27.1...0.28.0) (2022-11-24)
 
 
