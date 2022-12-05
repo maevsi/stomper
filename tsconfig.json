@@ -2,10 +2,11 @@
     "compilerOptions": {
         "module": "NodeNext",
         "outDir": "dist",
+        // "sourceMap": true,
         "strict": true
     },
     "include": [
-        "./src/**/*"
+        "src/**/*"
     ],
     "ts-node": {
         "esm": true
