@@ -33,7 +33,7 @@ specifiers:
   eslint-plugin-promise: 6.1.1
   express: 4.18.2
   handlebars: 4.7.7
-  html-to-text: 9.0.0
+  html-to-text: 9.0.1
   husky: 8.0.2
   i18next: 22.0.8
   i18next-fs-backend: 2.0.1
@@ -57,7 +57,7 @@ dependencies:
   camelcase-keys: 8.0.2
   express: 4.18.2
   handlebars: 4.7.7
-  html-to-text: 9.0.0
+  html-to-text: 9.0.1
   i18next: 22.0.8
   i18next-fs-backend: 2.0.1
   intl: 1.2.5
@@ -4031,8 +4031,8 @@ packages:
       uglify-js: 3.17.4
     dev: true
 
-  /html-to-text/9.0.0:
-    resolution: {integrity: sha512-nKlrWW/7/9ClpXHOVWHg9FYKc6QXfBeC9XVZQbE3eRC5sqTsN91LvwI/SZMz2j2WG4Ci9FfWjoCZ30c8cErt0Q==}
+  /html-to-text/9.0.1:
+    resolution: {integrity: sha512-TpR3+kpSwvWEi/n9P9IgOPmhraA3Dz6MEGTOdxtvvzyIobHacfGtwzzch6Q7Ihwl9jL47Oed08ywXopSFlj40w==}
     engines: {node: '>=14'}
     dependencies:
       '@selderee/plugin-htmlparser2': 0.10.0
