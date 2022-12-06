@@ -31,7 +31,7 @@ const TUSD_FILES_URL =
   'https://tusd.' + (process.env.STACK_DOMAIN || 'maevsi.test') + '/files/'
 
 if (!existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
-  throw new Error('The STMP configuration secret is missing!')
+  throw new Error('The SMTP configuration secret is missing!')
 }
 
 const NODEMAILER_TRANSPORTER = createTransport(
