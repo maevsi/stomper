@@ -1,3 +1,11 @@
+## [0.28.2](https://github.com/maevsi/stomper/compare/0.28.1...0.28.2) (2022-12-06)
+
+
+### Bug Fixes
+
+* **mjml:** exclude empty sections ([32e7ffc](https://github.com/maevsi/stomper/commit/32e7ffc954d0439f58e49b7cd7585d0f19939572)), closes [#124](https://github.com/maevsi/stomper/issues/124)
+* **smtp:** correct typo ([8434c8e](https://github.com/maevsi/stomper/commit/8434c8e4507c99ba968b3a567962fcd7df54c206))
+
 ## [0.28.1](https://github.com/maevsi/stomper/compare/0.28.0...0.28.1) (2022-12-04)
 
 
