@@ -35,7 +35,7 @@ specifiers:
   handlebars: 4.7.7
   html-to-text: 9.0.2
   husky: 8.0.2
-  i18next: 22.2.0
+  i18next: 22.3.0
   i18next-fs-backend: 2.1.0
   intl: 1.2.5
   jest: 29.3.1
@@ -58,7 +58,7 @@ dependencies:
   express: 4.18.2
   handlebars: 4.7.7
   html-to-text: 9.0.2
-  i18next: 22.2.0
+  i18next: 22.3.0
   i18next-fs-backend: 2.1.0
   intl: 1.2.5
   moment-timezone: 0.5.39
@@ -4100,8 +4100,8 @@ packages:
       '@babel/runtime': 7.20.6
     dev: true
 
-  /i18next/22.2.0:
-    resolution: {integrity: sha512-JG7YepYhixXAUcSLQoGaqHSur9fsbQ5fmM3+64YjYi6kksQaiqDPbqlKErfg6OmTcX7cMQZBMmarf9HbvvI4fA==}
+  /i18next/22.3.0:
+    resolution: {integrity: sha512-V8ODNVavs8Sp6UvURwajQ/6CytW0GWkv384Rz16AaKNrU3L47lGz1Yv79hPNmM8IqV0eS8AOixy5Qaw1De7bcA==}
     dependencies:
       '@babel/runtime': 7.20.6
     dev: false
