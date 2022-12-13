@@ -1,3 +1,10 @@
+## [0.28.4](https://github.com/maevsi/stomper/compare/0.28.3...0.28.4) (2022-12-13)
+
+
+### Bug Fixes
+
+* **handlebars:** correct typing ([0b48130](https://github.com/maevsi/stomper/commit/0b48130928ad7ddc7b257114ae9a822a517d4a50))
+
 ## [0.28.3](https://github.com/maevsi/stomper/compare/0.28.2...0.28.3) (2022-12-13)
 
 
