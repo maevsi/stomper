@@ -72,7 +72,7 @@ export function renderTemplate(template: Template): string {
 export function i18nextResolve(
   id: string,
   language = 'en',
-  options?: Record<string, unknown>,
+  options: Record<string, unknown> = {},
 ): string {
   changeLanguage(language)
   return t(id, options)
