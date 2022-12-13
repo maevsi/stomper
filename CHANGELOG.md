@@ -1,3 +1,10 @@
+## [0.28.3](https://github.com/maevsi/stomper/compare/0.28.2...0.28.3) (2022-12-13)
+
+
+### Bug Fixes
+
+* **commitlint:** allow long body lines on ci ([f215771](https://github.com/maevsi/stomper/commit/f215771a0ad2cd60de6ab0edd75c86a2c4c49a69))
+
 ## [0.28.2](https://github.com/maevsi/stomper/compare/0.28.1...0.28.2) (2022-12-06)
 
 
