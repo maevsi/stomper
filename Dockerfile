@@ -1,4 +1,4 @@
-FROM node:19.2.0-alpine AS development
+FROM node:19.3.0-alpine AS development
 
 WORKDIR /srv/app/
 
@@ -13,7 +13,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["pnpm", "run", "dev"]
 
 
-FROM node:19.2.0-alpine AS build
+FROM node:19.3.0-alpine AS build
 
 WORKDIR /srv/app/
 
@@ -35,7 +35,7 @@ RUN pnpm run build \
     && pnpm install --offline
 
 
-FROM node:19.2.0-alpine AS production
+FROM node:19.3.0-alpine AS production
 
 ENV NODE_ENV=production
 
