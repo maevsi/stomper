@@ -45,7 +45,7 @@
     "@types/html-to-text": "8.1.1",
     "@types/i18next-fs-backend": "1.1.2",
     "@types/jest": "29.2.4",
-    "@types/node": "18.11.17",
+    "@types/node": "18.11.18",
     "@types/nodemailer": "6.4.7",
     "@types/pg": "8.6.6",
     "@types/serve-static": "1.15.0",
