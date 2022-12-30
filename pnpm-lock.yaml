@@ -18,7 +18,7 @@ specifiers:
   '@types/nodemailer': 6.4.7
   '@types/pg': 8.6.6
   '@types/serve-static': 1.15.0
-  '@types/ws': 8.5.3
+  '@types/ws': 8.5.4
   '@typescript-eslint/eslint-plugin': 5.47.1
   '@typescript-eslint/parser': 5.47.1
   babel-jest: 29.3.1
@@ -81,7 +81,7 @@ devDependencies:
   '@types/nodemailer': 6.4.7
   '@types/pg': 8.6.6
   '@types/serve-static': 1.15.0
-  '@types/ws': 8.5.3
+  '@types/ws': 8.5.4
   '@typescript-eslint/eslint-plugin': 5.47.1_txmweb6yn7coi7nfrp22gpyqmy
   '@typescript-eslint/parser': 5.47.1_lzzuuodtsqwxnvqeq4g4likcqa
   babel-jest: 29.3.1_@babel+core@7.20.7
@@ -2080,8 +2080,8 @@ packages:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
 
-  /@types/ws/8.5.3:
-    resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
+  /@types/ws/8.5.4:
+    resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
     dependencies:
       '@types/node': 18.11.18
     dev: true
