@@ -35,7 +35,7 @@ if (!existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
 }
 
 const NODEMAILER_TRANSPORTER = createTransport(
-  JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8')),
+  JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8'))
 )
 
 function htmlToText(html: string) {
@@ -48,7 +48,7 @@ async function sendMail(mail: Mail) {
     mail.to.startsWith('mail+sqitch-')
   ) {
     console.debug(
-      'Skipping mail sending for test data email accounts ("mail+sqitch-...").',
+      'Skipping mail sending for test data email accounts ("mail+sqitch-...").'
     )
     return
   }
@@ -72,7 +72,7 @@ function sendMailTemplated(mail: Mail, template: Template) {
     subject: i18nextResolve(
       `${template.namespace}:subject`,
       template.language,
-      template.variables,
+      template.variables
     ),
     html,
     text: htmlToText(html),
@@ -81,7 +81,7 @@ function sendMailTemplated(mail: Mail, template: Template) {
 
 export function sendAccountPasswordResetRequestMail(
   id: number,
-  payload: AccountPasswordResetRequestMailOptions,
+  payload: AccountPasswordResetRequestMailOptions
 ): void {
   try {
     sendMailTemplated(
@@ -109,7 +109,7 @@ export function sendAccountPasswordResetRequestMail(
             language: payload.template.language,
           }),
         },
-      },
+      }
     )
     ack(id)
   } catch (e) {
@@ -120,7 +120,7 @@ export function sendAccountPasswordResetRequestMail(
 
 export function sendAccountRegistrationMail(
   id: number,
-  payload: AccountRegistrationMailOptions,
+  payload: AccountRegistrationMailOptions
 ): void {
   try {
     sendMailTemplated(
@@ -148,7 +148,7 @@ export function sendAccountRegistrationMail(
             language: payload.template.language,
           }),
         },
-      },
+      }
     )
     ack(id)
   } catch (e) {
@@ -159,7 +159,7 @@ export function sendAccountRegistrationMail(
 
 export async function sendEventInvitationMail(
   id: number,
-  payload: EventInvitationMailOptions,
+  payload: EventInvitationMailOptions
 ): Promise<void> {
   payload = camelcaseKeys(payload, { deep: true })
 
@@ -202,7 +202,7 @@ export async function sendEventInvitationMail(
           ? [
               i18nextResolve(
                 `${namespace}:eventAttendanceTypeInPerson`,
-                language,
+                language
               ),
             ]
           : []),
@@ -221,7 +221,7 @@ export async function sendEventInvitationMail(
             invitation: {
               uuid: invitationUuid,
             },
-          }),
+          })
         )
 
         if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
@@ -237,16 +237,16 @@ export async function sendEventInvitationMail(
       } else if (event.visibility === 'public') {
         eventVisibility = i18nextResolve(
           `${namespace}:eventVisibilityIsPublic`,
-          language,
+          language
         )
       } else if (event.visibility === 'private') {
         eventVisibility = i18nextResolve(
           `${namespace}:eventVisibilityIsPrivate`,
-          language,
+          language
         )
       } else {
         console.error(
-          `Event is neither archived nor has it a visibility of public or private: ${event}`,
+          `Event is neither archived nor has it a visibility of public or private: ${event}`
         )
       }
 
@@ -299,14 +299,14 @@ export async function sendEventInvitationMail(
               }),
               eventVisibility,
             },
-          },
+          }
         )
         ack(id)
       } catch (e) {
         console.error(e)
         ack(id, false)
       }
-    },
+    }
   )
 
   req.on('error', (e) => {

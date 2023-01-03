@@ -15,7 +15,7 @@ if (process.env.RABBITMQ_DEFINITIONS_FILE === undefined) {
 }
 
 const RABBITMQ_DEFINITIONS = JSON.parse(
-  readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8'),
+  readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8')
 )
 
 const client = new stompJs.Client({
@@ -56,14 +56,14 @@ client.onConnect = function () {
           const notification = JSON.parse(message.body)
           queueToFunctionMapping.function(
             notification.id,
-            JSON.parse(notification.payload),
+            JSON.parse(notification.payload)
           )
           message.ack()
         } catch (e) {
           console.error(e)
         }
       },
-      { ack: 'client' },
+      { ack: 'client' }
     )
   })
 }
@@ -73,7 +73,7 @@ client.onStompError = function (frame) {
     'Broker reported error: ' +
       frame.headers.message +
       '\nAdditional details: ' +
-      frame.body,
+      frame.body
   )
 }
 

@@ -30,7 +30,7 @@ export function ack(id: number, isAcknowledged = true): Promise<unknown> {
         }
 
         resolve(true)
-      },
+      }
     )
   })
 }

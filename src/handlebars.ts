@@ -45,7 +45,7 @@ handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
 export function templateCompile(
   string: string,
   language: string,
-  templateVariables: Record<string, unknown>,
+  templateVariables: Record<string, unknown>
 ): string {
   changeLanguage(language)
   return handlebars.compile(string)({
@@ -62,17 +62,17 @@ export function renderTemplate(template: Template): string {
   return templateCompile(
     readFileSync(
       resolve(__dirname, `./email-templates/${template.namespace}.html`),
-      'utf-8',
+      'utf-8'
     ),
     template.language,
-    template.variables,
+    template.variables
   )
 }
 
 export function i18nextResolve(
   id: string,
   language = 'en',
-  options: Record<string, unknown> = {},
+  options: Record<string, unknown> = {}
 ): string {
   changeLanguage(language)
   return t(id, options)
