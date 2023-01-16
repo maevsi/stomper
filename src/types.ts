@@ -84,6 +84,7 @@ export interface DurationFormatOptions extends MomentFormatOptionsBase {
 }
 
 export interface Mail {
+  from?: string
   html?: string
   icalEvent?: Record<string, unknown> // https://nodemailer.com/message/calendar-events/
   subject?: string

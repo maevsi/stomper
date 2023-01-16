@@ -253,6 +253,7 @@ export async function sendEventInvitationMail(
       try {
         sendMailTemplated(
           {
+            from: `"${event.authorUsername}" <noreply@maev.si>`,
             icalEvent: {
               content: res,
               filename: event.authorUsername + '_' + event.slug + '.ics',

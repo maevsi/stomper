@@ -13,5 +13,5 @@
     "eventVisibilityIsPublic": "öffentliche",
     "eventVisibility": "Dies ist eine {{eventVisibility}} Veranstaltung.",
     "header": "{{eventAuthorUsername}} hat dich eingeladen!",
-    "subject": "Einladung: {{eventName}} von {{eventAuthorUsername}}"
+    "subject": "Einladung: {{eventName}}"
 }
