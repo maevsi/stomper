@@ -1,3 +1,10 @@
+# [0.29.0](https://github.com/maevsi/stomper/compare/0.28.6...0.29.0) (2023-01-16)
+
+
+### Features
+
+* make correspondent more personal ([567ece1](https://github.com/maevsi/stomper/commit/567ece182d3076517132ddd0dd4fa8d25769489d)), closes [#125](https://github.com/maevsi/stomper/issues/125)
+
 ## [0.28.6](https://github.com/maevsi/stomper/compare/0.28.5...0.28.6) (2023-01-09)
 
 
