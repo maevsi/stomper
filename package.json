@@ -31,7 +31,7 @@
     "intl": "1.2.5",
     "moment-timezone": "0.5.40",
     "nodemailer": "6.9.1",
-    "pg": "8.8.0",
+    "pg": "8.9.0",
     "serve-static": "1.15.0",
     "ws": "8.12.0"
   },
