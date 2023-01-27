@@ -39,7 +39,7 @@ specifiers:
   jest: 29.4.1
   mjml: 4.13.0
   moment-timezone: 0.5.40
-  nodemailer: 6.9.0
+  nodemailer: 6.9.1
   nodemon: 2.0.20
   pg: 8.8.0
   prettier: 2.8.3
@@ -60,7 +60,7 @@ dependencies:
   i18next-fs-backend: 2.1.1
   intl: 1.2.5
   moment-timezone: 0.5.40
-  nodemailer: 6.9.0
+  nodemailer: 6.9.1
   pg: 8.8.0
   serve-static: 1.15.0
   ws: 8.12.0
@@ -5672,8 +5672,8 @@ packages:
     resolution: {integrity: sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==}
     dev: true
 
-  /nodemailer/6.9.0:
-    resolution: {integrity: sha512-jFaCEGTeT3E/m/5R2MHWiyQH3pSARECRUDM+1hokOYc3lQAAG7ASuy+2jIsYVf+RVa9zePopSQwKNVFH8DKUpA==}
+  /nodemailer/6.9.1:
+    resolution: {integrity: sha512-qHw7dOiU5UKNnQpXktdgQ1d3OFgRAekuvbJLcdG5dnEo/GtcTHRYM7+UfJARdOFU9WUQO8OiIamgWPmiSFHYAA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
