@@ -21,7 +21,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "dependencies": {
-    "@stomp/stompjs": "6.1.2",
+    "@stomp/stompjs": "7.0.0",
     "camelcase-keys": "8.0.2",
     "express": "4.18.2",
     "handlebars": "4.7.7",
