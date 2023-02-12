@@ -1,4 +1,4 @@
-import stompJs from '@stomp/stompjs'
+import { Client } from '@stomp/stompjs'
 import { readFileSync } from 'fs'
 import { WebSocket } from 'ws'
 
@@ -18,7 +18,7 @@ const RABBITMQ_DEFINITIONS = JSON.parse(
   readFileSync(process.env.RABBITMQ_DEFINITIONS_FILE, 'utf8')
 )
 
-const client = new stompJs.Client({
+const client = new Client({
   brokerURL: 'ws://rabbitmq:15674/ws',
   connectHeaders: {
     login: RABBITMQ_DEFINITIONS.users[0].name,
