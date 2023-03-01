@@ -1,5 +1,4 @@
-[![build status](https://github.com/maevsi/stomper/workflows/CI/badge.svg)](https://github.com/maevsi/stomper/actions?query=workflow%3ACI "build status")
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/maevsi/stomper.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/maevsi/stomper/context:javascript)
+[![CI](https://github.com/maevsi/stomper/actions/workflows/ci.yml/badge.svg)](https://github.com/maevsi/stomper/actions/workflows/ci.yml)
 
 # stomper
 
