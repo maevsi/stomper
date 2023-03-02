@@ -14,7 +14,7 @@ const pool = new pg.Pool({
   password: existsSync(secretPostgresRoleMaevsiTusdPasswordPath)
     ? readFileSync(secretPostgresRoleMaevsiTusdPasswordPath, 'utf-8')
     : undefined,
-  user: 'maevsi_stomper', // lgtm [js/hardcoded-credentials]
+  user: 'maevsi_stomper',
 })
 
 export function ack(id: number, isAcknowledged = true): Promise<unknown> {
