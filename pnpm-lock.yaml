@@ -42,7 +42,7 @@ specifiers:
   nodemailer: 6.9.1
   nodemon: 2.0.21
   pg: 8.10.0
-  prettier: 2.8.5
+  prettier: 2.8.6
   serve-static: 1.15.0
   shx: 0.3.4
   ts-jest: 29.0.5
@@ -88,12 +88,12 @@ devDependencies:
   eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
   eslint-plugin-import: 2.27.5_as6wyplljmmarlclp2tx3tj6rq
   eslint-plugin-jest: 27.2.1_bfoae2dnidapiplqb656fcbgyi
-  eslint-plugin-prettier: 4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq
+  eslint-plugin-prettier: 4.2.1_ose2zoovovx4ulolhifz3tfzx4
   husky: 8.0.3
   jest: 29.5.0_757mb262zsxkcnuknwfdsckmku
   mjml: 4.13.0
   nodemon: 2.0.21
-  prettier: 2.8.5
+  prettier: 2.8.6
   shx: 0.3.4
   ts-jest: 29.0.5_kqlgjogqum2lu7fnbgkxhqnnzi
   ts-node: 10.9.1_zlbzrxdj56n2qhafx752nt3nlm
@@ -3445,7 +3445,7 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_i2qmqyy4fgpgq2h7f6vnil3crq:
+  /eslint-plugin-prettier/4.2.1_ose2zoovovx4ulolhifz3tfzx4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3458,7 +3458,7 @@ packages:
     dependencies:
       eslint: 8.36.0
       eslint-config-prettier: 8.8.0_eslint@8.36.0
-      prettier: 2.8.5
+      prettier: 2.8.6
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -6017,8 +6017,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.5:
-    resolution: {integrity: sha512-3gzuxrHbKUePRBB4ZeU08VNkUcqEHaUaouNt0m7LGP4Hti/NuB07C7PPTM/LkWqXoJYJn2McEo5+kxPNrtQkLQ==}
+  /prettier/2.8.6:
+    resolution: {integrity: sha512-mtuzdiBbHwPEgl7NxWlqOkithPyp4VN93V7VeHVWBF+ad3I5avc0RVDT4oImXQy9H/AqxA2NSQH8pSxHW6FYbQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
