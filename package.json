@@ -9,7 +9,7 @@
   "license": "TODO",
   "type": "module",
   "engines": {
-    "node": ">=19"
+    "node": "19"
   },
   "packageManager": "pnpm@7.30.3",
   "scripts": {
