@@ -1,3 +1,10 @@
+## [0.29.7](https://github.com/maevsi/stomper/compare/0.29.6...0.29.7) (2023-04-05)
+
+
+### Bug Fixes
+
+* **smtp:** correct image links ([4d6cbfd](https://github.com/maevsi/stomper/commit/4d6cbfdea3104bcc377e32a53d48898d5108e9c9))
+
 ## [0.29.6](https://github.com/maevsi/stomper/compare/0.29.5...0.29.6) (2023-03-27)
 
 
