@@ -1,3 +1,10 @@
+## [0.29.9](https://github.com/maevsi/stomper/compare/0.29.8...0.29.9) (2023-04-18)
+
+
+### Bug Fixes
+
+* **password-reset:** add contact email ([d9dd0b9](https://github.com/maevsi/stomper/commit/d9dd0b9daf68c435c7625a7d187e2a4fa76694c1)), closes [#110](https://github.com/maevsi/stomper/issues/110)
+
 ## [0.29.8](https://github.com/maevsi/stomper/compare/0.29.7...0.29.8) (2023-04-17)
 
 
