@@ -42,11 +42,11 @@ handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
   return new handlebars.SafeString(t(str, attributes.hash))
 })
 
-export function templateCompile(
+export const templateCompile = (
   string: string,
   language: string,
   templateVariables: Record<string, unknown>
-): string {
+) => {
   changeLanguage(language)
   return handlebars.compile(string)({
     stackDomain: STACK_DOMAIN,
@@ -54,7 +54,7 @@ export function templateCompile(
   })
 }
 
-export function renderTemplate(template: Template): string {
+export const renderTemplate = (template: Template) => {
   if (process.env.NODE_ENV !== 'production') {
     reloadResources()
   }
@@ -69,11 +69,11 @@ export function renderTemplate(template: Template): string {
   )
 }
 
-export function i18nextResolve(
+export const i18nextResolve = (
   id: string,
   language = 'en',
   options: Record<string, unknown> = {}
-): string {
+) => {
   changeLanguage(language)
   return t(id, options)
 }

@@ -38,11 +38,10 @@ const NODEMAILER_TRANSPORTER = createTransport(
   JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8'))
 )
 
-function htmlToText(html: string) {
-  return htmlToTextImported(html, HTML_TO_TEXT_OPTIONS)
-}
+const htmlToText = (html: string) =>
+  htmlToTextImported(html, HTML_TO_TEXT_OPTIONS)
 
-async function sendMail(mail: Mail) {
+const sendMail = async (mail: Mail) => {
   if (
     process.env.NODE_ENV !== 'production' &&
     mail.to.startsWith('mail+sqitch-')
@@ -65,7 +64,7 @@ async function sendMail(mail: Mail) {
   console.log('Message sent: %s', mailSentData.messageId)
 }
 
-function sendMailTemplated(mail: Mail, template: Template) {
+const sendMailTemplated = (mail: Mail, template: Template) => {
   const html = renderTemplate(template)
   sendMail({
     ...mail,
@@ -79,10 +78,10 @@ function sendMailTemplated(mail: Mail, template: Template) {
   })
 }
 
-export function sendAccountPasswordResetRequestMail(
+export const sendAccountPasswordResetRequestMail = (
   id: number,
   payload: AccountPasswordResetRequestMailOptions
-): void {
+) => {
   try {
     sendMailTemplated(
       {
@@ -118,10 +117,10 @@ export function sendAccountPasswordResetRequestMail(
   }
 }
 
-export function sendAccountRegistrationMail(
+export const sendAccountRegistrationMail = (
   id: number,
   payload: AccountRegistrationMailOptions
-): void {
+) => {
   try {
     sendMailTemplated(
       {
@@ -157,10 +156,10 @@ export function sendAccountRegistrationMail(
   }
 }
 
-export async function sendEventInvitationMail(
+export const sendEventInvitationMail = async (
   id: number,
   payload: EventInvitationMailOptions
-): Promise<void> {
+) => {
   payload = camelcaseKeys(payload, { deep: true })
 
   const {
