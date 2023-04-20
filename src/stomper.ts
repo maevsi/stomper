@@ -24,14 +24,14 @@ const client = new Client({
     login: RABBITMQ_DEFINITIONS.users[0].name,
     passcode: RABBITMQ_DEFINITIONS.users[0].password,
   },
-  debug: function (str) {
+  debug: (str) => {
     if (process.env.NODE_ENV !== 'production') {
       console.log(str)
     }
   },
 })
 
-client.onConnect = function () {
+client.onConnect = () => {
   ;[
     {
       queueName: 'account_password_reset_request',
@@ -45,7 +45,7 @@ client.onConnect = function () {
   ].forEach((queueToFunctionMapping) => {
     client.subscribe(
       `/queue/${queueToFunctionMapping.queueName}`,
-      function (message) {
+      (message) => {
         if (!message.body) {
           console.error('got empty message')
         }
@@ -68,7 +68,7 @@ client.onConnect = function () {
   })
 }
 
-client.onStompError = function (frame) {
+client.onStompError = (frame) => {
   throw new Error(
     'Broker reported error: ' +
       frame.headers.message +

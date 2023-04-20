@@ -17,7 +17,7 @@ const pool = new pg.Pool({
   user: 'maevsi_stomper',
 })
 
-export function ack(id: number, isAcknowledged = true): Promise<unknown> {
+export const ack = (id: number, isAcknowledged = true) => {
   return new Promise((resolve, reject) => {
     pool.query(
       'SELECT maevsi.notification_acknowledge($1, $2)',
