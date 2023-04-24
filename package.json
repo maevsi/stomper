@@ -8,7 +8,7 @@
   "license": "TODO",
   "type": "module",
   "engines": {
-    "node": "19"
+    "node": "20"
   },
   "packageManager": "pnpm@8.3.1",
   "scripts": {
