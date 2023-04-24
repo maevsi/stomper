@@ -4,7 +4,7 @@ WORKDIR /srv/app/
 
 COPY ./docker-entrypoint.sh /usr/local/bin/
 
-RUN npm install -g pnpm
+RUN corepack enable
 
 VOLUME /srv/.pnpm-store
 VOLUME /srv/app
@@ -19,7 +19,7 @@ WORKDIR /srv/app/
 
 COPY ./pnpm-lock.yaml ./
 
-RUN npm install -g pnpm && \
+RUN corepack enable && \
     pnpm fetch
 
 COPY . .
