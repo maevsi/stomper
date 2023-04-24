@@ -1,3 +1,10 @@
+## [0.29.10](https://github.com/maevsi/stomper/compare/0.29.9...0.29.10) (2023-04-24)
+
+
+### Bug Fixes
+
+* **package:** correct prepare script ([3b7e05e](https://github.com/maevsi/stomper/commit/3b7e05e47612243536124489039cd3e5fd9633a7))
+
 ## [0.29.9](https://github.com/maevsi/stomper/compare/0.29.8...0.29.9) (2023-04-18)
 
 
