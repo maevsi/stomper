@@ -1,3 +1,10 @@
+# [0.30.0](https://github.com/maevsi/stomper/compare/0.29.11...0.30.0) (2023-05-12)
+
+
+### Features
+
+* **smtp:** update nuxt service name ([0e2b492](https://github.com/maevsi/stomper/commit/0e2b492284e6ad50f688506d5e72d909423574f3))
+
 ## [0.29.11](https://github.com/maevsi/stomper/compare/0.29.10...0.29.11) (2023-05-05)
 
 
