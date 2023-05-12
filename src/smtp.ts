@@ -170,7 +170,7 @@ export const sendEventInvitationMail = async (
   } = payload.data
 
   const req = request(
-    'http://maevsi:3000/api/ical',
+    'http://nuxt:3000/api/ical',
     {
       method: 'POST',
       headers: {
