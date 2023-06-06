@@ -83,8 +83,8 @@ devDependencies:
     specifier: 6.4.8
     version: 6.4.8
   '@types/pg':
-    specifier: 8.10.1
-    version: 8.10.1
+    specifier: 8.10.2
+    version: 8.10.2
   '@types/serve-static':
     specifier: 1.15.1
     version: 1.15.1
@@ -2153,8 +2153,8 @@ packages:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: true
 
-  /@types/pg@8.10.1:
-    resolution: {integrity: sha512-AmEHA/XxMxemQom5iDwP62FYNkv+gDDnetRG7v2N2dPtju7UKI7FknUimcZo7SodKTHtckYPzaTqUEvUKbVJEA==}
+  /@types/pg@8.10.2:
+    resolution: {integrity: sha512-MKFs9P6nJ+LAeHLU3V0cODEOgyThJ3OAnmOlsZsxux6sfQs3HRXR5bBn7xG5DjckEFhTAxsXi7k7cd0pCMxpJw==}
     dependencies:
       '@types/node': 18.16.16
       pg-protocol: 1.6.0
