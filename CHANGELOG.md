@@ -1,3 +1,10 @@
+## [0.30.3](https://github.com/maevsi/stomper/compare/0.30.2...0.30.3) (2023-06-12)
+
+
+### Bug Fixes
+
+* schedule release ([427c40f](https://github.com/maevsi/stomper/commit/427c40f759b1e5bf9c8a02e325fe07eb62ee5a6f))
+
 ## [0.30.2](https://github.com/maevsi/stomper/compare/0.30.1...0.30.2) (2023-06-05)
 
 
