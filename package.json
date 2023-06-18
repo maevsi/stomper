@@ -4,7 +4,7 @@
   "version": "0.30.3",
   "main": "stomper.js",
   "repository": "https://github.com/maevsi/stomper.git",
-  "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
+  "author": "Jonas Thelemann <e-mail+maevsi/stomper@jonas-thelemann.de>",
   "license": "TODO",
   "type": "module",
   "engines": {
