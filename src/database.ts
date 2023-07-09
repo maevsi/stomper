@@ -30,7 +30,7 @@ export const ack = (id: number, isAcknowledged = true) => {
         }
 
         resolve(true)
-      }
+      },
     )
   })
 }
