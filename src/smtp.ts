@@ -35,7 +35,7 @@ if (!existsSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH)) {
 }
 
 const NODEMAILER_TRANSPORTER = createTransport(
-  JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8'))
+  JSON.parse(readFileSync(SECRET_STOMPER_NODEMAILER_TRANSPORTER_PATH, 'utf-8')),
 )
 
 const htmlToText = (html: string) =>
@@ -47,7 +47,7 @@ const sendMail = async (mail: Mail) => {
     mail.to.startsWith('mail+sqitch-')
   ) {
     console.debug(
-      'Skipping mail sending for test data email accounts ("mail+sqitch-...").'
+      'Skipping mail sending for test data email accounts ("mail+sqitch-...").',
     )
     return
   }
@@ -71,7 +71,7 @@ const sendMailTemplated = (mail: Mail, template: Template) => {
     subject: i18nextResolve(
       `${template.namespace}:subject`,
       template.language,
-      template.variables
+      template.variables,
     ),
     html,
     text: htmlToText(html),
@@ -80,7 +80,7 @@ const sendMailTemplated = (mail: Mail, template: Template) => {
 
 export const sendAccountPasswordResetRequestMail = (
   id: number,
-  payload: AccountPasswordResetRequestMailOptions
+  payload: AccountPasswordResetRequestMailOptions,
 ) => {
   try {
     sendMailTemplated(
@@ -108,7 +108,7 @@ export const sendAccountPasswordResetRequestMail = (
             language: payload.template.language,
           }),
         },
-      }
+      },
     )
     ack(id)
   } catch (e) {
@@ -119,7 +119,7 @@ export const sendAccountPasswordResetRequestMail = (
 
 export const sendAccountRegistrationMail = (
   id: number,
-  payload: AccountRegistrationMailOptions
+  payload: AccountRegistrationMailOptions,
 ) => {
   try {
     sendMailTemplated(
@@ -147,7 +147,7 @@ export const sendAccountRegistrationMail = (
             language: payload.template.language,
           }),
         },
-      }
+      },
     )
     ack(id)
   } catch (e) {
@@ -158,7 +158,7 @@ export const sendAccountRegistrationMail = (
 
 export const sendEventInvitationMail = async (
   id: number,
-  payload: EventInvitationMailOptions
+  payload: EventInvitationMailOptions,
 ) => {
   payload = camelcaseKeys(payload, { deep: true })
 
@@ -201,7 +201,7 @@ export const sendEventInvitationMail = async (
           ? [
               i18nextResolve(
                 `${namespace}:eventAttendanceTypeInPerson`,
-                language
+                language,
               ),
             ]
           : []),
@@ -220,7 +220,7 @@ export const sendEventInvitationMail = async (
             invitation: {
               uuid: invitationUuid,
             },
-          })
+          }),
         )
 
         if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
@@ -236,16 +236,16 @@ export const sendEventInvitationMail = async (
       } else if (event.visibility === 'public') {
         eventVisibility = i18nextResolve(
           `${namespace}:eventVisibilityIsPublic`,
-          language
+          language,
         )
       } else if (event.visibility === 'private') {
         eventVisibility = i18nextResolve(
           `${namespace}:eventVisibilityIsPrivate`,
-          language
+          language,
         )
       } else {
         console.error(
-          `Event is neither archived nor has it a visibility of public or private: ${event}`
+          `Event is neither archived nor has it a visibility of public or private: ${event}`,
         )
       }
 
@@ -297,14 +297,14 @@ export const sendEventInvitationMail = async (
               }),
               eventVisibility,
             },
-          }
+          },
         )
         ack(id)
       } catch (e) {
         console.error(e)
         ack(id, false)
       }
-    }
+    },
   )
 
   req.on('error', (e) => {
