@@ -116,8 +116,8 @@ devDependencies:
     specifier: 27.2.2
     version: 27.2.2(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.44.0)(jest@29.6.1)(typescript@5.1.6)
   eslint-plugin-prettier:
-    specifier: 5.0.0-alpha.2
-    version: 5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0)
+    specifier: 5.0.0
+    version: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0)
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -3642,8 +3642,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-prettier@5.0.0-alpha.2(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0):
-    resolution: {integrity: sha512-F6YBCbrRzvZwcINw3crm1+/uX/i+rJYaFErPtwCfUoPLywRfY7pwBtI3yMe5OpIotuaiws8cd29oM80ca6NQSQ==}
+  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0):
+    resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
