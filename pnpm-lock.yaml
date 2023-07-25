@@ -80,8 +80,8 @@ devDependencies:
     specifier: 18.17.0
     version: 18.17.0
   '@types/nodemailer':
-    specifier: 6.4.8
-    version: 6.4.8
+    specifier: 6.4.9
+    version: 6.4.9
   '@types/pg':
     specifier: 8.10.2
     version: 8.10.2
@@ -2185,8 +2185,8 @@ packages:
     resolution: {integrity: sha512-GXZxEtOxYGFchyUzxvKI14iff9KZ2DI+A6a37o6EQevtg6uO9t+aUZKcaC1Te5Ng1OnLM7K9NVVj+FbecD9cJg==}
     dev: true
 
-  /@types/nodemailer@6.4.8:
-    resolution: {integrity: sha512-oVsJSCkqViCn8/pEu2hfjwVO+Gb3e+eTWjg3PcjeFKRItfKpKwHphQqbYmPQrlMk+op7pNNWPbsJIEthpFN/OQ==}
+  /@types/nodemailer@6.4.9:
+    resolution: {integrity: sha512-XYG8Gv+sHjaOtUpiuytahMy2mM3rectgroNbs6R3djZEKmPNiIJwe9KqOJBGzKKnNZNKvnuvmugBgpq3w/S0ig==}
     dependencies:
       '@types/node': 18.17.0
     dev: true
