@@ -12,8 +12,8 @@ dependencies:
     specifier: 7.0.0
     version: 7.0.0
   camelcase-keys:
-    specifier: 8.0.2
-    version: 8.0.2
+    specifier: 9.0.0
+    version: 9.0.0
   express:
     specifier: 4.18.2
     version: 4.18.2
@@ -2783,14 +2783,14 @@ packages:
       quick-lru: 4.0.1
     dev: true
 
-  /camelcase-keys@8.0.2:
-    resolution: {integrity: sha512-qMKdlOfsjlezMqxkUGGMaWWs17i2HoL15tM+wtx8ld4nLrUwU58TFdvyGOz/piNP842KeO8yXvggVQSdQ828NA==}
-    engines: {node: '>=14.16'}
+  /camelcase-keys@9.0.0:
+    resolution: {integrity: sha512-GdZ92DNXdcfFB/5Kq4O82EL6UW5neiRBhfNP5M3mGw7CX2sPDbVA04ZPLsqbp7oMi2l3m2I0AZ/kFP5Nk5kopA==}
+    engines: {node: '>=16'}
     dependencies:
-      camelcase: 7.0.1
-      map-obj: 4.3.0
+      camelcase: 8.0.0
+      map-obj: 5.0.0
       quick-lru: 6.1.1
-      type-fest: 2.19.0
+      type-fest: 4.2.0
     dev: false
 
   /camelcase@5.3.1:
@@ -2803,9 +2803,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /camelcase@7.0.1:
-    resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
-    engines: {node: '>=14.16'}
+  /camelcase@8.0.0:
+    resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
+    engines: {node: '>=16'}
     dev: false
 
   /caniuse-lite@1.0.30001520:
@@ -5216,6 +5216,12 @@ packages:
   /map-obj@4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
+    dev: true
+
+  /map-obj@5.0.0:
+    resolution: {integrity: sha512-2L3MIgJynYrZ3TYMriLDLWocz15okFakV6J12HXvMXDHui2x/zgChzg1u9mFFGbbGWE+GsLpQByt4POb9Or+uA==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: false
 
   /media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
@@ -7041,9 +7047,9 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-fest@2.19.0:
-    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
-    engines: {node: '>=12.20'}
+  /type-fest@4.2.0:
+    resolution: {integrity: sha512-5zknd7Dss75pMSED270A1RQS3KloqRJA9XbXLe0eCxyw7xXFb3rd+9B0UQ/0E+LQT6lnrLviEolYORlRWamn4w==}
+    engines: {node: '>=16'}
     dev: false
 
   /type-is@1.6.18:
