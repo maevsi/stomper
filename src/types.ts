@@ -1,4 +1,4 @@
-export interface Account {
+export type Account = {
   email_address: string
   email_address_verification: string
   email_address_verification_valid_until: string
@@ -7,17 +7,17 @@ export interface Account {
   username: string
 }
 
-export interface AccountPasswordResetRequestMailOptions {
+export type AccountPasswordResetRequestMailOptions = {
   account: Account
   template: Template
 }
 
-export interface AccountRegistrationMailOptions {
+export type AccountRegistrationMailOptions = {
   account: Account
   template: Template
 }
 
-export interface EventInvitationMailOptions {
+export type EventInvitationMailOptions = {
   data: {
     emailAddress: string
     event: MaevsiEvent
@@ -27,7 +27,7 @@ export interface EventInvitationMailOptions {
   template: Template
 }
 
-// export interface MaevsiContact {
+// export type MaevsiContact = {
 //   id: number
 //   accountUsername: string
 //   emailAddress: string
@@ -38,7 +38,7 @@ export interface EventInvitationMailOptions {
 //   authorAccountUsername: string
 // }
 
-export interface MaevsiEvent {
+export type MaevsiEvent = {
   id: number
   authorUsername: string
   description: string | null
@@ -54,7 +54,7 @@ export interface MaevsiEvent {
   visibility: 'public' | 'private'
 }
 
-// export interface MaevsiInvitation {
+// export type MaevsiInvitation = {
 //   id: number
 //   uuid: string
 //   eventId: number
@@ -63,7 +63,7 @@ export interface MaevsiEvent {
 //   feedbackPaper: 'digital' | 'none' | 'paper'
 // }
 
-// export interface MaevsiProfilePicture {
+// export type MaevsiProfilePicture = {
 //   id: number
 //   uploadStorageKey: string
 //   username: string
@@ -83,7 +83,7 @@ export interface DurationFormatOptions extends MomentFormatOptionsBase {
   end: string
 }
 
-export interface Mail {
+export type Mail = {
   from?: string
   html?: string
   icalEvent?: Record<string, unknown> // https://nodemailer.com/message/calendar-events/
@@ -93,7 +93,7 @@ export interface Mail {
   to: string
 }
 
-export interface Template {
+export type Template = {
   language: string
   namespace: string
   variables: Record<string, unknown>

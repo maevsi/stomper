@@ -8,15 +8,15 @@ import { createTransport } from 'nodemailer'
 import camelcaseKeys from 'camelcase-keys'
 
 import { ack } from './database.js'
-import {
+import { i18nextResolve, renderTemplate } from './handlebars.js'
+import { momentFormatDate, momentFormatDuration } from './moment.js'
+import type {
   AccountPasswordResetRequestMailOptions,
   AccountRegistrationMailOptions,
   EventInvitationMailOptions,
   Template,
   Mail,
 } from './types.js'
-import { i18nextResolve, renderTemplate } from './handlebars.js'
-import { momentFormatDate, momentFormatDuration } from './moment.js'
 
 const EVENT_DESCRIPTION_TRIM_LENGTH = 250
 const HTML_TO_TEXT_OPTIONS = {

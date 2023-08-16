@@ -6,7 +6,7 @@ import { changeLanguage, use, t, reloadResources } from 'i18next'
 import Backend from 'i18next-fs-backend'
 import { fileURLToPath } from 'url'
 
-import { Template } from './types.js'
+import type { Template } from './types.js'
 
 const STACK_DOMAIN = process.env.STACK_DOMAIN || 'maevsi.test'
 
