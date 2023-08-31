@@ -10,7 +10,7 @@
   "engines": {
     "node": "20"
   },
-  "packageManager": "pnpm@8.7.0",
+  "packageManager": "pnpm@8.7.1",
   "scripts": {
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
