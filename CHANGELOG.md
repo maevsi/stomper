@@ -1,3 +1,10 @@
+# [0.31.0](https://github.com/maevsi/stomper/compare/0.30.9...0.31.0) (2023-09-06)
+
+
+### Features
+
+* use support email address ([bc79ced](https://github.com/maevsi/stomper/commit/bc79ced1e111baf9954501ed5f158e1e8accf574))
+
 ## [0.30.9](https://github.com/maevsi/stomper/compare/0.30.8...0.30.9) (2023-08-28)
 
 
