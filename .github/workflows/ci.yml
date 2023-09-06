@@ -3,13 +3,30 @@ name: CI
 on:
   pull_request:
   push:
-  release:
-    types: [published]
+    branches:
+      - alpha
+      - beta
+      - master
+      - renovate/**
 
 jobs:
+  prepare_jobs:
+    name: 'Prepare: job optimization'
+    runs-on: ubuntu-latest
+    outputs:
+      pr_found: ${{ steps.pr.outputs.pr_found }}
+    steps:
+      - name: Get current PR
+        id: pr
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        with:
+          filterOutClosed: true
+          sha: ${{ github.event.pull_request.head.sha }}
   build:
+    needs: prepare_jobs
     name: Build
     uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.42.3
+    if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
     permissions:
       packages: write
   release-semantic:
