@@ -38,9 +38,11 @@ use(Backend).init({
   }),
 })
 
-handlebars.registerHelper('__', (str: string, attributes: { hash: object }) => {
-  return new handlebars.SafeString(t(str, attributes.hash))
-})
+handlebars.registerHelper(
+  '__',
+  (context: string, options: { hash: Record<string, string> }) =>
+    new handlebars.SafeString(t(context, options.hash)),
+)
 
 export const templateCompile = (
   string: string,
