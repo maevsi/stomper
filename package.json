@@ -48,7 +48,7 @@
     "@types/i18next-fs-backend": "1.1.2",
     "@types/jest": "29.5.4",
     "@types/node": "18.17.15",
-    "@types/nodemailer": "6.4.9",
+    "@types/nodemailer": "6.4.10",
     "@types/pg": "8.10.2",
     "@types/serve-static": "1.15.2",
     "@types/ws": "8.5.5",
