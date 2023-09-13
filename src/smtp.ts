@@ -20,7 +20,10 @@ import type {
 
 const EVENT_DESCRIPTION_TRIM_LENGTH = 250
 const HTML_TO_TEXT_OPTIONS = {
-  selectors: [{ selector: 'img', format: 'skip' }],
+  selectors: [
+    { selector: 'a', options: { ignoreHref: true } },
+    { selector: 'img', format: 'skip' },
+  ],
 }
 const LOCALE_DEFAULT = 'en'
 const MAIL_FROM = '"maevsi" <noreply@maev.si>'
