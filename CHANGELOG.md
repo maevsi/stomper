@@ -1,3 +1,10 @@
+## [0.32.0](https://github.com/maevsi/stomper/compare/0.31.0...0.32.0) (2023-09-13)
+
+
+### Features
+
+* **smtp:** ignore hrefs at html to text conversion ([64cb828](https://github.com/maevsi/stomper/commit/64cb8283dc4a3560c9a1571ae66e749de55a411e))
+
 # [0.31.0](https://github.com/maevsi/stomper/compare/0.30.9...0.31.0) (2023-09-06)
 
 
