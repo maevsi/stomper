@@ -29,7 +29,7 @@
     "handlebars": "4.7.8",
     "html-to-text": "9.0.5",
     "i18next": "23.5.1",
-    "i18next-fs-backend": "2.1.5",
+    "i18next-fs-backend": "2.2.0",
     "intl": "1.2.5",
     "moment-timezone": "0.5.43",
     "nodemailer": "6.9.5",
