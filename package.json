@@ -50,7 +50,7 @@
     "@types/node": "18.17.19",
     "@types/nodemailer": "6.4.11",
     "@types/pg": "8.10.3",
-    "@types/serve-static": "1.15.2",
+    "@types/serve-static": "1.15.3",
     "@types/ws": "8.5.5",
     "@typescript-eslint/eslint-plugin": "6.7.2",
     "@typescript-eslint/parser": "6.7.2",
