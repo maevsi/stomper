@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@stomp/stompjs": "7.0.0",
-    "camelcase-keys": "9.0.0",
+    "camelcase-keys": "9.1.0",
     "express": "4.18.2",
     "handlebars": "4.7.8",
     "html-to-text": "9.0.5",
