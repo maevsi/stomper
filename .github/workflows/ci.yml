@@ -25,14 +25,14 @@ jobs:
   build:
     needs: prepare_jobs
     name: Build
-    uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.43.3
+    uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.43.4
     if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
     permissions:
       packages: write
   release-semantic:
     needs: build
     name: Semantic Release
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.43.3
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.43.4
     permissions:
       contents: write
     secrets:
