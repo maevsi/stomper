@@ -12,8 +12,8 @@ dependencies:
     specifier: 7.0.0
     version: 7.0.0
   camelcase-keys:
-    specifier: 9.1.1
-    version: 9.1.1
+    specifier: 9.1.2
+    version: 9.1.2
   express:
     specifier: 4.18.2
     version: 4.18.2
@@ -2787,8 +2787,8 @@ packages:
       quick-lru: 4.0.1
     dev: true
 
-  /camelcase-keys@9.1.1:
-    resolution: {integrity: sha512-E+5dzqOoclX4Kbm2kaxeKNmNY67O6V3hyOQohE6xMj/O+HgVvh3F5LF4wSEiksY+SiOMYOJKXEKA7C4Svrd2Kw==}
+  /camelcase-keys@9.1.2:
+    resolution: {integrity: sha512-nFhquwz7p3nWSHeVYoIkefNPdR2Rt4EuKs9/gaqx3DhJL6HkNHIEcsH+D6N4NvW/MHxc4TT+rp0rc4K7E7x9hw==}
     engines: {node: '>=16'}
     dependencies:
       camelcase: 8.0.0
