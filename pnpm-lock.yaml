@@ -86,8 +86,8 @@ devDependencies:
     specifier: 8.10.7
     version: 8.10.7
   '@types/serve-static':
-    specifier: 1.15.3
-    version: 1.15.3
+    specifier: 1.15.4
+    version: 1.15.4
   '@types/ws':
     specifier: 8.5.7
     version: 8.5.7
@@ -2010,7 +2010,7 @@ packages:
       '@types/body-parser': 1.19.3
       '@types/express-serve-static-core': 4.17.37
       '@types/qs': 6.9.8
-      '@types/serve-static': 1.15.3
+      '@types/serve-static': 1.15.4
     dev: true
 
   /@types/graceful-fs@4.1.7:
@@ -2121,8 +2121,8 @@ packages:
       '@types/node': 18.18.6
     dev: true
 
-  /@types/serve-static@1.15.3:
-    resolution: {integrity: sha512-yVRvFsEMrv7s0lGhzrggJjNOSmZCdgCjw9xWrPr/kNNLp6FaDfMC1KaYl3TSJ0c58bECwNBMoQrZJ8hA8E1eFg==}
+  /@types/serve-static@1.15.4:
+    resolution: {integrity: sha512-aqqNfs1XTF0HDrFdlY//+SGUxmdSUbjeRXb5iaZc3x0/vMbYmdw9qvOgHWOyyLFxSSRnUuP5+724zBgfw8/WAw==}
     dependencies:
       '@types/http-errors': 2.0.2
       '@types/mime': 3.0.2
