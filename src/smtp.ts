@@ -101,7 +101,7 @@ export const sendAccountPasswordResetRequestMail = (
             payload.template.language !== LOCALE_DEFAULT
               ? '/' + payload.template.language
               : ''
-          }/task/account/password/reset?code=${
+          }/tasks/accounts/password/reset?code=${
             payload.account.password_reset_verification
           }`,
           username: payload.account.username,
@@ -140,7 +140,7 @@ export const sendAccountRegistrationMail = (
             payload.template.language !== LOCALE_DEFAULT
               ? '/' + payload.template.language
               : ''
-          }/task/account/email-address/verify?code=${
+          }/tasks/accounts/email-address/verify?code=${
             payload.account.email_address_verification
           }`,
           username: payload.account.username,
@@ -271,7 +271,7 @@ export const sendEventInvitationMail = async (
               eventAttendanceType,
               eventAuthorProfileHref: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'
-              }/account/${event.authorUsername}`,
+              }/accounts/${event.authorUsername}`,
               eventAuthorProfilePictureSrc:
                 eventAuthorProfilePictureUploadStorageKey
                   ? TUSD_FILES_URL + eventAuthorProfilePictureUploadStorageKey
@@ -291,7 +291,7 @@ export const sendEventInvitationMail = async (
                 payload.template.language !== LOCALE_DEFAULT
                   ? '/' + payload.template.language
                   : ''
-              }/task/event/unlock?ic=${invitationUuid}`,
+              }/tasks/events/unlock?ic=${invitationUuid}`,
               eventName: event.name,
               eventStart: momentFormatDate({
                 input: event.start,
