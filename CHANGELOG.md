@@ -1,3 +1,11 @@
+## [0.32.4](https://github.com/maevsi/stomper/compare/0.32.3...0.32.4) (2023-11-03)
+
+
+### Bug Fixes
+
+* **smtp:** correct host name ([8e0af69](https://github.com/maevsi/stomper/commit/8e0af69d0dc75100088ec549bab61afa088f6fc5))
+* **smtp:** correct paths ([1e1ef9c](https://github.com/maevsi/stomper/commit/1e1ef9c7286dc4aed1169ac83358f739f3f84887))
+
 ## [0.32.3](https://github.com/maevsi/stomper/compare/0.32.2...0.32.3) (2023-10-23)
 
 
