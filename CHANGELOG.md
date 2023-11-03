@@ -1,3 +1,11 @@
+## [0.32.7](https://github.com/maevsi/stomper/compare/0.32.6...0.32.7) (2023-11-03)
+
+
+### Bug Fixes
+
+* **dev:** downgrade to node 18 ([f10fa89](https://github.com/maevsi/stomper/commit/f10fa8903d4d6caf5c2775a6aa4159736b111740))
+* **smtp:** use fetch ([01b33da](https://github.com/maevsi/stomper/commit/01b33dae783f9114c9cfebf168a000c7ed711c3b))
+
 ## [0.32.6](https://github.com/maevsi/stomper/compare/0.32.5...0.32.6) (2023-11-03)
 
 
