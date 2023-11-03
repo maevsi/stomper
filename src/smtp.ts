@@ -1,5 +1,4 @@
-import { existsSync, readFileSync } from 'fs'
-import { request } from 'http'
+import { existsSync, readFileSync } from 'node:fs'
 
 import handlebars from 'handlebars'
 import { htmlToText as htmlToTextImported } from 'html-to-text'
@@ -173,148 +172,146 @@ export const sendEventInvitationMail = async (
     eventAuthorUsername,
   } = payload.data
 
-  const req = request(
-    'http://maevsi:3000/api/ical',
-    {
+  const res = await (
+    await fetch('http://maevsi:3000/api/ical', {
+      body: JSON.stringify({
+        contact: { emailAddress },
+        event: {
+          ...event,
+          accountByAuthorAccountId: {
+            username: eventAuthorUsername,
+          },
+        },
+        invitation: {
+          id: invitationId,
+        },
+      }),
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
-    },
-    (res) => {
-      if (!invitationId) {
-        console.error(`Could not get invitation id ${invitationId}!`)
-        return
-      }
+    })
+  ).text()
 
-      if (!emailAddress) {
-        console.error(`Could not get email address ${emailAddress}!`)
-        return
-      }
+  if (!invitationId) {
+    console.error(`Could not get invitation id ${invitationId}!`)
+    return
+  }
 
-      if (!event) {
-        console.error(`Could not get contact ${event}!`)
-        return
-      }
+  if (!emailAddress) {
+    console.error(`Could not get email address ${emailAddress}!`)
+    return
+  }
 
-      const namespace = 'eventInvitation'
-      const language = payload.template.language
+  if (!event) {
+    console.error(`Could not get contact ${event}!`)
+    return
+  }
 
-      const eventAttendanceType = [
-        ...(event.isInPerson
-          ? [
-              i18nextResolve(
-                `${namespace}:eventAttendanceTypeInPerson`,
-                language,
-              ),
-            ]
-          : []),
-        ...(event.isRemote
-          ? [i18nextResolve(`${namespace}:eventAttendanceTypeRemote`, language)]
-          : []),
-      ].join(', ')
+  const namespace = 'eventInvitation'
+  const language = payload.template.language
 
-      let eventDescription
+  const eventAttendanceType = [
+    ...(event.isInPerson
+      ? [i18nextResolve(`${namespace}:eventAttendanceTypeInPerson`, language)]
+      : []),
+    ...(event.isRemote
+      ? [i18nextResolve(`${namespace}:eventAttendanceTypeRemote`, language)]
+      : []),
+  ].join(', ')
 
-      if (event.description !== null) {
-        eventDescription = htmlToText(
-          handlebars.compile(event.description)({
-            contact: { emailAddress },
-            event,
-            invitation: {
-              id: invitationId,
-            },
-          }),
-        )
+  let eventDescription
 
-        if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
-          eventDescription =
-            eventDescription.substring(0, EVENT_DESCRIPTION_TRIM_LENGTH) + '…'
-        }
-      }
+  if (event.description !== null) {
+    eventDescription = htmlToText(
+      handlebars.compile(event.description)({
+        contact: { emailAddress },
+        event,
+        invitation: {
+          id: invitationId,
+        },
+      }),
+    )
 
-      let eventVisibility
+    if (event.description.length > EVENT_DESCRIPTION_TRIM_LENGTH) {
+      eventDescription =
+        eventDescription.substring(0, EVENT_DESCRIPTION_TRIM_LENGTH) + '…'
+    }
+  }
 
-      if (event.isArchived) {
-        eventVisibility = i18nextResolve(`${namespace}:isArchived`, language)
-      } else if (event.visibility === 'public') {
-        eventVisibility = i18nextResolve(
-          `${namespace}:eventVisibilityIsPublic`,
-          language,
-        )
-      } else if (event.visibility === 'private') {
-        eventVisibility = i18nextResolve(
-          `${namespace}:eventVisibilityIsPrivate`,
-          language,
-        )
-      } else {
-        console.error(
-          `Event is neither archived nor has it a visibility of public or private: ${event}`,
-        )
-      }
+  let eventVisibility
 
-      try {
-        sendMailTemplated(
-          {
-            from: `"${eventAuthorUsername}" <noreply@maev.si>`,
-            icalEvent: {
-              content: res,
-              filename: eventAuthorUsername + '_' + event.slug + '.ics',
-              method: 'request',
-            },
-            to: emailAddress,
-          },
-          {
-            language,
-            namespace,
-            variables: {
-              emailAddress,
-              eventAttendanceType,
-              eventAuthorProfileHref: `https://${
-                process.env.STACK_DOMAIN || 'maevsi.test'
-              }/accounts/${eventAuthorUsername}`,
-              eventAuthorProfilePictureSrc:
-                eventAuthorProfilePictureUploadStorageKey
-                  ? TUSD_FILES_URL + eventAuthorProfilePictureUploadStorageKey
-                  : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
-              eventAuthorUsername: eventAuthorUsername,
-              eventDescription,
-              eventDuration: event.end
-                ? momentFormatDuration({
-                    start: event.start,
-                    end: event.end,
-                    format: MOMENT_FORMAT,
-                    language: payload.template.language,
-                  })
-                : null,
-              // TODO: add event group (https://github.com/maevsi/maevsi/issues/92)
-              eventLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}${
-                payload.template.language !== LOCALE_DEFAULT
-                  ? '/' + payload.template.language
-                  : ''
-              }/tasks/events/unlock?ic=${invitationId}`,
-              eventName: event.name,
-              eventStart: momentFormatDate({
-                input: event.start,
+  if (event.isArchived) {
+    eventVisibility = i18nextResolve(`${namespace}:isArchived`, language)
+  } else if (event.visibility === 'public') {
+    eventVisibility = i18nextResolve(
+      `${namespace}:eventVisibilityIsPublic`,
+      language,
+    )
+  } else if (event.visibility === 'private') {
+    eventVisibility = i18nextResolve(
+      `${namespace}:eventVisibilityIsPrivate`,
+      language,
+    )
+  } else {
+    console.error(
+      `Event is neither archived nor has it a visibility of public or private: ${event}`,
+    )
+  }
+
+  try {
+    sendMailTemplated(
+      {
+        from: `"${eventAuthorUsername}" <noreply@maev.si>`,
+        icalEvent: {
+          content: res,
+          filename: eventAuthorUsername + '_' + event.slug + '.ics',
+          method: 'request',
+        },
+        to: emailAddress,
+      },
+      {
+        language,
+        namespace,
+        variables: {
+          emailAddress,
+          eventAttendanceType,
+          eventAuthorProfileHref: `https://${
+            process.env.STACK_DOMAIN || 'maevsi.test'
+          }/accounts/${eventAuthorUsername}`,
+          eventAuthorProfilePictureSrc:
+            eventAuthorProfilePictureUploadStorageKey
+              ? TUSD_FILES_URL + eventAuthorProfilePictureUploadStorageKey
+              : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
+          eventAuthorUsername: eventAuthorUsername,
+          eventDescription,
+          eventDuration: event.end
+            ? momentFormatDuration({
+                start: event.start,
+                end: event.end,
                 format: MOMENT_FORMAT,
                 language: payload.template.language,
-              }),
-              eventVisibility,
-            },
-          },
-        )
-        ack(id)
-      } catch (e) {
-        console.error(e)
-        ack(id, false)
-      }
-    },
-  )
-
-  req.on('error', (e) => {
-    console.error(`Problem with request: ${e.message}`)
-  })
-
-  req.write(JSON.stringify({ event }))
-  req.end()
+              })
+            : null,
+          // TODO: add event group (https://github.com/maevsi/maevsi/issues/92)
+          eventLink: `https://${process.env.STACK_DOMAIN || 'maevsi.test'}${
+            payload.template.language !== LOCALE_DEFAULT
+              ? '/' + payload.template.language
+              : ''
+          }/tasks/events/unlock?ic=${invitationId}`,
+          eventName: event.name,
+          eventStart: momentFormatDate({
+            input: event.start,
+            format: MOMENT_FORMAT,
+            language: payload.template.language,
+          }),
+          eventVisibility,
+        },
+      },
+    )
+    ack(id)
+  } catch (e) {
+    console.error(e)
+    ack(id, false)
+  }
 }
