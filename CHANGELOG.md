@@ -1,3 +1,10 @@
+## [0.32.5](https://github.com/maevsi/stomper/compare/0.32.4...0.32.5) (2023-11-03)
+
+
+### Bug Fixes
+
+* release package ([34f1858](https://github.com/maevsi/stomper/commit/34f185835782f33c2849a2fdcd2cbb1ae7b72f66))
+
 ## [0.32.4](https://github.com/maevsi/stomper/compare/0.32.3...0.32.4) (2023-11-03)
 
 
