@@ -1,3 +1,10 @@
+## [0.32.6](https://github.com/maevsi/stomper/compare/0.32.5...0.32.6) (2023-11-03)
+
+
+### Bug Fixes
+
+* **invitation:** correct username ([f692d14](https://github.com/maevsi/stomper/commit/f692d145db4f50b9927f41b08de548a188cab01b))
+
 ## [0.32.5](https://github.com/maevsi/stomper/compare/0.32.4...0.32.5) (2023-11-03)
 
 
