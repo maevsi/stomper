@@ -34,7 +34,7 @@ jobs:
     with:
       DRY_RUN: true
   build:
-    needs: prepare_jobs
+    needs: release_semantic_dry
     name: Build
     uses: dargmuesli/github-actions/.github/workflows/docker.yml@1.4.0
     if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
