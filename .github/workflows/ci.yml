@@ -22,6 +22,17 @@ jobs:
         with:
           filterOutClosed: true
           sha: ${{ github.event.pull_request.head.sha }}
+  release_semantic_dry:
+    needs: prepare_jobs
+    name: Release (semantic, dry)
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@1.4.0
+    if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
+    permissions:
+      contents: write
+    secrets:
+      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    with:
+      DRY_RUN: true
   build:
     needs: prepare_jobs
     name: Build
@@ -29,6 +40,8 @@ jobs:
     if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
     permissions:
       packages: write
+    with:
+      TAG: ${{ needs.release_semantic_dry.outputs.new_release_version }}
   release-semantic:
     needs: build
     name: Semantic Release
