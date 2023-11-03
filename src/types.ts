@@ -21,8 +21,9 @@ export type EventInvitationMailOptions = {
   data: {
     emailAddress: string
     event: MaevsiEvent
-    invitationUuid: string
+    invitationId: string
     eventAuthorProfilePictureUploadStorageKey: string
+    eventAuthorUsername: string
   }
   template: Template
 }
@@ -55,8 +56,7 @@ export type MaevsiEvent = {
 }
 
 // export type MaevsiInvitation = {
-//   id: number
-//   uuid: string
+//   id: string
 //   eventId: number
 //   contactId: number
 //   feedback: 'accepted' | 'canceled'

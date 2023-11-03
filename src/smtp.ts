@@ -168,8 +168,9 @@ export const sendEventInvitationMail = async (
   const {
     emailAddress,
     event,
-    invitationUuid,
+    invitationId,
     eventAuthorProfilePictureUploadStorageKey,
+    eventAuthorUsername,
   } = payload.data
 
   const req = request(
@@ -181,8 +182,8 @@ export const sendEventInvitationMail = async (
       },
     },
     (res) => {
-      if (!invitationUuid) {
-        console.error(`Could not get invitation uuid ${invitationUuid}!`)
+      if (!invitationId) {
+        console.error(`Could not get invitation id ${invitationId}!`)
         return
       }
 
@@ -221,7 +222,7 @@ export const sendEventInvitationMail = async (
             contact: { emailAddress },
             event,
             invitation: {
-              uuid: invitationUuid,
+              id: invitationId,
             },
           }),
         )
@@ -255,10 +256,10 @@ export const sendEventInvitationMail = async (
       try {
         sendMailTemplated(
           {
-            from: `"${event.authorUsername}" <noreply@maev.si>`,
+            from: `"${eventAuthorUsername}" <noreply@maev.si>`,
             icalEvent: {
               content: res,
-              filename: event.authorUsername + '_' + event.slug + '.ics',
+              filename: eventAuthorUsername + '_' + event.slug + '.ics',
               method: 'request',
             },
             to: emailAddress,
@@ -271,12 +272,12 @@ export const sendEventInvitationMail = async (
               eventAttendanceType,
               eventAuthorProfileHref: `https://${
                 process.env.STACK_DOMAIN || 'maevsi.test'
-              }/accounts/${event.authorUsername}`,
+              }/accounts/${eventAuthorUsername}`,
               eventAuthorProfilePictureSrc:
                 eventAuthorProfilePictureUploadStorageKey
                   ? TUSD_FILES_URL + eventAuthorProfilePictureUploadStorageKey
                   : 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHN2ZyAgUFVCTElDICctLy9XM0MvL0RURCBTVkcgMS4xLy9FTicgICdodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQnPgo8c3ZnIHdpZHRoPSI0MDFweCIgaGVpZ2h0PSI0MDFweCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAzMTIuODA5IDAgNDAxIDQwMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIzMTIuODA5IDAgNDAxIDQwMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4yMjMgMCAwIDEuMjIzIC00NjcuNSAtODQzLjQ0KSI+Cgk8cmVjdCB4PSI2MDEuNDUiIHk9IjY1My4wNyIgd2lkdGg9IjQwMSIgaGVpZ2h0PSI0MDEiIGZpbGw9IiNFNEU2RTciLz4KCTxwYXRoIGQ9Im04MDIuMzggOTA4LjA4Yy04NC41MTUgMC0xNTMuNTIgNDguMTg1LTE1Ny4zOCAxMDguNjJoMzE0Ljc5Yy0zLjg3LTYwLjQ0LTcyLjktMTA4LjYyLTE1Ny40MS0xMDguNjJ6IiBmaWxsPSIjQUVCNEI3Ii8+Cgk8cGF0aCBkPSJtODgxLjM3IDgxOC44NmMwIDQ2Ljc0Ni0zNS4xMDYgODQuNjQxLTc4LjQxIDg0LjY0MXMtNzguNDEtMzcuODk1LTc4LjQxLTg0LjY0MSAzNS4xMDYtODQuNjQxIDc4LjQxLTg0LjY0MWM0My4zMSAwIDc4LjQxIDM3LjkgNzguNDEgODQuNjR6IiBmaWxsPSIjQUVCNEI3Ii8+CjwvZz4KPC9zdmc+Cg==',
-              eventAuthorUsername: event.authorUsername,
+              eventAuthorUsername: eventAuthorUsername,
               eventDescription,
               eventDuration: event.end
                 ? momentFormatDuration({
@@ -291,7 +292,7 @@ export const sendEventInvitationMail = async (
                 payload.template.language !== LOCALE_DEFAULT
                   ? '/' + payload.template.language
                   : ''
-              }/tasks/events/unlock?ic=${invitationUuid}`,
+              }/tasks/events/unlock?ic=${invitationId}`,
               eventName: event.name,
               eventStart: momentFormatDate({
                 input: event.start,
