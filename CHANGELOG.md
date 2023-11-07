@@ -1,3 +1,10 @@
+## [0.33.0](https://github.com/maevsi/stomper/compare/0.32.7...0.33.0) (2023-11-07)
+
+
+### Features
+
+* **locales:** add hearts to description ([40550e6](https://github.com/maevsi/stomper/commit/40550e6dcecdf77a6330ad74e1e4eb2964869957))
+
 ## [0.32.7](https://github.com/maevsi/stomper/compare/0.32.6...0.32.7) (2023-11-03)
 
 
