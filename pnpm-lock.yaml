@@ -71,8 +71,8 @@ devDependencies:
     specifier: 9.0.4
     version: 9.0.4
   '@types/i18next-fs-backend':
-    specifier: 1.1.4
-    version: 1.1.4
+    specifier: 1.1.5
+    version: 1.1.5
   '@types/jest':
     specifier: 29.5.7
     version: 29.5.7
@@ -2023,8 +2023,8 @@ packages:
     resolution: {integrity: sha512-pP0P/9BnCj1OVvQR2lF41EkDG/lWWnDyA203b/4Fmi2eTyORnBtcDoKDwjWQthELrBvWkMOrvSOnZ8OVlW6tXA==}
     dev: true
 
-  /@types/i18next-fs-backend@1.1.4:
-    resolution: {integrity: sha512-wzpP9CTffoFo5er1REmfKVaZm5Ox+rVEucy6mTRgEDGIUrz3+Ixw/bmqkJLUooLmvDEf8JlnZutGzOZo7s1BaA==}
+  /@types/i18next-fs-backend@1.1.5:
+    resolution: {integrity: sha512-QKKYWkfQ13spBwa+5/lBThkPkMv8svU6a5Z0Bz96IuN+HupJZXVAbP93p5bK7iOcY7Y/g/W9Y6qy5z0i0NpTog==}
     dependencies:
       i18next: 21.10.0
     dev: true
