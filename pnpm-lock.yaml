@@ -27,8 +27,8 @@ dependencies:
     specifier: 23.7.1
     version: 23.7.1
   i18next-fs-backend:
-    specifier: 2.2.0
-    version: 2.2.0
+    specifier: 2.3.0
+    version: 2.3.0
   intl:
     specifier: 1.2.5
     version: 1.2.5
@@ -4327,8 +4327,8 @@ packages:
     hasBin: true
     dev: true
 
-  /i18next-fs-backend@2.2.0:
-    resolution: {integrity: sha512-VOPHhdDX0M/csRqEw+9Ectpf6wvTIg1MZDfAHxc3JKnAlJz7fcZSAKAeyDohOq0xuLx57esYpJopIvBaRb0Bag==}
+  /i18next-fs-backend@2.3.0:
+    resolution: {integrity: sha512-N0SS2WojoVIh2x/QkajSps8RPKzXqryZsQh12VoFY4cLZgkD+62EPY2fY+ZjkNADu8xA5I5EadQQXa8TXBKN3w==}
     dev: false
 
   /i18next@21.10.0:
