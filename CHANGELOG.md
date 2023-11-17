@@ -1,3 +1,10 @@
+## [0.34.0](https://github.com/maevsi/stomper/compare/0.33.0...0.34.0) (2023-11-17)
+
+
+### Features
+
+* **invitation:** improve button text ([2857c14](https://github.com/maevsi/stomper/commit/2857c1416217b5bef6e1e6e3c79ac481cc76c9c7))
+
 ## [0.33.0](https://github.com/maevsi/stomper/compare/0.32.7...0.33.0) (2023-11-07)
 
 
