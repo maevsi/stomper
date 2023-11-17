@@ -2,4 +2,4 @@
 # shellcheck source=./_/husky.sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm commitlint --config .commitlintrc.cjs --edit "$1"
+bun run commitlint --config .commitlintrc.cjs --edit "$1"
