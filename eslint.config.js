@@ -1,9 +1,9 @@
 // @ts-check
+
 import eslint from '@eslint/js'
 import globals from 'globals'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import tseslint from 'typescript-eslint'
-import vitest from 'eslint-plugin-vitest'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -14,15 +14,6 @@ export default tseslint.config(
       globals: {
         ...globals.node,
       },
-    },
-  },
-  {
-    files: ['tests/**'], // or any other pattern
-    plugins: {
-      vitest,
-    },
-    rules: {
-      ...vitest.configs.recommended.rules, // you can also use vitest.configs.all.rules to enable all rules
     },
   },
   {
