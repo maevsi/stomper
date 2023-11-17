@@ -1,3 +1,10 @@
+## [0.34.1](https://github.com/maevsi/stomper/compare/0.34.0...0.34.1) (2023-11-17)
+
+
+### Bug Fixes
+
+* revert "Merge pull request [#185](https://github.com/maevsi/stomper/issues/185) from maevsi/refactor/bun" ([4c3a703](https://github.com/maevsi/stomper/commit/4c3a703948b7a1a32f50c42f91679a7806853048))
+
 ## [0.34.0](https://github.com/maevsi/stomper/compare/0.33.0...0.34.0) (2023-11-17)
 
 
