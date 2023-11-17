@@ -1,3 +1,14 @@
+## [1.0.0](https://github.com/maevsi/stomper/compare/0.34.1...1.0.0) (2023-11-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* release v1
+
+### Features
+
+* release v1 ([e9bfbcc](https://github.com/maevsi/stomper/commit/e9bfbcc0af9b47611693f7c53132e6163a47f856))
+
 ## [0.34.1](https://github.com/maevsi/stomper/compare/0.34.0...0.34.1) (2023-11-17)
 
 
