@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'bun:test'
+import { describe, expect, it } from 'vitest'
 import { i18nextResolve, templateCompile } from './handlebars.js'
 
 describe('handlebars', () => {

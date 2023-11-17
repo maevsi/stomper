@@ -1,5 +1,5 @@
 import { Client } from '@stomp/stompjs'
-import { readFileSync } from 'node:fs'
+import { readFileSync } from 'fs'
 import { WebSocket } from 'ws'
 
 import {

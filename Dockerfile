@@ -1,63 +1,48 @@
-FROM oven/bun:1.0.12-alpine AS base-image
+FROM node:18.18.2-alpine@sha256:3428c2de886bf4378657da6fe86e105573a609c94df1f7d6a70e57d2b51de21f AS development
 
 WORKDIR /srv/app/
 
-# TODO: remove repository once pnpm lands in main
-RUN apk add pnpm --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing
-
-################################################################################
-FROM base-image AS development
-
 COPY ./docker-entrypoint.sh /usr/local/bin/
+
+RUN corepack enable
 
 VOLUME /srv/.pnpm-store
 VOLUME /srv/app
 
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["bun", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
 
-################################################################################
-FROM base-image AS prepare
+
+FROM node:18.18.2-alpine@sha256:3428c2de886bf4378657da6fe86e105573a609c94df1f7d6a70e57d2b51de21f AS build
+
+WORKDIR /srv/app/
 
 COPY ./pnpm-lock.yaml ./
 
-RUN pnpm fetch
+RUN corepack enable && \
+    pnpm fetch
 
-COPY ./ ./
+COPY . .
 
-RUN pnpm install --offline
-
-################################################################################
-FROM prepare AS lint
-
-RUN bun run lint
-
-################################################################################
-FROM prepare AS test
-
-RUN bun run test --run
-
-################################################################################
-FROM prepare AS build
+RUN pnpm install --offline \
+    && pnpm run lint \
+    && pnpm run test --run
 
 ENV NODE_ENV=production
 
-RUN bun run build \
-    # Discard development dependencies after building.
+# Discard development dependencies after building.
+RUN pnpm run build \
     && pnpm install --offline
 
-################################################################################
-FROM prepare AS collect
+
+FROM node:18.18.2-alpine@sha256:3428c2de886bf4378657da6fe86e105573a609c94df1f7d6a70e57d2b51de21f AS production
+
+ENV NODE_ENV=production
+
+WORKDIR /srv/app/
 
 COPY --from=build /srv/app/dist/ /srv/app/dist/
 COPY --from=build /srv/app/package.json /srv/app/package.json
 COPY --from=build /srv/app/node_modules/ /srv/app/node_modules/
-COPY --from=lint /srv/app/package.json /tmp/package.json
-COPY --from=test /srv/app/package.json /tmp/package.json
 
-################################################################################
-FROM collect AS production
-
-ENV NODE_ENV=production
-
-CMD ["bun", "run", "start"]
+CMD ["node", "./dist/stomper.js"]
