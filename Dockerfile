@@ -26,7 +26,7 @@ COPY . .
 
 RUN pnpm install --offline \
     && pnpm run lint \
-    && pnpm run test
+    && pnpm run test --run
 
 ENV NODE_ENV=production
 
