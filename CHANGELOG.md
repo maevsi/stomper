@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/maevsi/stomper/compare/1.0.1...1.1.0) (2023-12-05)
+
+
+### Features
+
+* update email address ([70437fe](https://github.com/maevsi/stomper/commit/70437fe905337ff52a7c4633c6c6d3feddd86190))
+
 ## [1.0.1](https://github.com/maevsi/stomper/compare/1.0.0...1.0.1) (2023-11-27)
 
 
