@@ -58,7 +58,7 @@ const sendMail = async (mail: Mail) => {
     from: MAIL_FROM,
     list: {
       // TODO: add https link (https://github.com/maevsi/maevsi/issues/326)
-      unsubscribe: `mailto:support+unsubscribe@maev.si?subject=Unsubscribe%20${mail.to}`,
+      unsubscribe: `mailto:contact+unsubscribe@maev.si?subject=Unsubscribe%20${mail.to}`,
     },
     ...mail,
   })
