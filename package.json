@@ -8,69 +8,54 @@
   "license": "TODO",
   "type": "module",
   "engines": {
-    "node": "18"
+    "bun": "1.0.15"
   },
   "packageManager": "pnpm@8.11.0",
   "scripts": {
-    "build": "tsc && ./scripts/mjml.sh",
-    "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
+    "build": "./scripts/mjml.sh",
+    "dev": "sh parallel_commands 'bun run --hot ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
     "lint": "pnpm lint:js && pnpm lint:types",
     "lint:js": "eslint .",
     "lint:types": "tsc --noEmit",
     "lint:fix": "eslint --fix .",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
-    "start": "node ./dist/stomper.js",
-    "test": "vitest"
+    "start": "bun ./src/stomper.ts",
+    "test": "bun test"
   },
   "dependencies": {
     "@stomp/stompjs": "7.0.0",
     "camelcase-keys": "9.1.2",
-    "express": "4.18.2",
     "handlebars": "4.7.8",
     "html-to-text": "9.0.5",
     "i18next": "23.7.7",
     "i18next-fs-backend": "2.3.0",
-    "intl": "1.2.5",
     "moment-timezone": "0.5.43",
     "nodemailer": "6.9.7",
     "pg": "8.11.3",
-    "serve-static": "1.15.0",
     "ws": "8.14.2"
   },
   "devDependencies": {
-    "@babel/core": "7.23.5",
-    "@babel/preset-env": "7.23.5",
-    "@babel/preset-typescript": "7.23.3",
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "@types/express": "4.17.21",
     "@types/html-to-text": "9.0.4",
     "@types/i18next-fs-backend": "1.1.5",
-    "@types/node": "18.19.2",
     "@types/nodemailer": "6.4.14",
     "@types/pg": "8.10.9",
-    "@types/serve-static": "1.15.5",
-    "@types/ws": "8.5.10",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
+    "bun-types": "1.0.12",
     "conventional-changelog-conventionalcommits": "7.0.2",
     "eslint": "8.55.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-vitest": "0.3.10",
     "husky": "8.0.3",
     "mjml": "4.14.1",
-    "nodemon": "3.0.2",
     "prettier": "3.1.0",
-    "ts-node": "10.9.1",
-    "typescript": "5.3.2",
-    "vitest": "1.0.1"
+    "typescript": "5.3.2"
   },
-  "pnpm": {
-    "overrides": {
-      "dom-serializer": "2.0.0"
-    }
+  "overrides": {
+    "dom-serializer": "2.0.0"
   }
 }
