@@ -1,14 +1,11 @@
 import { Client } from '@stomp/stompjs'
-import { readFileSync } from 'fs'
-import { WebSocket } from 'ws'
+import { readFileSync } from 'node:fs'
 
 import {
   sendAccountPasswordResetRequestMail,
   sendAccountRegistrationMail,
   sendEventInvitationMail,
 } from './smtp.js'
-
-Object.assign(global, { WebSocket })
 
 if (process.env.RABBITMQ_DEFINITIONS_FILE === undefined) {
   throw new Error('Missing environment variable!')
