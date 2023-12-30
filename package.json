@@ -32,7 +32,7 @@
     "i18next-fs-backend": "2.3.1",
     "intl": "1.2.5",
     "moment-timezone": "0.5.44",
-    "nodemailer": "6.9.7",
+    "nodemailer": "6.9.8",
     "pg": "8.11.3",
     "serve-static": "1.15.0",
     "ws": "8.16.0"
