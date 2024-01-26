@@ -32,7 +32,7 @@ ENV NODE_ENV=production
 
 # Discard development dependencies after building.
 RUN pnpm run build \
-    && pnpm install --offline
+    && pnpm install --offline --ignore-scripts
 
 
 FROM node:18.19.0-alpine@sha256:b1a0356f7d6b86c958a06949d3db3f7fb27f95f627aa6157cb98bc65c801efa2 AS production
