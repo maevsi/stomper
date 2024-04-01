@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/maevsi/stomper/compare/1.1.9...1.1.10) (2024-04-01)
+
+
+### Bug Fixes
+
+* **smtp:** correct password reset link ([249577b](https://github.com/maevsi/stomper/commit/249577b525fb1c54e5ae12404ab9287a1fffb90b))
+
 ## [1.1.9](https://github.com/maevsi/stomper/compare/1.1.8...1.1.9) (2024-04-01)
 
 

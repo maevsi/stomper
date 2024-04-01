@@ -1,7 +1,7 @@
 {
   "name": "stomper",
   "private": true,
-  "version": "1.1.9",
+  "version": "1.1.10",
   "main": "stomper.js",
   "repository": "https://github.com/maevsi/stomper.git",
   "author": "Jonas Thelemann <e-mail+maevsi/stomper@jonas-thelemann.de>",
