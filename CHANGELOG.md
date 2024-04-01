@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/maevsi/stomper/compare/1.1.10...1.1.11) (2024-04-01)
+
+
+### Bug Fixes
+
+* **smtp:** correct links ([c959df9](https://github.com/maevsi/stomper/commit/c959df9fb6cd6ec15426a39d8310a956c039c3ed))
+
 ## [1.1.10](https://github.com/maevsi/stomper/compare/1.1.9...1.1.10) (2024-04-01)
 
 
