@@ -100,7 +100,7 @@ export const sendAccountPasswordResetRequestMail = (
             payload.template.language !== LOCALE_DEFAULT
               ? '/' + payload.template.language
               : ''
-          }/tasks/accounts/password/reset?code=${
+          }/account/password/reset?code=${
             payload.account.password_reset_verification
           }`,
           username: payload.account.username,
