@@ -139,9 +139,7 @@ export const sendAccountRegistrationMail = (
             payload.template.language !== LOCALE_DEFAULT
               ? '/' + payload.template.language
               : ''
-          }/tasks/accounts/email-address/verify?code=${
-            payload.account.email_address_verification
-          }`,
+          }/account/verify?code=${payload.account.email_address_verification}`,
           username: payload.account.username,
           validUntil: momentFormatDate({
             input: payload.account.email_address_verification_valid_until,
@@ -298,7 +296,7 @@ export const sendEventInvitationMail = async (
             payload.template.language !== LOCALE_DEFAULT
               ? '/' + payload.template.language
               : ''
-          }/tasks/events/unlock?ic=${invitationId}`,
+          }/invitation/unlock?ic=${invitationId}`,
           eventName: event.name,
           eventStart: momentFormatDate({
             input: event.start,
