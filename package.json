@@ -33,7 +33,7 @@
     "intl": "1.2.5",
     "moment-timezone": "0.5.45",
     "nodemailer": "6.9.13",
-    "pg": "8.11.3",
+    "pg": "8.11.5",
     "serve-static": "1.15.0",
     "ws": "8.16.0"
   },
@@ -48,7 +48,7 @@
     "@types/i18next-fs-backend": "1.1.5",
     "@types/node": "18.19.29",
     "@types/nodemailer": "6.4.14",
-    "@types/pg": "8.11.2",
+    "@types/pg": "8.11.4",
     "@types/serve-static": "1.15.6",
     "@types/ws": "8.5.10",
     "@typescript-eslint/eslint-plugin": "7.5.0",
