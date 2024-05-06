@@ -10,7 +10,7 @@
   "engines": {
     "node": "18"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
@@ -46,7 +46,7 @@
     "@types/express": "4.17.21",
     "@types/html-to-text": "9.0.4",
     "@types/i18next-fs-backend": "1.1.5",
-    "@types/node": "20.12.8",
+    "@types/node": "20.12.10",
     "@types/nodemailer": "6.4.15",
     "@types/pg": "8.11.6",
     "@types/serve-static": "1.15.7",
