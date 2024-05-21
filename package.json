@@ -10,7 +10,7 @@
   "engines": {
     "node": "18"
   },
-  "packageManager": "pnpm@9.1.1",
+  "packageManager": "pnpm@9.1.2",
   "scripts": {
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
@@ -28,7 +28,7 @@
     "express": "4.19.2",
     "handlebars": "4.7.8",
     "html-to-text": "9.0.5",
-    "i18next": "23.11.4",
+    "i18next": "23.11.5",
     "i18next-fs-backend": "2.3.1",
     "intl": "1.2.5",
     "moment-timezone": "0.5.45",
@@ -63,7 +63,7 @@
     "prettier": "3.2.5",
     "ts-node": "10.9.2",
     "typescript": "5.4.5",
-    "typescript-eslint": "7.9.0",
+    "typescript-eslint": "7.10.0",
     "vitest": "1.6.0"
   },
   "pnpm": {
