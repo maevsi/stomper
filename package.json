@@ -8,67 +8,53 @@
   "license": "TODO",
   "type": "module",
   "engines": {
-    "node": "18"
+    "bun": ">=1.1.14"
   },
   "packageManager": "pnpm@9.4.0",
   "scripts": {
-    "build": "tsc && ./scripts/mjml.sh",
-    "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
+    "build": "./scripts/mjml.sh",
+    "dev": "sh parallel_commands 'bun run --hot ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
     "lint": "pnpm lint:js && pnpm lint:types",
     "lint:js": "eslint --cache",
     "lint:types": "tsc --noEmit",
     "lint:fix": "pnpm run lint:js --fix",
     "prepare": "husky",
-    "start": "node ./dist/stomper.js",
-    "test": "vitest"
+    "start": "bun ./src/stomper.ts",
+    "test": "bun test"
   },
   "dependencies": {
     "@stomp/stompjs": "7.0.0",
     "camelcase-keys": "9.1.3",
-    "express": "4.19.2",
     "handlebars": "4.7.8",
     "html-to-text": "9.0.5",
     "i18next": "23.11.5",
     "i18next-fs-backend": "2.3.1",
-    "intl": "1.2.5",
     "moment-timezone": "0.5.45",
     "nodemailer": "6.9.14",
-    "pg": "8.12.0",
-    "serve-static": "1.15.0",
-    "ws": "8.17.1"
+    "pg": "8.12.0"
   },
   "devDependencies": {
-    "@babel/core": "7.24.7",
-    "@babel/preset-env": "7.24.7",
-    "@babel/preset-typescript": "7.24.7",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
-    "@types/express": "4.17.21",
+    "@eslint/js": "9.5.0",
+    "@types/bun": "1.1.5",
+    "@types/eslint__js": "8.42.3",
     "@types/html-to-text": "9.0.4",
     "@types/i18next-fs-backend": "1.1.5",
-    "@types/node": "20.14.6",
     "@types/nodemailer": "6.4.15",
     "@types/pg": "8.11.6",
-    "@types/serve-static": "1.15.7",
-    "@types/ws": "8.5.10",
     "conventional-changelog-conventionalcommits": "8.0.0",
     "eslint": "9.5.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-vitest": "0.5.4",
     "globals": "15.6.0",
     "husky": "9.0.11",
     "mjml": "4.15.3",
-    "nodemon": "3.1.4",
     "prettier": "3.3.2",
-    "ts-node": "10.9.2",
     "typescript": "5.4.5",
-    "typescript-eslint": "7.13.1",
-    "vitest": "1.6.0"
+    "typescript-eslint": "7.13.1"
   },
-  "pnpm": {
-    "overrides": {
-      "dom-serializer": "2.0.0"
-    }
+  "overrides": {
+    "dom-serializer": "2.0.0"
   }
 }
