@@ -1,4 +1,4 @@
-FROM node:18.20.4-alpine@sha256:1edb14175eeb14a14a3abe059339cbd97a0bbb76b6a210d2bb395d63fa4bc4ef AS development
+FROM node:18.20.4-alpine@sha256:9d5546caeb6a1756d959a01186a5848d3c41eff8eacb4b2203c2efef4fa4022b AS development
 
 WORKDIR /srv/app/
 
@@ -13,7 +13,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["pnpm", "run", "dev"]
 
 
-FROM node:18.20.4-alpine@sha256:1edb14175eeb14a14a3abe059339cbd97a0bbb76b6a210d2bb395d63fa4bc4ef AS build
+FROM node:18.20.4-alpine@sha256:9d5546caeb6a1756d959a01186a5848d3c41eff8eacb4b2203c2efef4fa4022b AS build
 
 WORKDIR /srv/app/
 
@@ -35,7 +35,7 @@ RUN pnpm run build \
     && pnpm install --offline --ignore-scripts
 
 
-FROM node:18.20.4-alpine@sha256:1edb14175eeb14a14a3abe059339cbd97a0bbb76b6a210d2bb395d63fa4bc4ef AS production
+FROM node:18.20.4-alpine@sha256:9d5546caeb6a1756d959a01186a5848d3c41eff8eacb4b2203c2efef4fa4022b AS production
 
 ENV NODE_ENV=production
 
