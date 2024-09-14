@@ -48,7 +48,7 @@
     "@types/i18next-fs-backend": "1.1.5",
     "@types/node": "20.16.5",
     "@types/nodemailer": "6.4.15",
-    "@types/pg": "8.11.9",
+    "@types/pg": "8.11.10",
     "@types/serve-static": "1.15.7",
     "@types/ws": "8.5.12",
     "conventional-changelog-conventionalcommits": "8.0.0",

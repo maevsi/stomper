@@ -82,8 +82,8 @@ importers:
         specifier: 6.4.15
         version: 6.4.15
       '@types/pg':
-        specifier: 8.11.9
-        version: 8.11.9
+        specifier: 8.11.10
+        version: 8.11.10
       '@types/serve-static':
         specifier: 1.15.7
         version: 1.15.7
@@ -1166,8 +1166,8 @@ packages:
   '@types/nodemailer@6.4.15':
     resolution: {integrity: sha512-0EBJxawVNjPkng1zm2vopRctuWVCxk34JcIlRuXSf54habUWdz1FB7wHDqOqvDa8Mtpt0Q3LTXQkAs2LNyK5jQ==}
 
-  '@types/pg@8.11.9':
-    resolution: {integrity: sha512-M4mYeJZRBD9lCBCGa72F44uKSV9eJrAFfjlPJagdA6pgIr2OPJULFB7nqnZzOdqXG0qzHlgtZKzTdIgbmHitSg==}
+  '@types/pg@8.11.10':
+    resolution: {integrity: sha512-LczQUW4dbOQzsH2RQ5qoeJ6qJPdrcM/DcMLoqWQkMLMsq83J5lAX3LXjdkWdpscFy67JSOWDnh7Ny/sPFykmkg==}
 
   '@types/qs@6.9.15':
     resolution: {integrity: sha512-uXHQKES6DQKKCLh441Xv/dwxOq1TVS3JPUMlEqoEglvlhR6Mxnlew/Xq/LRVHpLyk7iK3zODe1qYHIMltO7XGg==}
@@ -4364,7 +4364,7 @@ snapshots:
     dependencies:
       '@types/node': 20.16.5
 
-  '@types/pg@8.11.9':
+  '@types/pg@8.11.10':
     dependencies:
       '@types/node': 20.16.5
       pg-protocol: 1.6.1
