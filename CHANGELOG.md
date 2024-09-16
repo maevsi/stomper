@@ -1,3 +1,9 @@
+## [1.1.24](https://github.com/maevsi/stomper/compare/1.1.23...1.1.24) (2024-09-16)
+
+### Bug Fixes
+
+* schedule release ([ffa79e5](https://github.com/maevsi/stomper/commit/ffa79e56338d408feca2479f52586c8978e3a146))
+
 ## [1.1.23](https://github.com/maevsi/stomper/compare/1.1.22...1.1.23) (2024-09-02)
 
 ### Bug Fixes
