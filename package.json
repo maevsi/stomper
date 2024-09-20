@@ -10,7 +10,7 @@
   "engines": {
     "node": "18"
   },
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@9.11.0",
   "scripts": {
     "build": "tsc && ./scripts/mjml.sh",
     "dev": "sh parallel_commands 'nodemon ./src/stomper.ts' 'find ./src/email-templates/ -maxdepth 1 -type f -name ''*.mjml'' -print0 | xargs -0 mjml -o ./src/email-templates/ -w'",
@@ -52,14 +52,14 @@
     "@types/serve-static": "1.15.7",
     "@types/ws": "8.5.12",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "eslint": "9.10.0",
+    "eslint": "9.11.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-vitest": "0.5.4",
     "globals": "15.9.0",
     "husky": "9.1.6",
     "mjml": "4.15.3",
-    "nodemon": "3.1.6",
+    "nodemon": "3.1.7",
     "prettier": "3.3.3",
     "ts-node": "10.9.2",
     "typescript": "5.6.2",
