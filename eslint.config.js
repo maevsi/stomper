@@ -1,9 +1,9 @@
 // @ts-check
 import eslint from '@eslint/js'
+import vitest from '@vitest/eslint-plugin'
 import globals from 'globals'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 import tseslint from 'typescript-eslint'
-import vitest from 'eslint-plugin-vitest'
 
 export default tseslint.config(
   eslint.configs.recommended,
