@@ -1,6 +1,6 @@
 import moment from 'moment-timezone'
 
-import type { DateFormatOptions, DurationFormatOptions } from './types.js'
+import type { DateFormatOptions, DurationFormatOptions } from './types.ts'
 
 export const momentFormatDate = (options: DateFormatOptions) => {
   moment.locale(options.language)
