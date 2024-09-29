@@ -6,7 +6,7 @@ import {
   sendAccountPasswordResetRequestMail,
   sendAccountRegistrationMail,
   sendEventInvitationMail,
-} from './smtp.js'
+} from './smtp.ts'
 
 Object.assign(global, { WebSocket })
 
@@ -26,7 +26,7 @@ const client = new Client({
   },
   debug: (str) => {
     if (process.env.NODE_ENV !== 'production') {
-      console.log(str)
+      console.log(`debug: ${str}`)
     }
   },
 })

@@ -1,14 +1,9 @@
 {
-    "compilerOptions": {
-        "module": "NodeNext",
-        "outDir": "dist",
-        // "sourceMap": true,
-        "strict": true
-    },
-    "include": [
-        "src/**/*"
-    ],
-    "ts-node": {
-        "esm": true
-    }
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "target": "ESNext"
+  }
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { i18nextResolve, templateCompile } from './handlebars.js'
+import { i18nextResolve, templateCompile } from './handlebars.ts'
 
 describe('handlebars', () => {
   it('compiles template', () => {
