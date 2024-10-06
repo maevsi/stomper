@@ -29,7 +29,7 @@
     "html-to-text": "9.0.5",
     "i18next": "23.15.2",
     "i18next-fs-backend": "2.3.2",
-    "moment-timezone": "0.5.45",
+    "moment-timezone": "0.5.46",
     "nodemailer": "6.9.15",
     "pg": "8.13.0",
     "ws": "8.18.0"
