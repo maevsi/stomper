@@ -3,6 +3,7 @@
     "allowImportingTsExtensions": true,
     "module": "Preserve",
     "moduleResolution": "Bundler",
+    "noEmit": true,
     "strict": true,
     "target": "ESNext"
   }
