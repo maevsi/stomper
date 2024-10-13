@@ -1,3 +1,9 @@
+## [1.1.26](https://github.com/maevsi/stomper/compare/1.1.25...1.1.26) (2024-10-13)
+
+### Bug Fixes
+
+* **build:** correct paths to email templates ([8df0e55](https://github.com/maevsi/stomper/commit/8df0e55dc6db7c6c77583aed4f292ea750c31e5a))
+
 ## [1.1.25](https://github.com/maevsi/stomper/compare/1.1.24...1.1.25) (2024-09-30)
 
 ### Bug Fixes
