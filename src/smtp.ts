@@ -177,6 +177,7 @@ export const sendEventInvitationMail = async (
         event: {
           ...event,
           accountByAuthorAccountId: {
+            id: event.authorAccountId,
             username: eventAuthorUsername,
           },
         },

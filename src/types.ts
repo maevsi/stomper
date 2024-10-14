@@ -30,18 +30,18 @@ export type EventInvitationMailOptions = {
 
 // export type MaevsiContact = {
 //   id: number
-//   accountUsername: string
+//   authorAccountId: string
 //   emailAddress: string
 //   emailAddressHash: string
 //   firstName: string
 //   lastName: string
 //   address: string
-//   authorAccountUsername: string
+//   authorauthorAccountId: string
 // }
 
 export type MaevsiEvent = {
-  id: number
-  authorUsername: string
+  id: string
+  authorAccountId: string
   description: string | null
   end: string | null // Date
   inviteeCountMaximum: number | null
@@ -66,7 +66,7 @@ export type MaevsiEvent = {
 // export type MaevsiProfilePicture = {
 //   id: number
 //   uploadStorageKey: string
-//   username: string
+//   accountId: string
 // }
 
 export interface MomentFormatOptionsBase {
