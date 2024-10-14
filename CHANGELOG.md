@@ -1,3 +1,9 @@
+## [1.1.27](https://github.com/maevsi/stomper/compare/1.1.26...1.1.27) (2024-10-14)
+
+### Bug Fixes
+
+* **smtp:** add missing ical schema value ([601e7bc](https://github.com/maevsi/stomper/commit/601e7bc13996486df29f6e1b2cefaee5c18fb2ad))
+
 ## [1.1.26](https://github.com/maevsi/stomper/compare/1.1.25...1.1.26) (2024-10-13)
 
 ### Bug Fixes
